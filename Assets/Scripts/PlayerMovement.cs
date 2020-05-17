@@ -5,13 +5,13 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     float moveSpeed = 3f;
+    //bool running = false;
 
     public Rigidbody2D rb;
     public Animator animator;
 
     Vector2 movement;
-    bool running = false;
-
+    
     void Update()
     {
         movement.x = Input.GetAxisRaw("Horizontal");
@@ -22,16 +22,17 @@ public class PlayerMovement : MonoBehaviour
         animator.SetFloat("Horizontal", movement.x);
         animator.SetFloat("Vertical", movement.y);
         animator.SetFloat("Speed", movement.sqrMagnitude);
-
-        if (Input.GetKey("left shift") && !running)
+        
+        if (Input.GetKeyDown("left shift"))
         {
-            running = true;
-            moveSpeed = 10;
+            moveSpeed = 10f;
+            animator.SetBool("isRunning", true);
         }
-        else
+
+        if (movement.x == 0 && movement.y == 0)
         {
-            running = false;
-            moveSpeed = 3;
+            moveSpeed = 3f;
+            animator.SetBool("isRunning", false);
         }
     }
 
