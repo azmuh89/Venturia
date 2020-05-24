@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    float moveSpeed = 3f;
-    //bool running = false;
+    float moveSpeed = 5f;
 
     public Rigidbody2D rb;
     public Animator animator;
@@ -25,14 +24,12 @@ public class PlayerMovement : MonoBehaviour
         
         if (Input.GetKeyDown("left shift"))
         {
-            moveSpeed = 10f;
-            animator.SetBool("isRunning", true);
+            moveSpeed = 12f;
         }
 
         if (movement.x == 0 && movement.y == 0)
         {
-            moveSpeed = 3f;
-            animator.SetBool("isRunning", false);
+            moveSpeed = 5f;
         }
     }
 
