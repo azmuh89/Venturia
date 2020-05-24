@@ -8,6 +8,9 @@ public class CameraFollow : MonoBehaviour
 
     void FixedUpdate()
     {
-        transform.position = new Vector3(player.position.x, player.position.y, transform.position.z);
+        transform.position = new Vector3(
+            Mathf.Clamp(player.position.x, -5f, 5f),
+            Mathf.Clamp(player.position.y, -5f, 5f),
+            transform.position.z);
     }
 }
