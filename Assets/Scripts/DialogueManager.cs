@@ -26,7 +26,7 @@ public class DialogueManager : MonoBehaviour
     
     public void StartDialogue(Dialogue dialogue)
     {
-        // stop the player from moving while talking to npc
+        Time.timeScale = 0; // stop the player from moving while talking to npc
         nameText.text = dialogue.name;
 
         DialogueBox.SetActive(true);
@@ -59,12 +59,13 @@ public class DialogueManager : MonoBehaviour
         foreach (char letter in sentence.ToCharArray())
         {
             dialogueText.text += letter;
-            yield return new WaitForSeconds(0.03f);
+            yield return null;
         }
     }
 
     void EndDialogue()
     {
+        Time.timeScale = 1;
         DialogueBox.SetActive(false);
     }
 }

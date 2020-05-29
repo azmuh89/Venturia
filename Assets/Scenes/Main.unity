@@ -2059,9 +2059,10 @@ MonoBehaviour:
   dialogue:
     name: Mom
     sentences:
-    - 
-    - 
-    - 
+    - This is the first sentence of testing dialogue. I just need it to be long...
+    - This is the second sentence of testing dialogue. Almost at the end...
+    - This is the final sentence of the testing dialogue. Hopefully everything worked
+      fine.
 --- !u!61 &699777942
 BoxCollider2D:
   m_ObjectHideFlags: 0
