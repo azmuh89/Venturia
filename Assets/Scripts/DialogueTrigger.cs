@@ -8,7 +8,7 @@ public class DialogueTrigger : MonoBehaviour
 
     void OnTriggerStay2D(Collider2D collider)
     {
-        if (collider.transform.tag == "Player" && Input.GetKeyDown(KeyCode.Space))
+        if (collider.transform.tag == "Player" && Input.GetKeyDown(KeyCode.F))
         {
             FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
         }
