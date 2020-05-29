@@ -41,9 +41,3 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Ground
-    uniqueID: 1720720127
-    locked: 0
-  - name: Humanoid
-    uniqueID: 2096752735
-    locked: 0
