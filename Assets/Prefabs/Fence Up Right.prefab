@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6103353998851112489}
   - component: {fileID: 6765349097169878816}
   - component: {fileID: 727298914285295849}
+  - component: {fileID: 974070239433260951}
   m_Layer: 0
   m_Name: Fence Up Right
   m_TagString: Untagged
@@ -108,3 +109,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.7502079, y: 3}
   m_EdgeRadius: 0
+--- !u!114 &974070239433260951
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 424723738074321952}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7915e5b8e36884340a813d6809d50496, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sortingOrder: 1
+  newOrder: 3
+  yLimit: 0

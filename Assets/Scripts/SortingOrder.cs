@@ -4,25 +4,26 @@ using UnityEngine;
 
 public class SortingOrder : MonoBehaviour
 {
-    public Transform player;
-    public int sortingOrder;
-    public int newOrder;
     public float yLimit;
 
-    SpriteRenderer spriteRenderer;
-    float tempPos;
+    private Transform player;
+    private SpriteRenderer spriteRenderer;
+    private int sortingOrder;
+    private float Pos;
     
     void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Player").transform;
         spriteRenderer = GetComponent<SpriteRenderer>();
-        tempPos = this.transform.position.y;
+        sortingOrder = GetComponent<SpriteRenderer>().sortingOrder;
+        Pos = this.transform.position.y;
     }
     
     void Update()
     {
-        if (player.transform.position.y > tempPos + yLimit)
+        if (player.transform.position.y > Pos + yLimit)
         {
-            spriteRenderer.sortingOrder = newOrder;
+            spriteRenderer.sortingOrder = player.GetComponent<SpriteRenderer>().sortingOrder + 1;
         }
         else
         {

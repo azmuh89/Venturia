@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7119064882028879524}
   - component: {fileID: 8768909904153502776}
+  - component: {fileID: 8201811795780773036}
   m_Layer: 0
   m_Name: Fence 3
   m_TagString: Untagged
@@ -81,6 +82,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &8201811795780773036
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 385582379423074064}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7915e5b8e36884340a813d6809d50496, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sortingOrder: 1
+  newOrder: 3
+  yLimit: 0
 --- !u!1 &739139054266014565
 GameObject:
   m_ObjectHideFlags: 0
@@ -91,6 +107,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7887738726820194992}
   - component: {fileID: 4065061067648267291}
+  - component: {fileID: 3911558388378873481}
   m_Layer: 0
   m_Name: Fence 2
   m_TagString: Untagged
@@ -162,6 +179,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &3911558388378873481
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 739139054266014565}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7915e5b8e36884340a813d6809d50496, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sortingOrder: 1
+  newOrder: 3
+  yLimit: 0
 --- !u!1 &7355947565927767176
 GameObject:
   m_ObjectHideFlags: 0
@@ -172,6 +204,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2592401762456940343}
   - component: {fileID: 4364583463017592014}
+  - component: {fileID: 7938660420008903781}
   m_Layer: 0
   m_Name: Fence 1
   m_TagString: Untagged
@@ -243,6 +276,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &7938660420008903781
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7355947565927767176}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7915e5b8e36884340a813d6809d50496, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sortingOrder: 1
+  newOrder: 3
+  yLimit: 0
 --- !u!1 &7585858999214205839
 GameObject:
   m_ObjectHideFlags: 0
