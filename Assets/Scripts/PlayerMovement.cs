@@ -22,7 +22,7 @@ public class PlayerMovement : MonoBehaviour
         animator.SetFloat("Vertical", movement.y);
         animator.SetFloat("Speed", movement.sqrMagnitude);
         
-        if (Input.GetKeyDown("left shift"))
+        if (Input.GetKeyDown(KeyCode.LeftShift))
         {
             moveSpeed = 12f;
         }
