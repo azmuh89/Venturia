@@ -44,9 +44,6 @@ TagManager:
   - name: Ground
     uniqueID: 1720720127
     locked: 0
-  - name: Blocks
-    uniqueID: 2246537031
-    locked: 0
-  - name: Player
-    uniqueID: 1134283681
+  - name: Humanoid
+    uniqueID: 2096752735
     locked: 0
