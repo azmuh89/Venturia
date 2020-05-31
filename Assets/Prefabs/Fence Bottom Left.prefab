@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7825944021411160925}
   - component: {fileID: 7012960741657524383}
-  - component: {fileID: 3440715520527890470}
   m_Layer: 0
   m_Name: Fence 3
   m_TagString: Untagged
@@ -69,8 +68,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
-  m_Sprite: {fileID: -3087994113537464522, guid: aea7f3f9e1bd4db4b93af2df23e51686,
+  m_SortingOrder: 2
+  m_Sprite: {fileID: -3087994113537464522, guid: 57a70e45794695749b63d0a1256a094e,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -82,21 +81,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &3440715520527890470
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2065230571558683581}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7915e5b8e36884340a813d6809d50496, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sortingOrder: 1
-  newOrder: 3
-  yLimit: 0
 --- !u!1 &4750993415834060067
 GameObject:
   m_ObjectHideFlags: 0
@@ -107,7 +91,6 @@ GameObject:
   m_Component:
   - component: {fileID: 371404323881037259}
   - component: {fileID: 9114111165201627745}
-  - component: {fileID: 5874815763051945791}
   m_Layer: 0
   m_Name: Fence 1
   m_TagString: Untagged
@@ -166,8 +149,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
-  m_Sprite: {fileID: -8027539996106973730, guid: aea7f3f9e1bd4db4b93af2df23e51686,
+  m_SortingOrder: 2
+  m_Sprite: {fileID: -8027539996106973730, guid: 57a70e45794695749b63d0a1256a094e,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -179,21 +162,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &5874815763051945791
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4750993415834060067}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7915e5b8e36884340a813d6809d50496, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sortingOrder: 1
-  newOrder: 3
-  yLimit: 0
 --- !u!1 &6028091108607585319
 GameObject:
   m_ObjectHideFlags: 0
@@ -204,7 +172,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8285287283223657583}
   - component: {fileID: 1226957827465911927}
-  - component: {fileID: 5986123784591753460}
   m_Layer: 0
   m_Name: Fence 2
   m_TagString: Untagged
@@ -263,8 +230,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
-  m_Sprite: {fileID: 5072043080488005180, guid: aea7f3f9e1bd4db4b93af2df23e51686,
+  m_SortingOrder: 2
+  m_Sprite: {fileID: 5072043080488005180, guid: 57a70e45794695749b63d0a1256a094e,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -276,21 +243,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &5986123784591753460
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6028091108607585319}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7915e5b8e36884340a813d6809d50496, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sortingOrder: 1
-  newOrder: 3
-  yLimit: 0
 --- !u!1 &8538668250404098627
 GameObject:
   m_ObjectHideFlags: 0
@@ -302,6 +254,8 @@ GameObject:
   - component: {fileID: 1906089556479844460}
   - component: {fileID: 7349119605452287980}
   - component: {fileID: 7999646624528592947}
+  - component: {fileID: 8625777708558781573}
+  - component: {fileID: 1231444969302687033}
   m_Layer: 0
   m_Name: Fence Bottom Left
   m_TagString: Untagged
@@ -378,3 +332,30 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.75719523, y: 1.7503339}
   m_EdgeRadius: 0
+--- !u!210 &8625777708558781573
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8538668250404098627}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 2
+--- !u!114 &1231444969302687033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8538668250404098627}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7915e5b8e36884340a813d6809d50496, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  yLimit: 0
+  Tile: 0
+  Sprite: 0
+  spriteGroup: 1

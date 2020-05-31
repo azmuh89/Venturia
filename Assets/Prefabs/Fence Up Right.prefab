@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6103353998851112489}
   - component: {fileID: 6765349097169878816}
   - component: {fileID: 727298914285295849}
-  - component: {fileID: 974070239433260951}
+  - component: {fileID: 401473644943102906}
   m_Layer: 0
   m_Name: Fence Up Right
   m_TagString: Untagged
@@ -27,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 424723738074321952}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -25.95, y: -6.27, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -70,8 +70,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
-  m_Sprite: {fileID: 6318111211030215181, guid: aea7f3f9e1bd4db4b93af2df23e51686,
+  m_SortingOrder: 2
+  m_Sprite: {fileID: 6318111211030215181, guid: 57a70e45794695749b63d0a1256a094e,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -109,7 +109,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.7502079, y: 3}
   m_EdgeRadius: 0
---- !u!114 &974070239433260951
+--- !u!114 &401473644943102906
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -121,6 +121,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7915e5b8e36884340a813d6809d50496, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sortingOrder: 1
-  newOrder: 3
   yLimit: 0
+  Tile: 0
+  Sprite: 1
+  spriteGroup: 0

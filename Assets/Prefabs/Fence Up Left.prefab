@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7520429458290931249}
   - component: {fileID: 6278611125801956558}
   - component: {fileID: 8026258878533086943}
-  - component: {fileID: 2208419774123976159}
+  - component: {fileID: 8062196149340301854}
   m_Layer: 0
   m_Name: Fence Up Left
   m_TagString: Untagged
@@ -27,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4699692952051474806}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -25.29, y: -10.2, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -70,8 +70,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
-  m_Sprite: {fileID: 3599875182194850035, guid: aea7f3f9e1bd4db4b93af2df23e51686,
+  m_SortingOrder: 2
+  m_Sprite: {fileID: 3599875182194850035, guid: 57a70e45794695749b63d0a1256a094e,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -109,7 +109,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.7500973, y: 3}
   m_EdgeRadius: 0
---- !u!114 &2208419774123976159
+--- !u!114 &8062196149340301854
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -121,6 +121,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7915e5b8e36884340a813d6809d50496, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sortingOrder: 1
-  newOrder: 3
   yLimit: 0
+  Tile: 0
+  Sprite: 1
+  spriteGroup: 0

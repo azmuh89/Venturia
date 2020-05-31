@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4227008008094961881}
   - component: {fileID: 8443188334019928801}
+  - component: {fileID: 5111951143547874174}
+  - component: {fileID: 7945118939199381295}
   m_Layer: 0
   m_Name: Fence Right
   m_TagString: Untagged
@@ -60,6 +62,33 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 3.010301, y: 0.80826354}
   m_EdgeRadius: 0
+--- !u!210 &5111951143547874174
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2565074937785853378}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 2
+--- !u!114 &7945118939199381295
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2565074937785853378}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7915e5b8e36884340a813d6809d50496, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  yLimit: 0
+  Tile: 0
+  Sprite: 0
+  spriteGroup: 1
 --- !u!1 &2658490794812738416
 GameObject:
   m_ObjectHideFlags: 0
@@ -70,7 +99,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5971365842168991758}
   - component: {fileID: 350987215552893155}
-  - component: {fileID: 7921132638949525233}
   m_Layer: 0
   m_Name: Fence 2
   m_TagString: Untagged
@@ -129,8 +157,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
-  m_Sprite: {fileID: 5072043080488005180, guid: aea7f3f9e1bd4db4b93af2df23e51686,
+  m_SortingOrder: 2
+  m_Sprite: {fileID: 5072043080488005180, guid: 57a70e45794695749b63d0a1256a094e,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -142,21 +170,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &7921132638949525233
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2658490794812738416}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7915e5b8e36884340a813d6809d50496, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sortingOrder: 1
-  newOrder: 3
-  yLimit: 0
 --- !u!1 &2708750887732846161
 GameObject:
   m_ObjectHideFlags: 0
@@ -167,7 +180,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4631155592044680752}
   - component: {fileID: 5025476234307645298}
-  - component: {fileID: 4423664315833189475}
   m_Layer: 0
   m_Name: Fence 1
   m_TagString: Untagged
@@ -226,8 +238,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
-  m_Sprite: {fileID: 1709175667868765875, guid: aea7f3f9e1bd4db4b93af2df23e51686,
+  m_SortingOrder: 2
+  m_Sprite: {fileID: 1709175667868765875, guid: 57a70e45794695749b63d0a1256a094e,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -239,21 +251,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &4423664315833189475
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2708750887732846161}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7915e5b8e36884340a813d6809d50496, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sortingOrder: 1
-  newOrder: 3
-  yLimit: 0
 --- !u!1 &7615348107388778970
 GameObject:
   m_ObjectHideFlags: 0
@@ -264,7 +261,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1034822475872045167}
   - component: {fileID: 1150736217686217586}
-  - component: {fileID: 6248087876309307512}
   m_Layer: 0
   m_Name: Fence 3
   m_TagString: Untagged
@@ -323,8 +319,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
-  m_Sprite: {fileID: -3087994113537464522, guid: aea7f3f9e1bd4db4b93af2df23e51686,
+  m_SortingOrder: 2
+  m_Sprite: {fileID: -3087994113537464522, guid: 57a70e45794695749b63d0a1256a094e,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -336,18 +332,3 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &6248087876309307512
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7615348107388778970}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7915e5b8e36884340a813d6809d50496, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sortingOrder: 1
-  newOrder: 3
-  yLimit: 0

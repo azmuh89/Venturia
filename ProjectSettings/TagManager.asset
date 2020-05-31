@@ -41,3 +41,15 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Ground
+    uniqueID: 3879540819
+    locked: 0
+  - name: Walls
+    uniqueID: 312998043
+    locked: 0
+  - name: Buildings
+    uniqueID: 2045243791
+    locked: 0
+  - name: NPC
+    uniqueID: 3782614045
+    locked: 0
