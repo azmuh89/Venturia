@@ -14,7 +14,12 @@ public class DialogueTrigger : MonoBehaviour
 
     private int currentSentence = 0;
     private bool inTalkRange = false;
-    
+
+    void Start()
+    {
+        dialogueBox.SetActive(false);
+    }
+
     void Update()
     {
         if (inTalkRange && Input.GetKeyDown(KeyCode.Space))
