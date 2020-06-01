@@ -237,6 +237,26 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 9158568486864688744, guid: f862203fec61bc74d8f05aa133252d60,
+        type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 528357932}
+    - target: {fileID: 9158568486864688744, guid: f862203fec61bc74d8f05aa133252d60,
+        type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ScreenToggle
+      objectReference: {fileID: 0}
+    - target: {fileID: 9158568486864688744, guid: f862203fec61bc74d8f05aa133252d60,
+        type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9158568486864688744, guid: f862203fec61bc74d8f05aa133252d60,
+        type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f862203fec61bc74d8f05aa133252d60, type: 3}
 --- !u!224 &202554932 stripped
@@ -251,6 +271,18 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 202554931}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &202554934 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9158568486864688744, guid: f862203fec61bc74d8f05aa133252d60,
+    type: 3}
+  m_PrefabInstance: {fileID: 202554931}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9085046f02f69544eb97fd06b6048fe2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &269328288
 GameObject:
   m_ObjectHideFlags: 0
@@ -1278,5 +1310,10 @@ PrefabInstance:
       propertyPath: optionsMenu
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 2955503951477111252, guid: 917aef8eb3e70644a8ef0202a02ab52d,
+        type: 3}
+      propertyPath: fullScreen
+      value: 
+      objectReference: {fileID: 202554934}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 917aef8eb3e70644a8ef0202a02ab52d, type: 3}

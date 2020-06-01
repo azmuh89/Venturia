@@ -65,7 +65,7 @@
     <Compile Include="Assets\Scripts\CameraFollow.cs" />
     <Compile Include="Assets\Scripts\DialogueTrigger.cs" />
     <Compile Include="Assets\Scripts\PlayerMovement.cs" />
-    <Compile Include="Assets\Scripts\SceneMan.cs" />
+    <Compile Include="Assets\Scripts\ScreenManager.cs" />
     <Compile Include="Assets\Scripts\ScreenToggle.cs" />
     <Compile Include="Assets\Scripts\SortingOrder.cs" />
     <Reference Include="Unity.Timeline.Editor">
