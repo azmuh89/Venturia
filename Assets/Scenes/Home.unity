@@ -2040,6 +2040,11 @@ PrefabInstance:
       propertyPath: menuCanvas
       value: 
       objectReference: {fileID: 383048862}
+    - target: {fileID: 2955503951477111252, guid: 917aef8eb3e70644a8ef0202a02ab52d,
+        type: 3}
+      propertyPath: optionsMenu
+      value: 
+      objectReference: {fileID: 1319131395}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 917aef8eb3e70644a8ef0202a02ab52d, type: 3}
 --- !u!1001 &857258888
@@ -26653,6 +26658,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cbd69405b7356a14abb491ffdd249265, type: 3}
+--- !u!1 &1319131395 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3919468788684887636, guid: 651c394bd0b1b6d4b83ed03a5b2142bf,
+    type: 3}
+  m_PrefabInstance: {fileID: 2580309404652708002}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1327916379 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6103353998851112489, guid: 7d04a6881332f9847893414fd784ff44,
@@ -28300,6 +28311,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: DialogueCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 1305825755861318522, guid: 6f02a78348e654b468e5bdfb94b51171,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1305825755861318526, guid: 6f02a78348e654b468e5bdfb94b51171,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -28424,11 +28440,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: MenuCanvas
       objectReference: {fileID: 0}
-    - target: {fileID: 2580309404942892092, guid: 651c394bd0b1b6d4b83ed03a5b2142bf,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2580309404942892032, guid: 651c394bd0b1b6d4b83ed03a5b2142bf,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -28539,11 +28550,6 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
-    - target: {fileID: 2580309404942892035, guid: 651c394bd0b1b6d4b83ed03a5b2142bf,
-        type: 3}
-      propertyPath: m_RenderMode
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2580309405234176319, guid: 651c394bd0b1b6d4b83ed03a5b2142bf,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target

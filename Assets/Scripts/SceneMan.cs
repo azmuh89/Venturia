@@ -5,18 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class SceneMan : MonoBehaviour
 {
-    private GameObject menuCanvas;
-
-    void Awake()
-    {
-        menuCanvas = GameObject.FindGameObjectWithTag("Menu");
-    }
-
-    void Start()
-    {
-        menuCanvas.SetActive(false);
-    }
-
+    public GameObject menuCanvas;
+    public GameObject optionsMenu;
+    
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape) && !menuCanvas.activeInHierarchy)
@@ -25,7 +16,14 @@ public class SceneMan : MonoBehaviour
         }
         else if (Input.GetKeyDown(KeyCode.Escape) && menuCanvas.activeInHierarchy)
         {
-            menuCanvas.SetActive(false);
+            if (optionsMenu.activeInHierarchy)
+            {
+                optionsMenu.SetActive(false);
+            }
+            else
+            {
+                menuCanvas.SetActive(false);
+            }
         }
     }
 
@@ -37,5 +35,10 @@ public class SceneMan : MonoBehaviour
     public void QuitGame()
     {
         Application.Quit();
+    }
+
+    public void screenToggle(bool isFullScreen)
+    {
+        Screen.fullScreen = isFullScreen;
     }
 }
