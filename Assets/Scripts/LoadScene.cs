@@ -5,13 +5,24 @@ using UnityEngine.SceneManagement;
 
 public class LoadScene : MonoBehaviour
 {
+    public Animator animator;
     public string sceneName;
 
     void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.transform.tag == "Player")
         {
-            SceneManager.LoadScene(sceneName);
+            FadeToLevel();
         }
+    }
+
+    void FadeToLevel()
+    {
+        animator.SetTrigger("FadeOut");
+    }
+
+    void OnFadeComplete()
+    {
+        SceneManager.LoadScene(sceneName);
     }
 }
