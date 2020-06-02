@@ -12,12 +12,13 @@ public class DialogueTrigger : MonoBehaviour
     public Text dialogueText;
     public GameObject dialogueBox;
 
+    private Transform player;
     private int currentSentence = 0;
     private bool inTalkRange = false;
 
     void Start()
     {
-        dialogueBox.SetActive(false);
+        player = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
     void Update()
@@ -33,6 +34,11 @@ public class DialogueTrigger : MonoBehaviour
     void OnTriggerStay2D(Collider2D collision)
     {
         inTalkRange = true;
+    }
+
+    void OnTriggerExit2D(Collider2D collision)
+    {
+        inTalkRange = false;
     }
 
     void StartDialogue()

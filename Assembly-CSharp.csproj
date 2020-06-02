@@ -68,6 +68,7 @@
     <Compile Include="Assets\Scripts\ScreenManager.cs" />
     <Compile Include="Assets\Scripts\ScreenToggle.cs" />
     <Compile Include="Assets\Scripts\SortingOrder.cs" />
+    <Compile Include="Assets\Scripts\TileGenerator.cs" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>C:/RPG/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
