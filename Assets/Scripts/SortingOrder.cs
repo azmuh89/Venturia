@@ -1,19 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Tilemaps;
 using UnityEngine.Rendering;
 
 public class SortingOrder : MonoBehaviour
 {
     public float yLimit;
-    public bool Tile;
-    public bool Sprite;
-    public bool spriteGroup;
+    public bool Sprite, spriteGroup;
     
-    private Transform player;
+    private GameObject player;
     private SpriteRenderer spriteRenderer;
-    private TilemapRenderer tilemapRenderer;
     private SortingGroup sortingGroup;
     private int sortingOrder;
     private int playerOrder;
@@ -21,7 +17,7 @@ public class SortingOrder : MonoBehaviour
     
     void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player").transform;
+        player = GameObject.FindGameObjectWithTag("Player");
         playerOrder = player.GetComponent<SpriteRenderer>().sortingOrder;
         pos = this.transform.position.y;
 
@@ -30,13 +26,7 @@ public class SortingOrder : MonoBehaviour
             spriteRenderer = GetComponent<SpriteRenderer>();
             sortingOrder = GetComponent<SpriteRenderer>().sortingOrder;
         }
-
-        if (Tile)
-        {
-            tilemapRenderer = GetComponent<TilemapRenderer>();
-            sortingOrder = GetComponent<TilemapRenderer>().sortingOrder;
-        }
-
+        
         if (spriteGroup)
         {
             sortingGroup = GetComponent<SortingGroup>();
@@ -52,10 +42,6 @@ public class SortingOrder : MonoBehaviour
             {
                 spriteRenderer.sortingOrder = playerOrder + 1;
             }
-            else if (Tile)
-            {
-                tilemapRenderer.sortingOrder = playerOrder + 1;
-            }
             else if (spriteGroup)
             {
                 sortingGroup.sortingOrder = playerOrder + 1;
@@ -66,10 +52,6 @@ public class SortingOrder : MonoBehaviour
             if (Sprite)
             {
                 spriteRenderer.sortingOrder = sortingOrder;
-            }
-            else if (Tile)
-            {
-                tilemapRenderer.sortingOrder = sortingOrder;
             }
             else if (spriteGroup)
             {

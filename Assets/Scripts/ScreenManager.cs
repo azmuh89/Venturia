@@ -35,7 +35,7 @@ public class ScreenManager : MonoBehaviour
         }
     }
 
-    public void LoadScene(int sceneID)
+    public void LoadScene(string sceneID)
     {
         SceneManager.LoadScene(sceneID);
     }
