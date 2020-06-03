@@ -9,8 +9,24 @@ public class PlayerMovement : MonoBehaviour
     public Rigidbody2D rb;
     public Animator animator;
 
-    Vector2 movement;
-    
+    private static PlayerMovement instance;
+    private Vector2 movement;
+    private bool isRunning = false;
+
+    private void Awake()
+    {
+        DontDestroyOnLoad(this);
+
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+
     void Update()
     {
         movement.x = Input.GetAxisRaw("Horizontal");
@@ -24,14 +40,18 @@ public class PlayerMovement : MonoBehaviour
         
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
-            animator.speed = 2;
-            moveSpeed = 12f;
-        }
-
-        if (movement.x == 0 && movement.y == 0)
-        {
-            animator.speed = 1;
-            moveSpeed = 5f;
+            if (!isRunning)
+            {
+                animator.speed = 2;
+                moveSpeed = 12f;
+                isRunning = true;
+            }
+            else
+            {
+                animator.speed = 1;
+                moveSpeed = 5f;
+                isRunning = false;
+            }
         }
     }
 

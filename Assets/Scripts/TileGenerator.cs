@@ -12,12 +12,11 @@ public class TileGenerator : MonoBehaviour
     void Start()
     {
         tileSpacing = tiles[0].GetComponent<Renderer>().bounds.size;
-
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.H))
+        //if (Input.GetKeyDown(KeyCode.H))
         {
             for (int i = 0; i < gridHeight; i++)
             {
