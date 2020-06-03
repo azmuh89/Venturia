@@ -24,11 +24,13 @@ public class PlayerMovement : MonoBehaviour
         
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
+            animator.speed = 2;
             moveSpeed = 12f;
         }
 
         if (movement.x == 0 && movement.y == 0)
         {
+            animator.speed = 1;
             moveSpeed = 5f;
         }
     }
