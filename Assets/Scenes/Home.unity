@@ -1194,12 +1194,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 585735018}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &381172131 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8073948753693015096, guid: 2ddc95b78b2a1d54a80a9f49b793e3df,
-    type: 3}
-  m_PrefabInstance: {fileID: 8073948753769290081}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &383048862 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2580309404942892092, guid: 651c394bd0b1b6d4b83ed03a5b2142bf,
@@ -32318,6 +32312,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5419985981905087310, guid: 2ddc95b78b2a1d54a80a9f49b793e3df,
+        type: 3}
+      propertyPath: sceneName
+      value: InsideHome
+      objectReference: {fileID: 0}
+    - target: {fileID: 5419985981905087310, guid: 2ddc95b78b2a1d54a80a9f49b793e3df,
+        type: 3}
+      propertyPath: gateName
+      value: HouseDoor
+      objectReference: {fileID: 0}
+    - target: {fileID: 5419985981905087310, guid: 2ddc95b78b2a1d54a80a9f49b793e3df,
+        type: 3}
+      propertyPath: down
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8073948753693015096, guid: 2ddc95b78b2a1d54a80a9f49b793e3df,
         type: 3}
       propertyPath: m_Name
@@ -32326,7 +32335,7 @@ PrefabInstance:
     - target: {fileID: 8073948753693015096, guid: 2ddc95b78b2a1d54a80a9f49b793e3df,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8073948753693015101, guid: 2ddc95b78b2a1d54a80a9f49b793e3df,
         type: 3}
@@ -32341,7 +32350,7 @@ PrefabInstance:
     - target: {fileID: 8073948753693015101, guid: 2ddc95b78b2a1d54a80a9f49b793e3df,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -58.39583
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8073948753693015101, guid: 2ddc95b78b2a1d54a80a9f49b793e3df,
         type: 3}
@@ -32400,6 +32409,33 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8073948753693015100, guid: 2ddc95b78b2a1d54a80a9f49b793e3df,
         type: 3}
+      propertyPath: down
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8073948753693015100, guid: 2ddc95b78b2a1d54a80a9f49b793e3df,
+        type: 3}
+      propertyPath: spawn
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8073948753693015100, guid: 2ddc95b78b2a1d54a80a9f49b793e3df,
+        type: 3}
+      propertyPath: gateName
+      value: HouseDoor
+      objectReference: {fileID: 0}
+    - target: {fileID: 8073948753693015100, guid: 2ddc95b78b2a1d54a80a9f49b793e3df,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 381172132, guid: 2ddc95b78b2a1d54a80a9f49b793e3df, type: 3}
+      propertyPath: sceneName
+      value: InsideHome
+      objectReference: {fileID: 0}
+    - target: {fileID: 381172132, guid: 2ddc95b78b2a1d54a80a9f49b793e3df, type: 3}
+      propertyPath: gateName
+      value: HouseDoor
+      objectReference: {fileID: 0}
+    - target: {fileID: 381172132, guid: 2ddc95b78b2a1d54a80a9f49b793e3df, type: 3}
       propertyPath: down
       value: 1
       objectReference: {fileID: 0}
@@ -33065,25 +33101,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8073948753693015100, guid: 2ddc95b78b2a1d54a80a9f49b793e3df,
-        type: 3}
-      propertyPath: spawnLocation
-      value: 
-      objectReference: {fileID: 381172131}
-    - target: {fileID: 8073948753693015100, guid: 2ddc95b78b2a1d54a80a9f49b793e3df,
-        type: 3}
+    - target: {fileID: 381172132, guid: 2ddc95b78b2a1d54a80a9f49b793e3df, type: 3}
       propertyPath: sceneName
       value: InsideHome
       objectReference: {fileID: 0}
-    - target: {fileID: 8073948753693015100, guid: 2ddc95b78b2a1d54a80a9f49b793e3df,
-        type: 3}
+    - target: {fileID: 381172132, guid: 2ddc95b78b2a1d54a80a9f49b793e3df, type: 3}
+      propertyPath: gateName
+      value: FenceGate
+      objectReference: {fileID: 0}
+    - target: {fileID: 381172132, guid: 2ddc95b78b2a1d54a80a9f49b793e3df, type: 3}
       propertyPath: up
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8073948753693015100, guid: 2ddc95b78b2a1d54a80a9f49b793e3df,
-        type: 3}
-      propertyPath: down
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2ddc95b78b2a1d54a80a9f49b793e3df, type: 3}
