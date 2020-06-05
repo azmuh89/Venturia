@@ -5,17 +5,18 @@ using UnityEngine.SceneManagement;
 
 public class Gate : MonoBehaviour
 {
+    public Animator animator;
     public string sceneName;
-    public bool up, down, right, left;
 
     private GameObject player;
+    private Vector3 playerBounds;
     private Scene scene;
     private Bounds bounds;
     private static string gateName = null;
+    private static bool up, down, right, left;
 
     void Start()
     {
-        Spawn();
     }
     
     void OnTriggerEnter2D(Collider2D collision)
@@ -23,7 +24,27 @@ public class Gate : MonoBehaviour
         if (collision.transform.name == "Player")
         {
             gateName = this.transform.name;
+            animator.SetTrigger("FadeOut");
             SceneManager.LoadScene(sceneName);
+        }
+
+        Vector3 gateBounds = this.GetComponent<Collider2D>().bounds.center;
+
+        if (playerBounds.y < gateBounds.y)
+        {
+            up = true;
+        }
+        else if (playerBounds.y > gateBounds.y)
+        {
+            down = true;
+        }
+        else if (playerBounds.x < gateBounds.x)
+        {
+            right = true;
+        }
+        else if (playerBounds.x > gateBounds.x)
+        {
+            left = true;
         }
     }
 
@@ -40,6 +61,7 @@ public class Gate : MonoBehaviour
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         player = GameObject.Find("Player");
+        playerBounds = player.GetComponent<Collider2D>().bounds.center;
 
         if (gateName != null)
         {
@@ -49,25 +71,31 @@ public class Gate : MonoBehaviour
         {
             bounds.size = new Vector3(0, 0, 0);
         }
+
+        Spawn();
     }
 
     void Spawn()
     {
         if (up)
         {
-            player.transform.position = new Vector3(bounds.center.x, bounds.center.y + 2, 0);
+            player.transform.position = new Vector3(bounds.center.x, bounds.center.y + 4, 0);
+            up = false;
         }
         else if (down)
         {
             player.transform.position = new Vector3(bounds.center.x, bounds.center.y - 2, 0);
+            down = false;
         }
         else if (right)
         {
             player.transform.position = new Vector3(bounds.center.x + 2, bounds.center.y, 0);
+            right = false;
         }
         else if (left)
         {
             player.transform.position = new Vector3(bounds.center.x - 2, bounds.center.y, 0);
+            left = false;
         }
     }
 }
