@@ -15,15 +15,18 @@ public class PlayerMovement : MonoBehaviour
 
     private void Awake()
     {
-        DontDestroyOnLoad(this);
+        if (this.transform.name == "Player")
+        {
+            DontDestroyOnLoad(this);
 
-        if (instance == null)
-        {
-            instance = this;
-        }
-        else
-        {
-            Destroy(gameObject);
+            if (instance == null)
+            {
+                instance = this;
+            }
+            else
+            {
+                Destroy(gameObject);
+            }
         }
     }
 

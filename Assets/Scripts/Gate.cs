@@ -14,10 +14,6 @@ public class Gate : MonoBehaviour
     private Bounds bounds;
     private static string gateName = null;
     private static bool up, down, right, left;
-
-    void Start()
-    {
-    }
     
     void OnTriggerEnter2D(Collider2D collision)
     {
@@ -79,12 +75,12 @@ public class Gate : MonoBehaviour
     {
         if (up)
         {
-            player.transform.position = new Vector3(bounds.center.x, bounds.center.y + 4, 0);
+            player.transform.position = new Vector3(bounds.center.x, bounds.center.y + 3, 0);
             up = false;
         }
         else if (down)
         {
-            player.transform.position = new Vector3(bounds.center.x, bounds.center.y - 2, 0);
+            player.transform.position = new Vector3(bounds.center.x, bounds.center.y - 3, 0);
             down = false;
         }
         else if (right)
