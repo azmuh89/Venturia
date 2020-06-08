@@ -4,28 +4,18 @@ using UnityEngine;
 
 public class CameraFollow : MonoBehaviour
 {
-    private static CameraFollow instance;
+    private Transform player;
 
-    public Transform player;
     public float ClampLeft;
     public float ClampRight;
     public float ClampDown;
     public float ClampUp;
-    
-    private void Awake()
-    {
-        DontDestroyOnLoad(this);
 
-        if (instance == null)
-        {
-            instance = this;
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
+    private void Start()
+    {
+        player = GameObject.Find("Player").transform;
     }
-    
+
     void FixedUpdate()
     {
         transform.position = new Vector3(
