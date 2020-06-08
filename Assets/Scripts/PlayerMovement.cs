@@ -56,6 +56,11 @@ public class PlayerMovement : MonoBehaviour
                 isRunning = false;
             }
         }
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            animator.SetTrigger("Attack");
+        }
     }
 
     void FixedUpdate()

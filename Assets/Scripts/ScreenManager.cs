@@ -8,6 +8,7 @@ public class ScreenManager : MonoBehaviour
 {
     public GameObject menuCanvas;
     public GameObject optionsMenu;
+    public GameObject equipmentMenu;
     public Toggle fullScreen;
 
     void Awake()
@@ -20,6 +21,7 @@ public class ScreenManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape) && !menuCanvas.activeInHierarchy)
         {
             menuCanvas.SetActive(true);
+            Time.timeScale = 0;
         }
         else if (Input.GetKeyDown(KeyCode.Escape) && menuCanvas.activeInHierarchy)
         {
@@ -27,10 +29,15 @@ public class ScreenManager : MonoBehaviour
             {
                 optionsMenu.SetActive(false);
             }
+            else if (equipmentMenu.activeInHierarchy)
+            {
+                equipmentMenu.SetActive(false);
+            }
             // add else if for other menus
             else
             {
                 menuCanvas.SetActive(false);
+                Time.timeScale = 1;
             }
         }
     }
@@ -62,7 +69,7 @@ public class ScreenManager : MonoBehaviour
 
         PlayerPrefs.Save();
     }
-
+    
     int boolToInt(bool val)
     {
         if (val)
