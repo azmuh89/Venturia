@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float moveSpeed = 5f;
-
     public Rigidbody2D rb;
     public Animator animator;
+    public GameObject sword;
+    public float moveSpeed = 5f;
 
     private static PlayerMovement instance;
     private Vector2 movement;
@@ -59,7 +59,10 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
-            animator.SetTrigger("Attack");
+            if (sword.activeInHierarchy && Time.timeScale > 0)
+            {
+                animator.SetTrigger("Attack");
+            }
         }
     }
 

@@ -164,9 +164,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec9e8dbfb96097546a4b79d22c759547, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
   rb: {fileID: 4043126106801186615}
   animator: {fileID: 4043126106801186617}
+  sword: {fileID: 5110517669761692523}
+  moveSpeed: 5
 --- !u!1 &5110517669761692523
 GameObject:
   m_ObjectHideFlags: 0
@@ -260,7 +261,7 @@ Animator:
   m_GameObject: {fileID: 5110517669761692523}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 22100000, guid: a46c0b75d4688e04dad7e04374c802e7, type: 2}
+  m_Controller: {fileID: 9100000, guid: 20535011df1b95a4f8dbee4d9edf0ebc, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -281,6 +282,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec9e8dbfb96097546a4b79d22c759547, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
   rb: {fileID: 4043126106801186615}
   animator: {fileID: 568499870}
+  sword: {fileID: 5110517669761692523}
+  moveSpeed: 5
