@@ -64,6 +64,7 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\CameraFollow.cs" />
     <Compile Include="Assets\Scripts\DialogueTrigger.cs" />
+    <Compile Include="Assets\Scripts\EnemyAI.cs" />
     <Compile Include="Assets\Scripts\EquipManager.cs" />
     <Compile Include="Assets\Scripts\Equipment.cs" />
     <Compile Include="Assets\Scripts\Gate.cs" />

@@ -257,32 +257,19 @@ PrefabInstance:
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 2508937811105042497, guid: f862203fec61bc74d8f05aa133252d60,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f862203fec61bc74d8f05aa133252d60, type: 3}
 --- !u!224 &202554932 stripped
 RectTransform:
-  m_CorrespondingSourceObject: {fileID: 8358039723541144700, guid: f862203fec61bc74d8f05aa133252d60,
+  m_CorrespondingSourceObject: {fileID: 3853628756073379086, guid: f862203fec61bc74d8f05aa133252d60,
     type: 3}
   m_PrefabInstance: {fileID: 202554931}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &202554933 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7230220867581215027, guid: f862203fec61bc74d8f05aa133252d60,
-    type: 3}
-  m_PrefabInstance: {fileID: 202554931}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &202554934 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 9158568486864688744, guid: f862203fec61bc74d8f05aa133252d60,
-    type: 3}
-  m_PrefabInstance: {fileID: 202554931}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9085046f02f69544eb97fd06b6048fe2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &269328288
 GameObject:
   m_ObjectHideFlags: 0
@@ -572,7 +559,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 202554933}
+      - m_Target: {fileID: 2094915883}
         m_MethodName: SetActive
         m_Mode: 6
         m_Arguments:
@@ -696,6 +683,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1221853835}
   m_CullTransparentMesh: 0
+--- !u!114 &1284213917 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4151944698599425818, guid: f862203fec61bc74d8f05aa133252d60,
+    type: 3}
+  m_PrefabInstance: {fileID: 202554931}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9085046f02f69544eb97fd06b6048fe2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1401086942
 GameObject:
   m_ObjectHideFlags: 0
@@ -1238,6 +1237,24 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1909428480}
   m_CullTransparentMesh: 0
+--- !u!114 &1914682911 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8018979157958134705, guid: f862203fec61bc74d8f05aa133252d60,
+    type: 3}
+  m_PrefabInstance: {fileID: 202554931}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d0b652f32a2cc243917e4028fa0f046, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &2094915883 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2508937811105042497, guid: f862203fec61bc74d8f05aa133252d60,
+    type: 3}
+  m_PrefabInstance: {fileID: 202554931}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2955503951198315512
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1248,7 +1265,7 @@ PrefabInstance:
     - target: {fileID: 2955503951477111251, guid: 917aef8eb3e70644a8ef0202a02ab52d,
         type: 3}
       propertyPath: m_Name
-      value: SceneManager
+      value: ScreenManager
       objectReference: {fileID: 0}
     - target: {fileID: 2955503951477111253, guid: 917aef8eb3e70644a8ef0202a02ab52d,
         type: 3}
@@ -1314,6 +1331,11 @@ PrefabInstance:
         type: 3}
       propertyPath: fullScreen
       value: 
-      objectReference: {fileID: 202554934}
+      objectReference: {fileID: 1284213917}
+    - target: {fileID: 2955503951477111252, guid: 917aef8eb3e70644a8ef0202a02ab52d,
+        type: 3}
+      propertyPath: resolutionDropdown
+      value: 
+      objectReference: {fileID: 1914682911}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 917aef8eb3e70644a8ef0202a02ab52d, type: 3}

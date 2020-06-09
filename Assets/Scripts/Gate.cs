@@ -5,7 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class Gate : MonoBehaviour
 {
-    public Animator animator;
     public string sceneName;
 
     private GameObject player;
@@ -20,7 +19,6 @@ public class Gate : MonoBehaviour
         if (collision.transform.name == "Player")
         {
             gateName = this.transform.name;
-            animator.SetTrigger("FadeOut");
             SceneManager.LoadScene(sceneName);
         }
 

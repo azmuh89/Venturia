@@ -6,10 +6,13 @@ using UnityEngine.UI;
 
 public class ScreenManager : MonoBehaviour
 {
+    public Animator animator;
     public GameObject menuCanvas;
     public GameObject optionsMenu;
     public GameObject equipmentMenu;
+    public GameObject player;
     public Toggle fullScreen;
+    public Dropdown resolutionDropdown;
 
     void Awake()
     {
@@ -44,7 +47,14 @@ public class ScreenManager : MonoBehaviour
 
     public void LoadScene(string sceneID)
     {
+        Time.timeScale = 1;
         SceneManager.LoadScene(sceneID);
+        animator.SetTrigger("FadeOut");
+    }
+
+    public void DestroyDontDestroy()
+    {
+        Destroy(player);
     }
 
     public void QuitGame()
@@ -52,22 +62,22 @@ public class ScreenManager : MonoBehaviour
         Application.Quit();
     }
 
-    public void ScreenToggle(bool isFullScreen)
+    public void FullScreenToggle(bool isFullScreen)
     {
         Screen.fullScreen = isFullScreen;
+        PlayerPrefs.SetInt("FullScreen", boolToInt(isFullScreen));
+    }
 
-        if (!isFullScreen)
+    public void ScreenResolution()
+    {
+        if (resolutionDropdown.value == 0)
         {
-            Screen.SetResolution(1280, 720, false);
-            PlayerPrefs.SetInt("FullScreen", boolToInt(false));
+            Screen.SetResolution(1920, 1080, fullScreen.isOn);
         }
-        else
+        else if (resolutionDropdown.value == 1)
         {
-            Screen.SetResolution(1920, 1080, true);
-            PlayerPrefs.SetInt("FullScreen", boolToInt(true));
+            Screen.SetResolution(1280, 720, fullScreen.isOn);
         }
-
-        PlayerPrefs.Save();
     }
     
     int boolToInt(bool val)
