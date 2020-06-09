@@ -67,9 +67,10 @@
     <Compile Include="Assets\Scripts\EquipManager.cs" />
     <Compile Include="Assets\Scripts\Equipment.cs" />
     <Compile Include="Assets\Scripts\Gate.cs" />
-    <Compile Include="Assets\Scripts\PlayerMovement.cs" />
+    <Compile Include="Assets\Scripts\PlayerController.cs" />
     <Compile Include="Assets\Scripts\ScreenManager.cs" />
     <Compile Include="Assets\Scripts\SortingOrder.cs" />
+    <Compile Include="Assets\Scripts\SwordController.cs" />
     <Compile Include="Assets\Scripts\TileGenerator.cs" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>C:/RPG/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>

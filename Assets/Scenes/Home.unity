@@ -1587,28 +1587,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 585735018}
   m_PrefabAsset: {fileID: 0}
---- !u!95 &568499870 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 568499870, guid: acc39478bfaf00c49be3a707ed9a693d,
-    type: 3}
-  m_PrefabInstance: {fileID: 585735018}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &568499872
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 568499867}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b16f316a369efac4586b0bfceb4d2aac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rb: {fileID: 1751584803}
-  animator: {fileID: 568499870}
-  sword: {fileID: 568499867}
-  moveSpeed: 5
 --- !u!1001 &570486524
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1749,10 +1727,6 @@ PrefabInstance:
     - target: {fileID: 4043126106801186616, guid: acc39478bfaf00c49be3a707ed9a693d,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 568499871, guid: acc39478bfaf00c49be3a707ed9a693d, type: 3}
-      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -31896,12 +31870,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5482798601551723003, guid: e328cb9d7ab7eed4d8026b27260f57e2,
     type: 3}
   m_PrefabInstance: {fileID: 1741001829}
-  m_PrefabAsset: {fileID: 0}
---- !u!50 &1751584803 stripped
-Rigidbody2D:
-  m_CorrespondingSourceObject: {fileID: 4043126106801186615, guid: acc39478bfaf00c49be3a707ed9a693d,
-    type: 3}
-  m_PrefabInstance: {fileID: 585735018}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &1770042926 stripped
 MonoBehaviour:

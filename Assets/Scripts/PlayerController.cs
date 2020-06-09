@@ -2,16 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
     public Rigidbody2D rb;
     public Animator animator;
-    public GameObject sword;
     public float moveSpeed = 5f;
 
-    private static PlayerMovement instance;
-    private Vector2 movement;
-    private bool isRunning = false;
+    [HideInInspector]
+    public Vector2 movement;
+    [HideInInspector]
+    public bool isRunning = false;
+
+    private static PlayerController instance;
 
     private void Awake()
     {
@@ -35,7 +37,7 @@ public class PlayerMovement : MonoBehaviour
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
 
-        Movement();
+        Direction();
 
         animator.SetFloat("Horizontal", movement.x);
         animator.SetFloat("Vertical", movement.y);
@@ -56,14 +58,6 @@ public class PlayerMovement : MonoBehaviour
                 isRunning = false;
             }
         }
-
-        if (Input.GetMouseButtonDown(0))
-        {
-            if (sword.activeInHierarchy && Time.timeScale > 0)
-            {
-                animator.SetTrigger("Attack");
-            }
-        }
     }
 
     void FixedUpdate()
@@ -71,7 +65,7 @@ public class PlayerMovement : MonoBehaviour
         rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
     }
 
-    void Movement()
+    void Direction()
     {
         if (movement.x != 0)
         {

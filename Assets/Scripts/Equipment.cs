@@ -2,10 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Equipment : PlayerMovement
+public class Equipment : MonoBehaviour
 {
-    //void OnEnable()
-    //{
-    //    animator.SetBool("MovingDown", true);
-    //}
 }

@@ -166,7 +166,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 4043126106801186615}
   animator: {fileID: 4043126106801186617}
-  sword: {fileID: 5110517669761692523}
   moveSpeed: 5
 --- !u!1 &5110517669761692523
 GameObject:
@@ -179,7 +178,11 @@ GameObject:
   - component: {fileID: 5110517669761692524}
   - component: {fileID: 5110517669761692525}
   - component: {fileID: 568499870}
-  - component: {fileID: 568499871}
+  - component: {fileID: 7083006003573855694}
+  - component: {fileID: 568499869}
+  - component: {fileID: 568499872}
+  - component: {fileID: 2665160366925488133}
+  - component: {fileID: 5168902388604586523}
   m_Layer: 0
   m_Name: Sword
   m_TagString: Untagged
@@ -270,7 +273,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &568499871
+--- !u!114 &7083006003573855694
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -279,10 +282,117 @@ MonoBehaviour:
   m_GameObject: {fileID: 5110517669761692523}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec9e8dbfb96097546a4b79d22c759547, type: 3}
+  m_Script: {fileID: 11500000, guid: 0860e4f2dc1d000489b64af6105cfc28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 4043126106801186615}
   animator: {fileID: 568499870}
-  sword: {fileID: 5110517669761692523}
   moveSpeed: 5
+  bc1: {fileID: 568499869}
+  bc2: {fileID: 568499872}
+  bc3: {fileID: 2665160366925488133}
+  bc4: {fileID: 5168902388604586523}
+--- !u!61 &568499869
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5110517669761692523}
+  m_Enabled: 0
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -1.5535997}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 3.125, y: 4}
+    newSize: {x: 3.125, y: 4}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 3.4, y: 1.6841247}
+  m_EdgeRadius: 0
+--- !u!61 &568499872
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5110517669761692523}
+  m_Enabled: 0
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -1.001311, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 3.125, y: 4}
+    newSize: {x: 3.125, y: 4}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.7473783, y: 2.6561317}
+  m_EdgeRadius: 0
+--- !u!61 &2665160366925488133
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5110517669761692523}
+  m_Enabled: 0
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 1.24}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 3.125, y: 4}
+    newSize: {x: 3.125, y: 4}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 3.4, y: 1.6841247}
+  m_EdgeRadius: 0
+--- !u!61 &5168902388604586523
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5110517669761692523}
+  m_Enabled: 0
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 1.0013106, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 3.125, y: 4}
+    newSize: {x: 3.125, y: 4}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.7473783, y: 2.6561317}
+  m_EdgeRadius: 0
