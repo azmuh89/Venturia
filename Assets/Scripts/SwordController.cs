@@ -5,7 +5,6 @@ using UnityEngine;
 public class SwordController : PlayerController
 {
     public BoxCollider2D bc1, bc2, bc3, bc4;
-    private float waitSeconds = 0.15f;
 
     void Update()
     {
@@ -36,26 +35,42 @@ public class SwordController : PlayerController
         {
             if (this.gameObject.activeInHierarchy && Time.timeScale > 0)
             {
-                animator.SetBool("Attack", true);
+                animator.SetTrigger("Attack");
+                EnableColliders();
             }
-            StartCoroutine("StopAttacking");
-        }
 
-        if (animator.GetBool("Attack") == true)
-        {
-            EnableColliders();
-        }
-        else
-        {
-            DisableColliders();
+            StartCoroutine("DisableColliders");
         }
     }
 
-    IEnumerator StopAttacking()
+    void EnableColliders()
     {
-        yield return new WaitForSeconds(waitSeconds);
+        if (animator.GetBool("MovingDown") == true)
+        {
+            bc1.enabled = true;
+        }
+        else if (animator.GetBool("MovingLeft") == true)
+        {
+            bc2.enabled = true;
+        }
+        else if (animator.GetBool("MovingUp") == true)
+        {
+            bc3.enabled = true;
+        }
+        else if (animator.GetBool("MovingRight") == true)
+        {
+            bc4.enabled = true;
+        }
+    }
 
-        animator.SetBool("Attack", false);
+    IEnumerator DisableColliders()
+    {
+        yield return new WaitForSeconds(0.2f);
+
+        bc1.enabled = false;
+        bc2.enabled = false;
+        bc3.enabled = false;
+        bc4.enabled = false;
     }
 
     void FixedUpdate()
@@ -102,33 +117,5 @@ public class SwordController : PlayerController
             animator.SetBool("MovingLeft", false);
             animator.SetBool("MovingUp", false);
         }
-    }
-
-    void EnableColliders()
-    {
-        if (animator.GetBool("MovingDown") == true)
-        {
-            bc1.enabled = true;
-        }
-        else if (animator.GetBool("MovingLeft") == true)
-        {
-            bc2.enabled = true;
-        }
-        else if (animator.GetBool("MovingUp") == true)
-        {
-            bc3.enabled = true;
-        }
-        else if (animator.GetBool("MovingRight") == true)
-        {
-            bc4.enabled = true;
-        }
-    }
-
-    void DisableColliders()
-    {
-        bc1.enabled = false;
-        bc2.enabled = false;
-        bc3.enabled = false;
-        bc4.enabled = false;
     }
 }

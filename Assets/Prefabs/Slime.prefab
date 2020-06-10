@@ -465,7 +465,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthbar: {fileID: 1343613367}
   maxHealth: 5
-  currentHealth: 0
   speed: 5
   startingDistance: 8
   stoppingDistance: 2

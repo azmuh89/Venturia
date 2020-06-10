@@ -6,12 +6,12 @@ public class EnemyController : MonoBehaviour
 {
     public Healthbar healthbar;
     public int maxHealth = 10;
-    public int currentHealth;
     public float speed;
     public float startingDistance;
     public float stoppingDistance;
 
     private Transform target;
+    private int currentHealth;
 
     void Start()
     {

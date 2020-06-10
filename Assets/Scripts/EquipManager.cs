@@ -10,7 +10,7 @@ public class EquipManager : MonoBehaviour
 
     void Awake()
     {
-        sword = GameObject.FindGameObjectWithTag("Sword");
+        sword = GameObject.FindGameObjectWithTag("Weapon");
         swordToggle.isOn = true;
     }
 
