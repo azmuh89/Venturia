@@ -6,11 +6,12 @@ using UnityEngine.UI;
 public class EquipManager : MonoBehaviour
 {
     public Toggle swordToggle;
-    public GameObject sword;
+    private GameObject sword;
 
     void Awake()
     {
-        swordToggle.isOn = false;
+        sword = GameObject.FindGameObjectWithTag("Sword");
+        swordToggle.isOn = true;
     }
 
     public void EquipSword(bool isEquipped)
