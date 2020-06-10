@@ -2801,7 +2801,8 @@ PrefabInstance:
         type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 1078405969}
+      objectReference: {fileID: 4043126106801186618, guid: acc39478bfaf00c49be3a707ed9a693d,
+        type: 3}
     - target: {fileID: 2955503951477111252, guid: 917aef8eb3e70644a8ef0202a02ab52d,
         type: 3}
       propertyPath: fullScreen
@@ -2812,6 +2813,11 @@ PrefabInstance:
       propertyPath: resolutionDropdown
       value: 
       objectReference: {fileID: 344288861}
+    - target: {fileID: 5991309115608027372, guid: 917aef8eb3e70644a8ef0202a02ab52d,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 917aef8eb3e70644a8ef0202a02ab52d, type: 3}
 --- !u!1001 &919405521
@@ -30666,12 +30672,6 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
---- !u!1 &1078405969 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4043126106801186618, guid: acc39478bfaf00c49be3a707ed9a693d,
-    type: 3}
-  m_PrefabInstance: {fileID: 585735018}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1157925568
 PrefabInstance:
   m_ObjectHideFlags: 0
