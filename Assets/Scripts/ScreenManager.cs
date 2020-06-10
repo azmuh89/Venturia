@@ -53,7 +53,7 @@ public class ScreenManager : MonoBehaviour
 
     public void DestroyDontDestroy()
     {
-        Destroy(GameObject.Find("Player"));
+        Destroy(GameObject.FindGameObjectWithTag("Player"));
     }
 
     public void QuitGame()

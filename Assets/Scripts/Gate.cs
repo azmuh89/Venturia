@@ -54,7 +54,7 @@ public class Gate : MonoBehaviour
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        player = GameObject.Find("Player");
+        player = GameObject.FindGameObjectWithTag("Player");
         playerBounds = player.GetComponent<Collider2D>().bounds.center;
 
         if (gateName != null)
