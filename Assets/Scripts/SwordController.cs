@@ -5,7 +5,7 @@ using UnityEngine;
 public class SwordController : PlayerController
 {
     public BoxCollider2D bc1, bc2, bc3, bc4;
-    private float waitSeconds;
+    private float waitSeconds = 0.15f;
 
     void Update()
     {
@@ -22,17 +22,13 @@ public class SwordController : PlayerController
         {
             if (!isRunning)
             {
-                animator.speed = 2;
                 moveSpeed = 12f;
                 isRunning = true;
-                waitSeconds /= 2;
             }
             else
             {
-                animator.speed = 1;
                 moveSpeed = 5f;
                 isRunning = false;
-                waitSeconds = 0.15f;
             }
         }
 

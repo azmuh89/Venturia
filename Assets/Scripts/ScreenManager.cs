@@ -15,7 +15,6 @@ public class ScreenManager : MonoBehaviour
 
     void Awake()
     {
-        Screen.fullScreenMode = FullScreenMode.MaximizedWindow;
         fullScreen.isOn = intToBool(PlayerPrefs.GetInt("FullScreen"));
     }
 

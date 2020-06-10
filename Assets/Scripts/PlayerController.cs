@@ -56,13 +56,11 @@ public class PlayerController : MonoBehaviour
         {
             if (!isRunning)
             {
-                animator.speed = 2;
                 moveSpeed = 12f;
                 isRunning = true;
             }
             else
             {
-                animator.speed = 1;
                 moveSpeed = 5f;
                 isRunning = false;
             }
