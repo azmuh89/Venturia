@@ -46,12 +46,12 @@ public class SwordController : PlayerController
     {
         Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         
-        if (mousePosition.x > transform.position.x && mousePosition.y > transform.position.y - 5 && mousePosition.y < transform.position.y + 5)
+        if (mousePosition.x > transform.position.x && mousePosition.y > transform.position.y - 3 && mousePosition.y < transform.position.y + 3)
         {
             animator.SetTrigger("AttackRight");
             bc4.enabled = true;
         }
-        else if (mousePosition.x < transform.position.x && mousePosition.y > transform.position.y - 5 && mousePosition.y < transform.position.y + 5)
+        else if (mousePosition.x < transform.position.x && mousePosition.y > transform.position.y - 3 && mousePosition.y < transform.position.y + 3)
         {
             animator.SetTrigger("AttackLeft");
             bc2.enabled = true;
