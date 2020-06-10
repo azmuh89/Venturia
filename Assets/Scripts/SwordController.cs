@@ -35,31 +35,36 @@ public class SwordController : PlayerController
         {
             if (this.gameObject.activeInHierarchy && Time.timeScale > 0)
             {
-                animator.SetTrigger("Attack");
-                EnableColliders();
+                Attack();
             }
 
             StartCoroutine("DisableColliders");
         }
     }
 
-    void EnableColliders()
+    void Attack()
     {
-        if (animator.GetBool("MovingDown") == true)
+        Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        
+        if (mousePosition.x > transform.position.x && mousePosition.y > transform.position.y - 5 && mousePosition.y < transform.position.y + 5)
         {
-            bc1.enabled = true;
+            animator.SetTrigger("AttackRight");
+            bc4.enabled = true;
         }
-        else if (animator.GetBool("MovingLeft") == true)
+        else if (mousePosition.x < transform.position.x && mousePosition.y > transform.position.y - 5 && mousePosition.y < transform.position.y + 5)
         {
+            animator.SetTrigger("AttackLeft");
             bc2.enabled = true;
         }
-        else if (animator.GetBool("MovingUp") == true)
+        else if (mousePosition.y > transform.position.y)
         {
+            animator.SetTrigger("AttackUp");
             bc3.enabled = true;
         }
-        else if (animator.GetBool("MovingRight") == true)
+        else if (mousePosition.y < transform.position.y)
         {
-            bc4.enabled = true;
+            animator.SetTrigger("AttackDown");
+            bc1.enabled = true;
         }
     }
 
