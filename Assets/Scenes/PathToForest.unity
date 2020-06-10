@@ -1953,6 +1953,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: MenuCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 8934133079453617572, guid: 651c394bd0b1b6d4b83ed03a5b2142bf,
+        type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 133550416}
+    - target: {fileID: 8934133079453617572, guid: 651c394bd0b1b6d4b83ed03a5b2142bf,
+        type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ScreenResolution
+      objectReference: {fileID: 0}
     - target: {fileID: 3254943685005574415, guid: 651c394bd0b1b6d4b83ed03a5b2142bf,
         type: 3}
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -2102,16 +2112,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: SetActive
-      objectReference: {fileID: 0}
-    - target: {fileID: 8934133079453617572, guid: 651c394bd0b1b6d4b83ed03a5b2142bf,
-        type: 3}
-      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 133550416}
-    - target: {fileID: 8934133079453617572, guid: 651c394bd0b1b6d4b83ed03a5b2142bf,
-        type: 3}
-      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ScreenResolution
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 651c394bd0b1b6d4b83ed03a5b2142bf, type: 3}
@@ -18417,10 +18417,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1343613366, guid: ed649feb4ff88674f90df880e5dee860, type: 3}
-      propertyPath: m_Value
-      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 958014161, guid: ed649feb4ff88674f90df880e5dee860, type: 3}
       propertyPath: m_AnchorMax.x
