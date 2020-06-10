@@ -10,12 +10,12 @@ public class ScreenManager : MonoBehaviour
     public GameObject menuCanvas;
     public GameObject optionsMenu;
     public GameObject equipmentMenu;
-    public GameObject player;
     public Toggle fullScreen;
     public Dropdown resolutionDropdown;
 
     void Awake()
     {
+        Screen.fullScreenMode = FullScreenMode.MaximizedWindow;
         fullScreen.isOn = intToBool(PlayerPrefs.GetInt("FullScreen"));
     }
 
@@ -54,7 +54,7 @@ public class ScreenManager : MonoBehaviour
 
     public void DestroyDontDestroy()
     {
-        Destroy(player);
+        Destroy(GameObject.Find("Player"));
     }
 
     public void QuitGame()
@@ -65,6 +65,7 @@ public class ScreenManager : MonoBehaviour
     public void FullScreenToggle(bool isFullScreen)
     {
         Screen.fullScreen = isFullScreen;
+
         PlayerPrefs.SetInt("FullScreen", boolToInt(isFullScreen));
     }
 
@@ -76,7 +77,23 @@ public class ScreenManager : MonoBehaviour
         }
         else if (resolutionDropdown.value == 1)
         {
+            Screen.SetResolution(1600, 900, fullScreen.isOn);
+        }
+        else if (resolutionDropdown.value == 2)
+        {
+            Screen.SetResolution(1440, 900, fullScreen.isOn);
+        }
+        else if (resolutionDropdown.value == 3)
+        {
+            Screen.SetResolution(1366, 768, fullScreen.isOn);
+        }
+        else if (resolutionDropdown.value == 4)
+        {
             Screen.SetResolution(1280, 720, fullScreen.isOn);
+        }
+        else if (resolutionDropdown.value == 5)
+        {
+            Screen.SetResolution(1024, 768, fullScreen.isOn);
         }
     }
     

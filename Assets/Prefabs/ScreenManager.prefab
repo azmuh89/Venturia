@@ -68,6 +68,7 @@ MonoBehaviour:
   menuCanvas: {fileID: 0}
   optionsMenu: {fileID: 0}
   equipmentMenu: {fileID: 0}
+  player: {fileID: 0}
   fullScreen: {fileID: 0}
   resolutionDropdown: {fileID: 0}
 --- !u!1 &5991309115608027377
