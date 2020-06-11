@@ -9,15 +9,17 @@ public class EnemyController : MonoBehaviour
     public float speed;
     public float startingDistance;
     public float stoppingDistance;
-
+    
     private Transform target;
+    private Vector3 spawnPos;
     private int currentHealth;
 
     void Start()
     {
-        currentHealth = maxHealth;
         target = GameObject.FindGameObjectWithTag("Player").transform;
+        currentHealth = maxHealth;
         healthbar.SetMaxHealth(maxHealth);
+        spawnPos = transform.position;
     }
     
     void Update()
@@ -28,28 +30,29 @@ public class EnemyController : MonoBehaviour
             transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
         }
 
-        Die();
+        if (currentHealth <= 0)
+        {
+            Die();
+        }
     }
 
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Weapon")
         {
-            TakeDamage(1);
+            TakeDamage();
         }
     }
 
-    void TakeDamage(int damage)
+    void TakeDamage()
     {
-        currentHealth -= damage;
+        currentHealth -= SwordController.weaponDamage;
         healthbar.SetHealth(currentHealth);
     }
-
+    
     void Die()
     {
-        if (currentHealth <= 0)
-        {
-            Destroy(gameObject);
-        }
+        Destroy(gameObject);
+        EnemySpawn.numOfSpawns--;
     }
 }
