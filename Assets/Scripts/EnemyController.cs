@@ -11,15 +11,16 @@ public class EnemyController : MonoBehaviour
     public float stoppingDistance;
     
     private Transform target;
-    private Vector3 spawnPos;
+    private Rigidbody2D rb2d;
+    private Vector2 direction;
     private int currentHealth;
 
     void Start()
     {
         target = GameObject.FindGameObjectWithTag("Player").transform;
+        rb2d = GetComponent<Rigidbody2D>();
         currentHealth = maxHealth;
         healthbar.SetMaxHealth(maxHealth);
-        spawnPos = transform.position;
     }
     
     void Update()
@@ -29,6 +30,8 @@ public class EnemyController : MonoBehaviour
         {
             transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
         }
+
+        direction = transform.position - target.position;
 
         if (currentHealth <= 0)
         {
@@ -48,11 +51,11 @@ public class EnemyController : MonoBehaviour
     {
         currentHealth -= SwordController.weaponDamage;
         healthbar.SetHealth(currentHealth);
+        rb2d.AddForce(direction.normalized * 20, ForceMode2D.Impulse);
     }
     
     void Die()
     {
         Destroy(gameObject);
-        EnemySpawn.numOfSpawns--;
     }
 }
