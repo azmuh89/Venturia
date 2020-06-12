@@ -14,6 +14,7 @@ public class EnemyController : MonoBehaviour
     private Rigidbody2D rb2d;
     private Vector2 direction;
     private int currentHealth;
+    private float setDistance;
 
     void Start()
     {
@@ -21,6 +22,7 @@ public class EnemyController : MonoBehaviour
         rb2d = GetComponent<Rigidbody2D>();
         currentHealth = maxHealth;
         healthbar.SetMaxHealth(maxHealth);
+        setDistance = startingDistance;
     }
     
     void Update()
@@ -29,6 +31,12 @@ public class EnemyController : MonoBehaviour
             Vector2.Distance(transform.position, target.position) < startingDistance)
         {
             transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
+            
+            startingDistance = setDistance * 2;
+        }
+        else
+        {
+            startingDistance = setDistance;
         }
 
         direction = transform.position - target.position;
