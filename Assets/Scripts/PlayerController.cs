@@ -17,7 +17,7 @@ public class PlayerController : MonoBehaviour
     private static PlayerController instance;
     private Scene scene;
 
-    private void Awake()
+    void Awake()
     {
         scene = SceneManager.GetActiveScene();
 
@@ -67,12 +67,12 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void FixedUpdate()
+    public void FixedUpdate()
     {
         rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
     }
 
-    void Direction()
+    public void Direction()
     {
         if (movement.x != 0)
         {

@@ -6,14 +6,14 @@ public class EnemySpawn : MonoBehaviour
 {
     public GameObject enemy;
     public int maxSpawns;
-    public int spawnDelay;
+    public float spawnDelay;
     public float spacing;
 
     private Vector3 randomPos;
 
     void Start()
     {
-        InvokeRepeating("Spawn", 0, 3);
+        InvokeRepeating("Spawn", 0, spawnDelay);
     }
     
     void Spawn()
