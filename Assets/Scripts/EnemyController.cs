@@ -37,9 +37,14 @@ public class EnemyController : MonoBehaviour
         else
         {
             startingDistance = setDistance;
+            transform.position = Vector2.MoveTowards(transform.position, transform.parent.position, speed * Time.deltaTime);
         }
 
         direction = transform.position - target.position;
+
+        if (transform.position == transform.parent.position)
+        {
+        }
 
         if (currentHealth <= 0)
         {

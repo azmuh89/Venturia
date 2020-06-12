@@ -756,7 +756,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 5450470547903080067, guid: ed649feb4ff88674f90df880e5dee860, type: 3}
-  maxSpawns: 5
+  maxSpawns: 1
   spawnDelay: 3
 --- !u!4 &433946159
 Transform:
