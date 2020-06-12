@@ -297,6 +297,7 @@ MonoBehaviour:
   bc2: {fileID: 568499872}
   bc3: {fileID: 2665160366925488133}
   bc4: {fileID: 5168902388604586523}
+  weaponDamage: 1
 --- !u!61 &568499869
 BoxCollider2D:
   m_ObjectHideFlags: 0

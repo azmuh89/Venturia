@@ -13,6 +13,8 @@ public class EnemyController : MonoBehaviour
     private Transform target;
     private Rigidbody2D rb2d;
     private Vector2 direction;
+    private Vector3 startPos;
+    private SwordController sword;
     private int currentHealth;
     private float setDistance;
 
@@ -20,6 +22,8 @@ public class EnemyController : MonoBehaviour
     {
         target = GameObject.FindGameObjectWithTag("Player").transform;
         rb2d = GetComponent<Rigidbody2D>();
+        startPos = transform.position;
+        sword = GameObject.FindGameObjectWithTag("Weapon").GetComponent<SwordController>();
         currentHealth = maxHealth;
         healthbar.SetMaxHealth(maxHealth);
         setDistance = startingDistance;
@@ -34,10 +38,10 @@ public class EnemyController : MonoBehaviour
             
             startingDistance = setDistance * 2;
         }
-        else
+        else if (Vector2.Distance(transform.position, target.position) > startingDistance)
         {
             startingDistance = setDistance;
-            transform.position = Vector2.MoveTowards(transform.position, transform.parent.position, speed * Time.deltaTime);
+            transform.position = Vector2.MoveTowards(transform.position, startPos, speed * Time.deltaTime);
         }
 
         direction = transform.position - target.position;
@@ -62,7 +66,7 @@ public class EnemyController : MonoBehaviour
 
     void TakeDamage()
     {
-        currentHealth -= SwordController.weaponDamage;
+        currentHealth -= sword.weaponDamage;
         healthbar.SetHealth(currentHealth);
         rb2d.AddForce(direction.normalized * 20, ForceMode2D.Impulse);
     }

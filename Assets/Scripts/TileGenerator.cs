@@ -16,7 +16,7 @@ public class TileGenerator : MonoBehaviour
 
     private void Update()
     {
-        //if (Input.GetKeyDown(KeyCode.H))
+        if (Input.GetKeyDown(KeyCode.H))
         {
             for (int i = 0; i < gridHeight; i++)
             {
@@ -28,7 +28,7 @@ public class TileGenerator : MonoBehaviour
                         new Vector3(tileStartPos.x + (j * tileSpacing.x),
                         tileStartPos.y + (i * tileSpacing.y)), Quaternion.identity) as GameObject;
 
-                    go.transform.parent = GameObject.Find("BGTiles").transform;
+                    go.transform.parent = this.transform;
                 }
             }
         }

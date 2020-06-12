@@ -5,7 +5,7 @@ using UnityEngine;
 public class SwordController : PlayerController
 {
     public BoxCollider2D bc1, bc2, bc3, bc4;
-    public static int weaponDamage = 1;
+    public int weaponDamage;
 
     void Update()
     {
