@@ -7,11 +7,12 @@ public class EnemySpawn : MonoBehaviour
     public GameObject enemy;
     public int maxSpawns;
     public int spawnDelay;
-    public Vector3 randomPos;
+
+    private Vector3 randomPos;
 
     void Start()
     {
-        randomPos = Random.insideUnitSphere * 5;
+        randomPos = transform.position + (Random.insideUnitSphere * 3);
         InvokeRepeating("Spawn", 0, 3);
     }
     
@@ -19,7 +20,8 @@ public class EnemySpawn : MonoBehaviour
     {
         if (transform.childCount < maxSpawns)
         {
-            Instantiate(enemy, Random.insideUnitCircle * 5, Quaternion.identity, gameObject.transform);
+            Instantiate(enemy, randomPos, Quaternion.identity, gameObject.transform);
+            randomPos = transform.position + (Random.insideUnitSphere * 3);
         }
     }
 }
