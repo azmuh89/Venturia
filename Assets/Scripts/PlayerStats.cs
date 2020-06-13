@@ -84,11 +84,11 @@ public class PlayerStats : MonoBehaviour
         experience = 0;
         maxExp += level * 50;
         baseMaxHealth += level * 3;
-        baseDamage += level * 0.5f;
-        baseArmor += level * 0.7f;
-        baseMDamage *= 1.2f;
-        baseMResist *= 1.22f;
-        baseAim *= 1.2f;
-        baseEvasion *= 1.22f;
+        baseDamage += level * 0.6f;
+        baseArmor += level * 0.375f;
+        baseMDamage += level; // TODO
+        baseMResist += level; // TODO
+        baseAim += level * 0.33f;
+        baseEvasion += level * 0.3f;
     }
 }
