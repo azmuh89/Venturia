@@ -21,9 +21,7 @@ public class PlayerStats : MonoBehaviour
         evasion,
         luck;
 
-    private int baseMaxHealth;
-    private int baseMaxMana;
-    private int baseMaxEnergy;
+    private int baseMaxHealth, baseMaxMana, baseMaxEnergy;
 
     private float
         baseDamage,
@@ -59,15 +57,18 @@ public class PlayerStats : MonoBehaviour
         baseEvasion = 1;
         baseLuck = 1;
 
-        Stats();
+        TotalStats();
     }
     
     void Update()
     {
-        
+        if (experience >= maxExp)
+        {
+            LevelUp();
+        }
     }
 
-    void Stats()
+    void TotalStats()
     {
         // maxHealth = baseMaxHealth + armor.health;
         // damage = baseDamage + weapon.damage;

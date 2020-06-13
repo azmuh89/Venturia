@@ -5,18 +5,27 @@ using UnityEngine;
 public class EnemyController : MonoBehaviour
 {
     public Healthbar healthbar;
-    public int maxHealth = 10;
-    public int experience;
     public float speed;
     public float startingDistance;
     public float stoppingDistance;
+
+    public int maxHealth, maxMana;
+    public int giveExperience;
+    public float damage;
+    public float armor;
+    public float magicDamage;
+    public float magicResist;
+    public float aim;
+    public float evasion;
     
     private Transform target;
     private Rigidbody2D rb2d;
     private Vector2 direction;
     private Vector3 startPos;
     private SwordController sword;
+    private PlayerStats playerStats;
     private int currentHealth;
+    private int currentMana;
     private float setDistance;
 
     void Start()
@@ -25,7 +34,9 @@ public class EnemyController : MonoBehaviour
         rb2d = GetComponent<Rigidbody2D>();
         startPos = transform.position;
         sword = GameObject.FindGameObjectWithTag("Weapon").GetComponent<SwordController>();
+        playerStats = GameObject.Find("Player").GetComponent<PlayerStats>();
         currentHealth = maxHealth;
+        currentMana = maxMana;
         healthbar.SetMaxHealth(maxHealth);
         setDistance = startingDistance;
     }
@@ -67,13 +78,29 @@ public class EnemyController : MonoBehaviour
 
     void TakeDamage()
     {
-        currentHealth -= sword.weaponDamage;
-        healthbar.SetHealth(currentHealth);
-        rb2d.AddForce(direction.normalized * 20, ForceMode2D.Impulse);
+        if (playerStats.aim >= evasion)
+        {
+            currentHealth -= (int)playerStats.damage;
+            healthbar.SetHealth(currentHealth);
+            rb2d.AddForce(direction.normalized * 20, ForceMode2D.Impulse);
+        }
+        else if (playerStats.aim > evasion * 2)
+        {
+            currentHealth -= (int)(playerStats.damage * 2);
+            healthbar.SetHealth(currentHealth);
+            rb2d.AddForce(direction.normalized * 20, ForceMode2D.Impulse);
+        }
+        else if (playerStats.aim < evasion)
+        {
+            currentHealth -= (int)(playerStats.damage / 2);
+            healthbar.SetHealth(currentHealth);
+            rb2d.AddForce(direction.normalized * 20, ForceMode2D.Impulse);
+        }
     }
     
     void Die()
     {
         Destroy(gameObject);
+        playerStats.experience += giveExperience;
     }
 }
