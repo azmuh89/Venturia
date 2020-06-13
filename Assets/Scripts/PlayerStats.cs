@@ -6,6 +6,7 @@ public class PlayerStats : MonoBehaviour
 {
     public Healthbar healthbar;
     public float maxHealth;
+    public int bronze, silver, gold, platinum;
 
     [HideInInspector]
     public int experience;
@@ -20,9 +21,7 @@ public class PlayerStats : MonoBehaviour
         aim,
         evasion,
         luck;
-
-    private int baseMaxHealth, baseMaxMana, baseMaxEnergy;
-
+    
     private float
         baseDamage,
         baseArmor,
@@ -32,7 +31,9 @@ public class PlayerStats : MonoBehaviour
         baseEvasion,
         baseLuck;
 
+    private int baseMaxHealth, baseMaxMana, baseMaxEnergy;
     private int currentHealth, currentMana, currentEnergy;
+    private int maxBronze, maxSilver, maxGold;
     private int maxExp;
     private int level;
     private string profession;
@@ -71,12 +72,12 @@ public class PlayerStats : MonoBehaviour
     void TotalStats()
     {
         // maxHealth = baseMaxHealth + armor.health;
-        // damage = baseDamage + weapon.damage;
-        // armor = baseArmor + armor.defence;
-        // magicDamage = baseMDamage + magicWeapon.damage;
-        // magicResist = baseMResist + armor.magicResist;
-        // aim = baseAim + weapon.aim;
-        // evasion = baseEvasion + armor.evasion;
+        // damage = baseDamage + weapon.damage + acc.damage;
+        // armor = baseArmor + armor.defence + acc.armor;
+        // magicDamage = baseMDamage + magicWeapon.damage + acc.magicDamage;
+        // magicResist = baseMResist + armor.magicResist + acc.magicResist;
+        // aim = baseAim + weapon.aim + acc.aim;
+        // evasion = baseEvasion + armor.evasion + acc.evasion;
     }
 
     void LevelUp()

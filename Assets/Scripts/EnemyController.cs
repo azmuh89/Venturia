@@ -10,7 +10,8 @@ public class EnemyController : MonoBehaviour
     public float stoppingDistance;
 
     public int maxHealth, maxMana;
-    public int giveExperience;
+    public int dropExperience;
+    public int dropMoney;
     public float damage;
     public float armor;
     public float magicDamage;
@@ -101,6 +102,6 @@ public class EnemyController : MonoBehaviour
     void Die()
     {
         Destroy(gameObject);
-        playerStats.experience += giveExperience;
+        playerStats.experience += dropExperience;
     }
 }

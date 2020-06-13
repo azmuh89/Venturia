@@ -78,6 +78,7 @@
     <Compile Include="Assets\Scripts\SwordController.cs" />
     <Compile Include="Assets\Scripts\TestStats.cs" />
     <Compile Include="Assets\Scripts\TileGenerator.cs" />
+    <None Include="Assets\Fonts\Pixel Font\_README.txt" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>C:/RPG/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
