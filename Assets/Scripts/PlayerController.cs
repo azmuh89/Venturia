@@ -40,7 +40,7 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
-
+    
     void Update()
     {
         movement.x = Input.GetAxisRaw("Horizontal");

@@ -72,6 +72,7 @@
     <Compile Include="Assets\Scripts\Healthbar.cs" />
     <Compile Include="Assets\Scripts\IdleMovement.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
+    <Compile Include="Assets\Scripts\PlayerStats.cs" />
     <Compile Include="Assets\Scripts\ScreenManager.cs" />
     <Compile Include="Assets\Scripts\SortingOrder.cs" />
     <Compile Include="Assets\Scripts\SwordController.cs" />
