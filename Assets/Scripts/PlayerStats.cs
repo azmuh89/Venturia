@@ -6,7 +6,7 @@ public class PlayerStats : MonoBehaviour
 {
     public Healthbar healthbar;
     public float maxHealth;
-    public int bronze, silver, gold, platinum;
+    public int copper, silver, gold, platinum;
 
     [HideInInspector]
     public int experience;
@@ -33,10 +33,11 @@ public class PlayerStats : MonoBehaviour
 
     private int baseMaxHealth, baseMaxMana, baseMaxEnergy;
     private int currentHealth, currentMana, currentEnergy;
-    private int maxBronze, maxSilver, maxGold;
+    private int maxCopper, maxSilver, maxGold;
     private int maxExp;
     private int level;
     private string profession;
+    private string rank;
 
     void Start()
     {

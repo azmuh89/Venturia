@@ -11,7 +11,6 @@ public class EnemyController : MonoBehaviour
 
     public int maxHealth, maxMana;
     public int dropExperience;
-    public int dropMoney;
     public float damage;
     public float armor;
     public float magicDamage;

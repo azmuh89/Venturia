@@ -6,6 +6,7 @@ public class SwordController : PlayerController
 {
     public BoxCollider2D bc1, bc2, bc3, bc4;
     public int weaponDamage;
+    public int cost;
 
     void Update()
     {
