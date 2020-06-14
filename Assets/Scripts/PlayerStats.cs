@@ -41,11 +41,12 @@ public class PlayerStats : MonoBehaviour
 
     void Start()
     {
-        healthbar.SetMaxHealth(baseMaxHealth);
+        //healthbar.SetMaxHealth(baseMaxHealth);
         currentHealth = baseMaxHealth;
         currentMana = baseMaxMana;
         currentEnergy = baseMaxEnergy;
 
+        damage = 1;
         level = 1;
         karma = 0;
         experience = 0;

@@ -247,7 +247,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3935f5eec0c330e4e85979bf0844b888, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slider: {fileID: 1343613366}
+  healthSlider: {fileID: 1343613366}
+  manaSlider: {fileID: 0}
+  energySlider: {fileID: 0}
 --- !u!1 &1356900990
 GameObject:
   m_ObjectHideFlags: 0
@@ -465,11 +467,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthbar: {fileID: 1343613367}
-  spawn: {fileID: 1676794120605056417, guid: 102971956bbded24992dc3842f9bf2d9, type: 3}
-  maxHealth: 5
   speed: 7
   startingDistance: 8
   stoppingDistance: 2
+  maxHealth: 5
+  maxMana: 0
+  dropExperience: 0
+  damage: 0
+  armor: 0
+  magicDamage: 0
+  magicResist: 0
+  aim: 0
+  evasion: 0
 --- !u!61 &4199918447106894223
 BoxCollider2D:
   m_ObjectHideFlags: 0

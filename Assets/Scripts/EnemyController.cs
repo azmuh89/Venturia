@@ -78,13 +78,13 @@ public class EnemyController : MonoBehaviour
 
     void TakeDamage()
     {
-        if (playerStats.aim >= evasion)
+        if (playerStats.aim >= evasion && playerStats.aim < (evasion * 2))
         {
             currentHealth -= (int)playerStats.damage;
             healthbar.SetHealth(currentHealth);
             rb2d.AddForce(direction.normalized * 20, ForceMode2D.Impulse);
         }
-        else if (playerStats.aim > evasion * 2)
+        else if (playerStats.aim > (evasion * 2))
         {
             currentHealth -= (int)(playerStats.damage * 2);
             healthbar.SetHealth(currentHealth);
