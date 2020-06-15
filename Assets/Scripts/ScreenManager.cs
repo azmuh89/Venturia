@@ -10,6 +10,7 @@ public class ScreenManager : MonoBehaviour
     public GameObject menuCanvas;
     public GameObject optionsMenu;
     public GameObject equipmentMenu;
+    public GameObject statsMenu;
     public Toggle fullScreen;
     public Dropdown resolutionDropdown;
 
@@ -34,6 +35,10 @@ public class ScreenManager : MonoBehaviour
             else if (equipmentMenu.activeInHierarchy)
             {
                 equipmentMenu.SetActive(false);
+            }
+            else if (statsMenu.activeInHierarchy)
+            {
+                statsMenu.SetActive(false);
             }
             // add else if for other menus
             else

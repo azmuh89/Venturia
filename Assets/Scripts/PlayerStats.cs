@@ -1,32 +1,39 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerStats : MonoBehaviour
 {
     public Healthbar healthbar;
-    public float maxHealth;
-    public int copper, silver, gold, platinum;
+    public Text healthText, manaText, energyText,
+        damageText, defenceText, mDamageText, mDefenceText,
+        aimText, evasionText, levelText, experienceText,
+        luckText, karmaText, professionText, adventurerRankText,
+        copperText, silverText, goldText, platinumText;
 
+    [HideInInspector]
+    public int copper, silver, gold, platinum;
     [HideInInspector]
     public int experience;
     [HideInInspector]
     public int karma;
     [HideInInspector]
+    public int luck;
+    [HideInInspector]
     public float
         damage,
-        armor,
+        defence,
         magicDamage,
-        magicResist,
+        magicDefence,
         aim,
-        evasion,
-        luck;
+        evasion;
     
     private float
         baseDamage,
-        baseArmor,
+        baseDefence,
         baseMDamage,
-        baseMResist,
+        baseMDefence,
         baseAim,
         baseEvasion,
         baseLuck;
@@ -37,11 +44,13 @@ public class PlayerStats : MonoBehaviour
     private int maxExp;
     private int level;
     private string profession;
-    private string rank;
+    private string adventurerRank;
 
     void Start()
     {
-        //healthbar.SetMaxHealth(baseMaxHealth);
+        healthbar.SetMaxHealth(baseMaxHealth);
+        healthbar.SetMaxMana(baseMaxMana);
+        healthbar.SetMaxEnergy(baseMaxEnergy);
         currentHealth = baseMaxHealth;
         currentMana = baseMaxMana;
         currentEnergy = baseMaxEnergy;
@@ -53,18 +62,23 @@ public class PlayerStats : MonoBehaviour
         maxExp = 100;
 
         baseDamage = 5;
-        baseArmor = 3;
+        baseDefence = 3;
         baseMDamage = 0;
-        baseMResist = 0;
+        baseMDefence = 0;
         baseAim = 2;
         baseEvasion = 1;
         baseLuck = 1;
+
+        profession = "N/A";
+        adventurerRank = "N/A";
 
         TotalStats();
     }
     
     void Update()
     {
+        SetStatsText();
+
         if (experience >= maxExp)
         {
             LevelUp();
@@ -75,9 +89,9 @@ public class PlayerStats : MonoBehaviour
     {
         // maxHealth = baseMaxHealth + armor.health;
         // damage = baseDamage + weapon.damage + acc.damage;
-        // armor = baseArmor + armor.defence + acc.armor;
+        // defence = baseArmor + armor.defence + acc.armor;
         // magicDamage = baseMDamage + magicWeapon.damage + acc.magicDamage;
-        // magicResist = baseMResist + armor.magicResist + acc.magicResist;
+        // magicDefence = baseMResist + armor.magicResist + acc.magicResist;
         // aim = baseAim + weapon.aim + acc.aim;
         // evasion = baseEvasion + armor.evasion + acc.evasion;
     }
@@ -89,10 +103,33 @@ public class PlayerStats : MonoBehaviour
         maxExp += level * 50;
         baseMaxHealth += level * 3;
         baseDamage += level * 0.6f;
-        baseArmor += level * 0.375f;
+        baseDefence += level * 0.375f;
         baseMDamage += level; // TODO
-        baseMResist += level; // TODO
+        baseMDefence += level; // TODO
         baseAim += level * 0.33f;
         baseEvasion += level * 0.3f;
+    }
+
+    void SetStatsText()
+    {
+        healthText.text = currentHealth + "/" + baseMaxHealth;
+        manaText.text = currentMana + "/" + baseMaxMana;
+        energyText.text = currentEnergy + "/" + baseMaxEnergy;
+        damageText.text = damage.ToString("F1");
+        defenceText.text = defence.ToString("F1");
+        mDamageText.text = magicDamage.ToString("F1");
+        mDefenceText.text = magicDefence.ToString("F1");
+        aimText.text = aim.ToString("F2");
+        evasionText.text = evasion.ToString("F2");
+        levelText.text = level.ToString();
+        experienceText.text = experience + "/" + maxExp;
+        luckText.text = luck.ToString();
+        karmaText.text = karma.ToString();
+        professionText.text = profession;
+        adventurerRankText.text = adventurerRank;
+        copperText.text = copper.ToString();
+        silverText.text = silver.ToString();
+        goldText.text = gold.ToString();
+        platinumText.text = platinum.ToString();
     }
 }

@@ -12,9 +12,9 @@ public class EnemyController : MonoBehaviour
     public int maxHealth, maxMana;
     public int dropExperience;
     public float damage;
-    public float armor;
+    public float defence;
     public float magicDamage;
-    public float magicResist;
+    public float magicDefence;
     public float aim;
     public float evasion;
     
@@ -78,7 +78,7 @@ public class EnemyController : MonoBehaviour
 
     void TakeDamage()
     {
-        if (playerStats.aim >= evasion && playerStats.aim < (evasion * 2))
+        if (playerStats.aim >= evasion && playerStats.aim <= (evasion * 2))
         {
             currentHealth -= (int)playerStats.damage;
             healthbar.SetHealth(currentHealth);
