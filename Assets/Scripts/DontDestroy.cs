@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class DontDestroy : MonoBehaviour
 {
-    private DontDestroy instance;
+    private static DontDestroy instance;
     private Scene scene;
 
     void Awake()
