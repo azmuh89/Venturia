@@ -2152,6 +2152,7 @@ GameObject:
   - component: {fileID: 2580309404942892035}
   - component: {fileID: 2580309404942892034}
   - component: {fileID: 2580309404942892093}
+  - component: {fileID: 2848777468540316616}
   m_Layer: 5
   m_Name: MenuCanvas
   m_TagString: Menu
@@ -2246,6 +2247,18 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &2848777468540316616
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2580309404942892092}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e66c098bfd3ab8243b338892e518d497, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2580309405041158610
 GameObject:
   m_ObjectHideFlags: 0

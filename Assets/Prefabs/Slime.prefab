@@ -474,9 +474,9 @@ MonoBehaviour:
   maxMana: 0
   dropExperience: 5
   damage: 1
-  armor: 0
+  defence: 0
   magicDamage: 0
-  magicResist: 0
+  magicDefence: 0
   aim: 0.5
   evasion: 1
 --- !u!61 &4199918447106894223
@@ -518,7 +518,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 20
+  m_LinearDrag: 10
   m_AngularDrag: 20
   m_GravityScale: 0
   m_Material: {fileID: 0}

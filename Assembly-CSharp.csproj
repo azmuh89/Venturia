@@ -64,6 +64,7 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\CameraFollow.cs" />
     <Compile Include="Assets\Scripts\DialogueTrigger.cs" />
+    <Compile Include="Assets\Scripts\DontDestroy.cs" />
     <Compile Include="Assets\Scripts\EnemyController.cs" />
     <Compile Include="Assets\Scripts\EnemySpawn.cs" />
     <Compile Include="Assets\Scripts\EquipManager.cs" />
@@ -76,8 +77,6 @@
     <Compile Include="Assets\Scripts\ScreenManager.cs" />
     <Compile Include="Assets\Scripts\SortingOrder.cs" />
     <Compile Include="Assets\Scripts\SwordController.cs" />
-    <Compile Include="Assets\Scripts\TestStats.cs" />
-    <Compile Include="Assets\Scripts\TileGenerator.cs" />
     <None Include="Assets\Fonts\Pixel Font\_README.txt" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>C:/RPG/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
@@ -111,6 +110,12 @@
     </Reference>
     <Reference Include="UnityEditor.UI">
       <HintPath>C:/RPG/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="Cinemachine">
+      <HintPath>C:/RPG/Library/ScriptAssemblies/Cinemachine.dll</HintPath>
+    </Reference>
+    <Reference Include="com.unity.cinemachine.editor">
+      <HintPath>C:/RPG/Library/ScriptAssemblies/com.unity.cinemachine.editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.2.6f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>

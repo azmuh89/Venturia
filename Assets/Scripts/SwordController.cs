@@ -35,41 +35,36 @@ public class SwordController : PlayerController
 
         if (Input.GetMouseButtonDown(0))
         {
-            if (this.gameObject.activeInHierarchy && Time.timeScale > 0)
+            //if (this.gameObject.activeInHierarchy)
             {
-                Attack();
+                animator.SetTrigger("Attack");
+                EnableColliders();
             }
 
             StartCoroutine("DisableColliders");
         }
     }
 
-    void Attack()
+    void EnableColliders()
     {
-        Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        
-        if (mousePosition.x > transform.position.x && mousePosition.y > transform.position.y - 3 && mousePosition.y < transform.position.y + 3)
+        if (animator.GetBool("MovingDown") == true)
         {
-            animator.SetTrigger("AttackRight");
-            bc4.enabled = true;
-        }
-        else if (mousePosition.x < transform.position.x && mousePosition.y > transform.position.y - 3 && mousePosition.y < transform.position.y + 3)
-        {
-            animator.SetTrigger("AttackLeft");
-            bc2.enabled = true;
-        }
-        else if (mousePosition.y > transform.position.y)
-        {
-            animator.SetTrigger("AttackUp");
-            bc3.enabled = true;
-        }
-        else if (mousePosition.y < transform.position.y)
-        {
-            animator.SetTrigger("AttackDown");
             bc1.enabled = true;
         }
+        if (animator.GetBool("MovingLeft") == true)
+        {
+            bc2.enabled = true;
+        }
+        if (animator.GetBool("MovingUp") == true)
+        {
+            bc3.enabled = true;
+        }
+        if (animator.GetBool("MovingRight") == true)
+        {
+            bc4.enabled = true;
+        }
     }
-
+    
     IEnumerator DisableColliders()
     {
         yield return new WaitForSeconds(0.2f);
