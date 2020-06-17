@@ -6,7 +6,6 @@ using UnityEngine.UI;
 
 public class ScreenManager : MonoBehaviour
 {
-    private static ScreenManager instance;
     private GameObject menuCanvas;
     private GameObject optionsMenu, statsMenu, equipmentMenu;
     private Toggle fullScreen;
@@ -14,17 +13,6 @@ public class ScreenManager : MonoBehaviour
 
     void Awake()
     {
-        DontDestroyOnLoad(this);
-
-        if (instance == null)
-        {
-            instance = this;
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
-
         menuCanvas = GameObject.Find("MenuCanvas");
 
         if (menuCanvas != null)

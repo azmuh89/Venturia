@@ -5,11 +5,16 @@ using UnityEngine.UI;
 
 public class PlayerStats : MonoBehaviour
 {
-    public Text healthText, manaText, energyText,
-        damageText, defenceText, mDamageText, mDefenceText,
-        aimText, evasionText, levelText, experienceText,
-        luckText, karmaText, professionText, adventurerRankText,
-        copperText, silverText, goldText, platinumText;
+    public int currentHealth { get; private set; }
+    public int currentMana { get; private set; }
+    public int currentEnergy { get; private set; }
+    public int maxHealth { get; private set; }
+    public int maxMana { get; private set; }
+    public int maxEnergy { get; private set; }
+    public int maxExp { get; private set; }
+    public int level { get; private set; }
+    public string profession { get; private set; }
+    public string adventurerRank { get; private set; }
 
     [HideInInspector]
     public int copper, silver, gold, platinum;
@@ -42,20 +47,38 @@ public class PlayerStats : MonoBehaviour
     private Armor armor;
     private Accessories acc;
     private int baseMaxHealth, baseMaxMana, baseMaxEnergy;
-    private int maxHealth, maxMana, maxEnergy;
-    private int currentHealth, currentMana, currentEnergy;
     private int maxCopper, maxSilver, maxGold;
-    private int maxExp;
-    private int level;
-    private string profession;
-    private string adventurerRank;
 
     void Awake()
     {
         healthbar = GameObject.Find("HUDCanvas").GetComponentInChildren<Healthbar>();
-        weapon = GameObject.FindGameObjectWithTag("Weapon").GetComponent<Weapon>();
-        //armor = GameObject.FindGameObjectWithTag("Armor").GetComponent<Armor>();
-        //acc = GameObject.FindGameObjectWithTag("Accessory").GetComponent<Accessories>();
+
+        if (GameObject.FindGameObjectWithTag("Weapon") == null)
+        {
+            weapon = null;
+        }
+        else
+        {
+            weapon = GameObject.FindGameObjectWithTag("Weapon").GetComponent<Weapon>();
+        }
+
+        if (GameObject.FindGameObjectWithTag("Armor") == null)
+        {
+            armor = null;
+        }
+        else
+        {
+            armor = GameObject.FindGameObjectWithTag("Armor").GetComponent<Armor>();
+        }
+
+        if (GameObject.FindGameObjectWithTag("Accessory") == null)
+        {
+            acc = null;
+        }
+        else
+        {
+            acc = GameObject.FindGameObjectWithTag("Accessory").GetComponent<Accessories>();
+        }
     }
 
     void Start()
@@ -95,7 +118,6 @@ public class PlayerStats : MonoBehaviour
     void Update()
     {
         TotalStats();
-        SetStatsText();
 
         if (experience >= maxExp)
         {
@@ -130,28 +152,5 @@ public class PlayerStats : MonoBehaviour
         baseMDefence += level; // TODO
         baseAim += level * 0.33f;
         baseEvasion += level * 0.3f;
-    }
-
-    void SetStatsText()
-    {
-        healthText.text = currentHealth + "/" + maxHealth;
-        manaText.text = currentMana + "/" + maxMana;
-        energyText.text = currentEnergy + "/" + maxEnergy;
-        damageText.text = damage.ToString("F1");
-        defenceText.text = defence.ToString("F1");
-        mDamageText.text = magicDamage.ToString("F1");
-        mDefenceText.text = magicDefence.ToString("F1");
-        aimText.text = aim.ToString("F2");
-        evasionText.text = evasion.ToString("F2");
-        levelText.text = level.ToString();
-        experienceText.text = experience + "/" + maxExp;
-        luckText.text = luck.ToString();
-        karmaText.text = karma.ToString();
-        professionText.text = profession;
-        adventurerRankText.text = adventurerRank;
-        copperText.text = copper.ToString();
-        silverText.text = silver.ToString();
-        goldText.text = gold.ToString();
-        platinumText.text = platinum.ToString();
     }
 }
