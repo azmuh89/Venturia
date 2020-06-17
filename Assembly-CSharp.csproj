@@ -62,9 +62,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\Accessories.cs" />
+    <Compile Include="Assets\Scripts\Armor.cs" />
     <Compile Include="Assets\Scripts\CameraFollow.cs" />
     <Compile Include="Assets\Scripts\DialogueTrigger.cs" />
-    <Compile Include="Assets\Scripts\DontDestroy.cs" />
     <Compile Include="Assets\Scripts\EnemyController.cs" />
     <Compile Include="Assets\Scripts\EnemySpawn.cs" />
     <Compile Include="Assets\Scripts\EquipManager.cs" />
@@ -77,6 +78,7 @@
     <Compile Include="Assets\Scripts\ScreenManager.cs" />
     <Compile Include="Assets\Scripts\SortingOrder.cs" />
     <Compile Include="Assets\Scripts\SwordController.cs" />
+    <Compile Include="Assets\Scripts\Weapon.cs" />
     <None Include="Assets\Fonts\Pixel Font\_README.txt" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>C:/RPG/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>

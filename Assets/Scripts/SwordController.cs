@@ -5,8 +5,6 @@ using UnityEngine;
 public class SwordController : PlayerController
 {
     public BoxCollider2D bc1, bc2, bc3, bc4;
-    public int damage, magicDamage, aim, evasion;
-    public int cost;
 
     void Update()
     {
@@ -35,7 +33,7 @@ public class SwordController : PlayerController
 
         if (Input.GetMouseButtonDown(0))
         {
-            //if (this.gameObject.activeInHierarchy)
+            if (Time.timeScale > 0)
             {
                 animator.SetTrigger("Attack");
                 EnableColliders();

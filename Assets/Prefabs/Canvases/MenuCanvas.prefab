@@ -331,7 +331,8 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 2955503951477111252, guid: 917aef8eb3e70644a8ef0202a02ab52d,
+          type: 3}
         m_MethodName: ScreenResolution
         m_Mode: 1
         m_Arguments:
@@ -2129,7 +2130,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 2955503951477111252, guid: 917aef8eb3e70644a8ef0202a02ab52d,
+          type: 3}
         m_MethodName: QuitGame
         m_Mode: 1
         m_Arguments:
@@ -2441,7 +2443,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 2955503951477111252, guid: 917aef8eb3e70644a8ef0202a02ab52d,
+          type: 3}
         m_MethodName: LoadScene
         m_Mode: 5
         m_Arguments:
@@ -2452,7 +2455,8 @@ MonoBehaviour:
           m_StringArgument: MainMenu
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 2955503951477111252, guid: 917aef8eb3e70644a8ef0202a02ab52d,
+          type: 3}
         m_MethodName: DestroyDontDestroy
         m_Mode: 1
         m_Arguments:
@@ -5676,7 +5680,8 @@ MonoBehaviour:
   onValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 2955503951477111252, guid: 917aef8eb3e70644a8ef0202a02ab52d,
+          type: 3}
         m_MethodName: FullScreenToggle
         m_Mode: 0
         m_Arguments:

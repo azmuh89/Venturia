@@ -40432,7 +40432,7 @@ PrefabInstance:
     - target: {fileID: 2218396224190540616, guid: ef827dd6878348644a32a76ac54578e6,
         type: 3}
       propertyPath: m_Name
-      value: GUICanvas
+      value: HUDCanvas
       objectReference: {fileID: 0}
     - target: {fileID: 2218396224190540628, guid: ef827dd6878348644a32a76ac54578e6,
         type: 3}

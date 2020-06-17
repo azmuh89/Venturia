@@ -66,8 +66,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: -31455897956546253}
   menuCanvas: {fileID: 0}
-  optionsMenu: {fileID: 0}
-  equipmentMenu: {fileID: 0}
   fullScreen: {fileID: 0}
   resolutionDropdown: {fileID: 0}
 --- !u!1 &5991309115608027377

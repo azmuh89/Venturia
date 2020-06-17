@@ -8,15 +8,30 @@ public class ScreenManager : MonoBehaviour
 {
     public Animator animator;
     public GameObject menuCanvas;
-    public GameObject optionsMenu;
-    public GameObject equipmentMenu;
-    public GameObject statsMenu;
     public Toggle fullScreen;
     public Dropdown resolutionDropdown;
 
+    private static ScreenManager instance;
+    private GameObject optionsMenu, statsMenu, equipmentMenu;
+
     void Awake()
     {
+        DontDestroyOnLoad(this);
+
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+
         fullScreen.isOn = intToBool(PlayerPrefs.GetInt("FullScreen"));
+
+        optionsMenu = menuCanvas.transform.Find("OptionsMenu").gameObject;
+        statsMenu = menuCanvas.transform.Find("StatsMenu").gameObject;
+        equipmentMenu = menuCanvas.transform.Find("EquipmentMenu").gameObject;
     }
 
     void Update()

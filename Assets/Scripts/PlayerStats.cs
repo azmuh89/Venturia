@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class PlayerStats : MonoBehaviour
 {
-    public Healthbar healthbar;
     public Text healthText, manaText, energyText,
         damageText, defenceText, mDamageText, mDefenceText,
         aimText, evasionText, levelText, experienceText,
@@ -38,7 +37,12 @@ public class PlayerStats : MonoBehaviour
         baseEvasion,
         baseLuck;
 
+    private Healthbar healthbar;
+    private Weapon weapon;
+    private Armor armor;
+    private Accessories acc;
     private int baseMaxHealth, baseMaxMana, baseMaxEnergy;
+    private int maxHealth, maxMana, maxEnergy;
     private int currentHealth, currentMana, currentEnergy;
     private int maxCopper, maxSilver, maxGold;
     private int maxExp;
@@ -46,14 +50,23 @@ public class PlayerStats : MonoBehaviour
     private string profession;
     private string adventurerRank;
 
+    void Awake()
+    {
+        healthbar = GameObject.Find("HUDCanvas").GetComponentInChildren<Healthbar>();
+        weapon = GameObject.FindGameObjectWithTag("Weapon").GetComponent<Weapon>();
+        //armor = GameObject.FindGameObjectWithTag("Armor").GetComponent<Armor>();
+        //acc = GameObject.FindGameObjectWithTag("Accessory").GetComponent<Accessories>();
+    }
+
     void Start()
     {
+        baseMaxHealth = 15;
+        baseMaxMana = 10;
+        baseMaxEnergy = 10;
+
         healthbar.SetMaxHealth(baseMaxHealth);
         healthbar.SetMaxMana(baseMaxMana);
         healthbar.SetMaxEnergy(baseMaxEnergy);
-        currentHealth = baseMaxHealth;
-        currentMana = baseMaxMana;
-        currentEnergy = baseMaxEnergy;
 
         damage = 1;
         level = 1;
@@ -73,10 +86,15 @@ public class PlayerStats : MonoBehaviour
         adventurerRank = "N/A";
 
         TotalStats();
+
+        currentHealth = maxHealth;
+        currentMana = maxMana;
+        currentEnergy = maxEnergy;
     }
     
     void Update()
     {
+        TotalStats();
         SetStatsText();
 
         if (experience >= maxExp)
@@ -87,13 +105,15 @@ public class PlayerStats : MonoBehaviour
 
     void TotalStats()
     {
-        // maxHealth = baseMaxHealth + armor.health;
-        // damage = baseDamage + weapon.damage + acc.damage;
-        // defence = baseArmor + armor.defence + acc.armor;
-        // magicDamage = baseMDamage + magicWeapon.damage + acc.magicDamage;
-        // magicDefence = baseMResist + armor.magicResist + acc.magicResist;
-        // aim = baseAim + weapon.aim + acc.aim;
-        // evasion = baseEvasion + armor.evasion + acc.evasion;
+        maxHealth = baseMaxHealth;// + armor.health + acc.health;
+        maxMana = baseMaxMana;// + armor.mana + acc.mana;
+        maxEnergy = baseMaxEnergy;// + armor.energy + acc.energy;
+        damage = baseDamage + weapon.damage;
+        defence = baseDefence;// + armor.defence + acc.defence;
+        magicDamage = baseMDamage + weapon.magicDamage;
+        magicDefence = baseMDefence;// + armor.magicDefence + acc.magicDefence;
+        aim = baseAim + weapon.aim;// + acc.aim;
+        evasion = baseEvasion;// + armor.evasion + acc.evasion;
     }
 
     void LevelUp()
@@ -102,6 +122,8 @@ public class PlayerStats : MonoBehaviour
         experience = 0;
         maxExp += level * 50;
         baseMaxHealth += level * 3;
+        baseMaxMana += level * 2;
+        baseMaxEnergy += level;
         baseDamage += level * 0.6f;
         baseDefence += level * 0.375f;
         baseMDamage += level; // TODO
@@ -112,9 +134,9 @@ public class PlayerStats : MonoBehaviour
 
     void SetStatsText()
     {
-        healthText.text = currentHealth + "/" + baseMaxHealth;
-        manaText.text = currentMana + "/" + baseMaxMana;
-        energyText.text = currentEnergy + "/" + baseMaxEnergy;
+        healthText.text = currentHealth + "/" + maxHealth;
+        manaText.text = currentMana + "/" + maxMana;
+        energyText.text = currentEnergy + "/" + maxEnergy;
         damageText.text = damage.ToString("F1");
         defenceText.text = defence.ToString("F1");
         mDamageText.text = magicDamage.ToString("F1");

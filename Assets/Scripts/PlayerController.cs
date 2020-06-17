@@ -13,7 +13,34 @@ public class PlayerController : MonoBehaviour
     public Vector2 movement;
     [HideInInspector]
     public bool isRunning = false;
-    
+
+    private static PlayerController instance;
+    private Scene scene;
+
+    void Awake()
+    {
+        scene = SceneManager.GetActiveScene();
+
+        if (scene.name == "MainMenu")
+        {
+            Destroy(gameObject);
+        }
+
+        if (this.gameObject.name == "Player")
+        {
+            DontDestroyOnLoad(this);
+
+            if (instance == null)
+            {
+                instance = this;
+            }
+            else
+            {
+                Destroy(gameObject);
+            }
+        }
+    }
+
     void Update()
     {
         movement.x = Input.GetAxisRaw("Horizontal");
