@@ -203,7 +203,7 @@ GameObject:
   - component: {fileID: 3063052526423988196}
   - component: {fileID: 8934133079453617572}
   m_Layer: 5
-  m_Name: Dropdown
+  m_Name: ResolutionDropdown
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

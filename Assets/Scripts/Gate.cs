@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class Gate : MonoBehaviour
 {
     public string sceneName;
-
+    
     private GameObject player;
     private Vector3 playerBounds;
     private Scene scene;
@@ -20,6 +20,7 @@ public class Gate : MonoBehaviour
         {
             gateName = this.transform.name;
             SceneManager.LoadScene(sceneName);
+            SceneFade.instance.Fade();
         }
 
         Vector3 gateBounds = this.GetComponent<Collider2D>().bounds.center;

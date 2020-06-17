@@ -6,13 +6,11 @@ using UnityEngine.UI;
 
 public class ScreenManager : MonoBehaviour
 {
-    public Animator animator;
-    public GameObject menuCanvas;
-    public Toggle fullScreen;
-    public Dropdown resolutionDropdown;
-
     private static ScreenManager instance;
+    private GameObject menuCanvas;
     private GameObject optionsMenu, statsMenu, equipmentMenu;
+    private Toggle fullScreen;
+    private Dropdown resolutionDropdown;
 
     void Awake()
     {
@@ -27,11 +25,23 @@ public class ScreenManager : MonoBehaviour
             Destroy(gameObject);
         }
 
-        fullScreen.isOn = intToBool(PlayerPrefs.GetInt("FullScreen"));
+        menuCanvas = GameObject.Find("MenuCanvas");
 
-        optionsMenu = menuCanvas.transform.Find("OptionsMenu").gameObject;
-        statsMenu = menuCanvas.transform.Find("StatsMenu").gameObject;
-        equipmentMenu = menuCanvas.transform.Find("EquipmentMenu").gameObject;
+        if (menuCanvas != null)
+        {
+            optionsMenu = menuCanvas.transform.Find("OptionsMenu").gameObject;
+            statsMenu = menuCanvas.transform.Find("StatsMenu").gameObject;
+            equipmentMenu = menuCanvas.transform.Find("EquipmentMenu").gameObject;
+
+            fullScreen = optionsMenu.transform.Find("FullscreenToggle").GetComponent<Toggle>();
+            resolutionDropdown = optionsMenu.transform.Find("ResolutionDropdown").GetComponent<Dropdown>();
+        }
+    }
+
+    void Start()
+    {
+        menuCanvas.SetActive(false);
+        fullScreen.isOn = intToBool(PlayerPrefs.GetInt("FullScreen"));
     }
 
     void Update()
@@ -68,7 +78,7 @@ public class ScreenManager : MonoBehaviour
     {
         Time.timeScale = 1;
         SceneManager.LoadScene(sceneID);
-        animator.SetTrigger("FadeOut");
+        SceneFade.instance.Fade();
     }
 
     public void DestroyDontDestroy()
