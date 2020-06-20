@@ -6,10 +6,16 @@ public class SwordController : PlayerController
 {
     public BoxCollider2D bc1, bc2, bc3, bc4;
     private PlayerController playerController;
+    private BoxCollider2D playerCollider;
 
     void Awake()
     {
+        playerCollider = transform.parent.GetComponent<BoxCollider2D>();
         playerController = transform.parent.GetComponent<PlayerController>();
+        Physics2D.IgnoreCollision(bc1, playerCollider);
+        Physics2D.IgnoreCollision(bc2, playerCollider);
+        Physics2D.IgnoreCollision(bc3, playerCollider);
+        Physics2D.IgnoreCollision(bc4, playerCollider);
     }
 
     void Update()

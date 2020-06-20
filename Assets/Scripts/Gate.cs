@@ -76,13 +76,11 @@ public class Gate : MonoBehaviour
         {
             player.transform.position = new Vector3(bounds.center.x, bounds.center.y + 3, 0);
             up = false;
-            Debug.Log("Up is false now: " + up);
         }
         else if (down)
         {
             player.transform.position = new Vector3(bounds.center.x, bounds.center.y - 3, 0);
             down = false;
-            Debug.Log("Down is false now: " + down);
         }
         else if (right)
         {
