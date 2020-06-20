@@ -11,11 +11,11 @@ public class PlayerController : MonoBehaviour
 
     [HideInInspector]
     public Vector2 movement;
-    [HideInInspector]
-    public bool isRunning = false;
 
     private static PlayerController instance;
     private Scene scene;
+    private bool isRunning;
+    private bool swordActive;
 
     void Awake()
     {
@@ -65,8 +65,22 @@ public class PlayerController : MonoBehaviour
                 isRunning = false;
             }
         }
-    }
 
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            if (!swordActive && animator.GetLayerWeight(1) == 1f)
+            {
+                swordActive = true;
+                animator.SetLayerWeight(2, 1f);
+            }
+            else
+            {
+                swordActive = false;
+                animator.SetLayerWeight(2, 0f);
+            }
+        }
+    }
+    
     public void FixedUpdate()
     {
         rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);

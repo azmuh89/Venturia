@@ -5,6 +5,12 @@ using UnityEngine;
 public class SwordController : PlayerController
 {
     public BoxCollider2D bc1, bc2, bc3, bc4;
+    private PlayerController playerController;
+
+    void Awake()
+    {
+        playerController = transform.parent.GetComponent<PlayerController>();
+    }
 
     void Update()
     {
@@ -16,24 +22,10 @@ public class SwordController : PlayerController
         animator.SetFloat("Horizontal", movement.x);
         animator.SetFloat("Vertical", movement.y);
         animator.SetFloat("Speed", movement.sqrMagnitude);
-
-        if (Input.GetKeyDown(KeyCode.LeftShift))
-        {
-            if (!isRunning)
-            {
-                moveSpeed = 12f;
-                isRunning = true;
-            }
-            else
-            {
-                moveSpeed = 5f;
-                isRunning = false;
-            }
-        }
-
+        
         if (Input.GetMouseButtonDown(0))
         {
-            if (Time.timeScale > 0)
+            if (playerController.animator.GetLayerWeight(2) == 1f && Time.timeScale > 0)
             {
                 animator.SetTrigger("Attack");
                 EnableColliders();

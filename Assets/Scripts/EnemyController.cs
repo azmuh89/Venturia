@@ -22,7 +22,6 @@ public class EnemyController : MonoBehaviour
     private Rigidbody2D rb2d;
     private Vector2 direction;
     private Vector3 startPos;
-    private SwordController sword;
     private PlayerStats playerStats;
     private int currentHealth;
     private int currentMana;
@@ -33,8 +32,8 @@ public class EnemyController : MonoBehaviour
         target = GameObject.FindGameObjectWithTag("Player").transform;
         rb2d = GetComponent<Rigidbody2D>();
         startPos = transform.position;
-        sword = GameObject.FindGameObjectWithTag("Weapon").GetComponent<SwordController>();
         playerStats = GameObject.Find("Player").GetComponent<PlayerStats>();
+
         currentHealth = maxHealth;
         currentMana = maxMana;
         healthbar.SetMaxHealth(maxHealth);

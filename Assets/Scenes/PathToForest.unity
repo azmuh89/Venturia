@@ -2078,6 +2078,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d10859ed6946a0b46a1040627bbf5abd, type: 3}
+--- !u!114 &496243791 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6680100676465986829, guid: d10859ed6946a0b46a1040627bbf5abd,
+    type: 3}
+  m_PrefabInstance: {fileID: 496243790}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2954fcebe2b840438188746b3f03e5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &530385051
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2709,11 +2721,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: MenuCanvas
       objectReference: {fileID: 0}
-    - target: {fileID: 2580309404942892092, guid: 651c394bd0b1b6d4b83ed03a5b2142bf,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8934133079453617572, guid: 651c394bd0b1b6d4b83ed03a5b2142bf,
         type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -2724,6 +2731,11 @@ PrefabInstance:
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 133550416}
+    - target: {fileID: 6950847792215095882, guid: 651c394bd0b1b6d4b83ed03a5b2142bf,
+        type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 496243791}
     - target: {fileID: 2580309404942892032, guid: 651c394bd0b1b6d4b83ed03a5b2142bf,
         type: 3}
       propertyPath: m_LocalPosition.x

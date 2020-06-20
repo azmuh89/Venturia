@@ -7,11 +7,13 @@ public class EquipManager : MonoBehaviour
 {
     public Toggle swordToggle;
     private GameObject sword;
+    private PlayerController playerController;
 
     void Awake()
     {
-        sword = GameObject.FindGameObjectWithTag("Weapon");
-        swordToggle.isOn = true;
+        sword = GameObject.Find("Player").transform.Find("Sword").gameObject;
+        playerController = GameObject.Find("Player").GetComponent<PlayerController>();
+        swordToggle.isOn = false;
     }
 
     public void EquipSword(bool isEquipped)
@@ -19,10 +21,12 @@ public class EquipManager : MonoBehaviour
         if (isEquipped)
         {
             sword.SetActive(true);
+            playerController.animator.SetLayerWeight(1, 1f);
         }
         else
         {
             sword.SetActive(false);
+            playerController.animator.SetLayerWeight(1, 0f);
         }
     }
 }
