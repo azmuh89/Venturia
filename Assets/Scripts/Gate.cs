@@ -16,7 +16,7 @@ public class Gate : MonoBehaviour
     
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.transform.name == "Player")
+        if (collision.transform.tag == "Player")
         {
             gateName = this.transform.name;
             SceneManager.LoadScene(sceneName);
@@ -24,6 +24,7 @@ public class Gate : MonoBehaviour
         }
 
         Vector3 gateBounds = this.GetComponent<Collider2D>().bounds.center;
+        playerBounds = player.GetComponent<Collider2D>().bounds.center;
 
         if (playerBounds.y < gateBounds.y)
         {
@@ -56,7 +57,6 @@ public class Gate : MonoBehaviour
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         player = GameObject.FindGameObjectWithTag("Player");
-        playerBounds = player.GetComponent<Collider2D>().bounds.center;
 
         if (gateName != null)
         {
@@ -76,11 +76,13 @@ public class Gate : MonoBehaviour
         {
             player.transform.position = new Vector3(bounds.center.x, bounds.center.y + 3, 0);
             up = false;
+            Debug.Log("Up is false now: " + up);
         }
         else if (down)
         {
             player.transform.position = new Vector3(bounds.center.x, bounds.center.y - 3, 0);
             down = false;
+            Debug.Log("Down is false now: " + down);
         }
         else if (right)
         {
