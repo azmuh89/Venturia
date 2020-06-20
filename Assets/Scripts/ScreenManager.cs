@@ -6,32 +6,16 @@ using UnityEngine.UI;
 
 public class ScreenManager : MonoBehaviour
 {
-    private GameObject menuCanvas;
-    private GameObject optionsMenu, statsMenu, equipmentMenu;
-    private Toggle fullScreen;
-    private Dropdown resolutionDropdown;
+    public GameObject menuCanvas;
+    public GameObject optionsMenu, statsMenu, equipmentMenu;
+    public Toggle fullScreen;
+    public Dropdown resolutionDropdown;
 
     void Awake()
     {
-        menuCanvas = GameObject.Find("MenuCanvas");
-
-        if (menuCanvas != null)
-        {
-            optionsMenu = menuCanvas.transform.Find("OptionsMenu").gameObject;
-            statsMenu = menuCanvas.transform.Find("StatsMenu").gameObject;
-            equipmentMenu = menuCanvas.transform.Find("EquipmentMenu").gameObject;
-
-            fullScreen = optionsMenu.transform.Find("FullscreenToggle").GetComponent<Toggle>();
-            resolutionDropdown = optionsMenu.transform.Find("ResolutionDropdown").GetComponent<Dropdown>();
-        }
-    }
-
-    void Start()
-    {
-        menuCanvas.SetActive(false);
         fullScreen.isOn = intToBool(PlayerPrefs.GetInt("FullScreen"));
     }
-
+    
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape) && !menuCanvas.activeInHierarchy)
@@ -68,12 +52,7 @@ public class ScreenManager : MonoBehaviour
         SceneManager.LoadScene(sceneID);
         SceneFade.instance.Fade();
     }
-
-    public void DestroyDontDestroy()
-    {
-        Destroy(GameObject.FindGameObjectWithTag("Player"));
-    }
-
+    
     public void QuitGame()
     {
         Application.Quit();

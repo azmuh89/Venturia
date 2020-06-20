@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class MenuCanvas : MonoBehaviour
 {
-    private Text healthText, manaText, energyText,
+    public Text healthText, manaText, energyText,
         damageText, defenceText, mDamageText, mDefenceText,
         aimText, evasionText, levelText, experienceText,
         luckText, karmaText, professionText, adventurerRankText,
@@ -16,37 +16,13 @@ public class MenuCanvas : MonoBehaviour
     void Awake()
     {
         playerStats = GameObject.Find("Player").GetComponent<PlayerStats>();
-        InitializeTexts();
     }
 
     void Update()
     {
         SetStatsText();
     }
-
-    void InitializeTexts()
-    {
-        healthText = transform.Find("StatsMenu/HealthText/Health").GetComponent<Text>();
-        manaText = transform.Find("StatsMenu/ManaText/Mana").GetComponent<Text>();
-        energyText = transform.Find("StatsMenu/EnergyText/Energy").GetComponent<Text>();
-        damageText = transform.Find("StatsMenu/DamageText/Damage").GetComponent<Text>();
-        defenceText = transform.Find("StatsMenu/DefenceText/Defence").GetComponent<Text>();
-        mDamageText = transform.Find("StatsMenu/MDamageText/MDamage").GetComponent<Text>();
-        mDefenceText = transform.Find("StatsMenu/MDefenceText/MDefence").GetComponent<Text>();
-        aimText = transform.Find("StatsMenu/AimText/Aim").GetComponent<Text>();
-        evasionText = transform.Find("StatsMenu/EvasionText/Evasion").GetComponent<Text>();
-        levelText = transform.Find("StatsMenu/LevelText/Level").GetComponent<Text>();
-        experienceText = transform.Find("StatsMenu/ExpText/Experience").GetComponent<Text>();
-        luckText = transform.Find("StatsMenu/LuckText/Luck").GetComponent<Text>();
-        karmaText = transform.Find("StatsMenu/KarmaText/Karma").GetComponent<Text>();
-        professionText = transform.Find("StatsMenu/ProfessionText/Class").GetComponent<Text>();
-        adventurerRankText = transform.Find("StatsMenu/RankText/Rank").GetComponent<Text>();
-        copperText = transform.Find("StatsMenu/CopperText/Copper").GetComponent<Text>();
-        silverText = transform.Find("StatsMenu/SilverText/Silver").GetComponent<Text>();
-        goldText = transform.Find("StatsMenu/GoldText/Gold").GetComponent<Text>();
-        platinumText = transform.Find("StatsMenu/PlatText/Platinum").GetComponent<Text>();
-    }
-
+    
     void SetStatsText()
     {
         healthText.text = playerStats.currentHealth + "/" + playerStats.maxHealth;

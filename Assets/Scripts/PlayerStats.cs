@@ -90,8 +90,7 @@ public class PlayerStats : MonoBehaviour
         healthbar.SetMaxHealth(baseMaxHealth);
         healthbar.SetMaxMana(baseMaxMana);
         healthbar.SetMaxEnergy(baseMaxEnergy);
-
-        damage = 1;
+        
         level = 1;
         karma = 0;
         experience = 0;

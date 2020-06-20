@@ -44,5 +44,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   menuCanvas: {fileID: 0}
+  optionsMenu: {fileID: 0}
+  statsMenu: {fileID: 0}
+  equipmentMenu: {fileID: 0}
   fullScreen: {fileID: 0}
   resolutionDropdown: {fileID: 0}
