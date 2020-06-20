@@ -1,67 +1,55 @@
 fileFormatVersion: 2
-guid: c9a51c880fef59c4ab5c879e5d862e73
+guid: 5abfa67361c655f488ab76c89e00e2ad
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2500147820881063676
-    second: Player Walk Cycle_0
+      213: 1906299862123589749
+    second: Player Sword Active_0
   - first:
-      213: 7014906270968449445
-    second: Player Walk Cycle_1
+      213: 8299108924246521675
+    second: Player Sword Active_1
   - first:
-      213: 3467521429769000694
-    second: Player Walk Cycle_2
+      213: 4878998448709124265
+    second: Player Sword Active_2
   - first:
-      213: -884281719200700909
-    second: Player Walk Cycle_3
+      213: -7493037206879115942
+    second: Player Sword Active_3
   - first:
-      213: 8469402469815496379
-    second: Player Walk Cycle_4
+      213: 844325912178524591
+    second: Player Sword Active_4
   - first:
-      213: 2095841811479010165
-    second: Player Walk Cycle_5
+      213: 4922213420678345125
+    second: Player Sword Active_5
   - first:
-      213: -6506171992374065639
-    second: Player Walk Cycle_6
+      213: 6026855089296186245
+    second: Player Sword Active_6
   - first:
-      213: 3560836170768700131
-    second: Player Walk Cycle_7
+      213: -2423011631846927787
+    second: Player Sword Active_7
   - first:
-      213: -6167351264946496517
-    second: Player Walk Cycle_8
+      213: 8749463001325563800
+    second: Player Sword Active_8
   - first:
-      213: -5536489038585376373
-    second: Player Walk Cycle_9
+      213: 5252220089488244638
+    second: Player Sword Active_9
   - first:
-      213: -3728015073341186800
-    second: Player Walk Cycle_10
+      213: 5341056777723085740
+    second: Player Sword Active_10
   - first:
-      213: -7449570715751118034
-    second: Player Walk Cycle_11
+      213: -4580293513092475841
+    second: Player Sword Active_11
   - first:
-      213: 606520577528818810
-    second: Player Walk Cycle_12
+      213: 3475109056403910198
+    second: Player Sword Active_12
   - first:
-      213: 3847166006760351889
-    second: Player Walk Cycle_13
+      213: -1685275304693256095
+    second: Player Sword Active_13
   - first:
-      213: 7050670087833173182
-    second: Player Walk Cycle_14
+      213: 4597694632936276258
+    second: Player Sword Active_14
   - first:
-      213: -2373195425280160802
-    second: Player Walk Cycle_15
-  - first:
-      213: -6913740256809088915
-    second: Player Walk Cycle_16
-  - first:
-      213: -6601906443187621577
-    second: Player Walk Cycle_17
-  - first:
-      213: -4824579207335627233
-    second: Player Walk Cycle_18
-  - first:
-      213: -3630387403699272083
-    second: Player Walk Cycle_19
+      213: 1214672857760106770
+    second: Player Sword Active_15
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -182,12 +170,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Player Walk Cycle_0
+      name: Player Sword Active_0
       rect:
         serializedVersion: 2
         x: 0
         y: 192
-        width: 50
+        width: 64
         height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -196,19 +184,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 390f866ff78f52c49a597140ce8bc6f0
-      internalID: -2500147820881063676
+      spriteID: d1615c02c7c1c404aa079ad3f7f009ab
+      internalID: 1906299862123589749
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player Walk Cycle_1
+      name: Player Sword Active_1
       rect:
         serializedVersion: 2
-        x: 50
+        x: 64
         y: 192
-        width: 50
+        width: 64
         height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -217,19 +205,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1aeb57ed4e3a90340b91c88c1c4eb318
-      internalID: 7014906270968449445
+      spriteID: 977543272f6de6546b9bf69d00cb7722
+      internalID: 8299108924246521675
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player Walk Cycle_2
+      name: Player Sword Active_2
       rect:
         serializedVersion: 2
-        x: 100
+        x: 128
         y: 192
-        width: 50
+        width: 64
         height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -238,19 +226,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1e18b2675a88a754da841175c41d5481
-      internalID: 3467521429769000694
+      spriteID: 4f8e661802ca3b34692d19e4031c2b4c
+      internalID: 4878998448709124265
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player Walk Cycle_3
+      name: Player Sword Active_3
       rect:
         serializedVersion: 2
-        x: 150
+        x: 192
         y: 192
-        width: 50
+        width: 64
         height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -259,40 +247,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ea7d41b65f9636d48ac5241dd399eec5
-      internalID: -884281719200700909
+      spriteID: aa59f30c95cf20a42947159ae3261d9b
+      internalID: -7493037206879115942
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player Walk Cycle_4
-      rect:
-        serializedVersion: 2
-        x: 200
-        y: 192
-        width: 50
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c77341d74e7e36e4e8964248a6fd86b7
-      internalID: 8469402469815496379
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Player Walk Cycle_5
+      name: Player Sword Active_4
       rect:
         serializedVersion: 2
         x: 0
         y: 128
-        width: 50
+        width: 64
         height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -301,19 +268,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: af8e7630769872146856c078e4fa5224
-      internalID: 2095841811479010165
+      spriteID: 1786e71ed6cb3da46a63154303e001dc
+      internalID: 844325912178524591
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player Walk Cycle_6
+      name: Player Sword Active_5
       rect:
         serializedVersion: 2
-        x: 50
+        x: 64
         y: 128
-        width: 50
+        width: 64
         height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -322,19 +289,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fcc023e7fa12ad7488e395748ab5f3c6
-      internalID: -6506171992374065639
+      spriteID: 71e9afd610bd0fb469ce9ab10ffbabaf
+      internalID: 4922213420678345125
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player Walk Cycle_7
+      name: Player Sword Active_6
       rect:
         serializedVersion: 2
-        x: 100
+        x: 128
         y: 128
-        width: 50
+        width: 64
         height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -343,19 +310,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 071b83a5888cc7949ae16fbac17e9ad6
-      internalID: 3560836170768700131
+      spriteID: e92dc94bfa09a814c95741ed91887161
+      internalID: 6026855089296186245
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player Walk Cycle_8
+      name: Player Sword Active_7
       rect:
         serializedVersion: 2
-        x: 150
+        x: 192
         y: 128
-        width: 50
+        width: 64
         height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -364,40 +331,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7e054fb91aafb6241b02975d8f5d71f4
-      internalID: -6167351264946496517
+      spriteID: fa8a756a50aa5104eb3eaf8d011627f6
+      internalID: -2423011631846927787
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player Walk Cycle_9
-      rect:
-        serializedVersion: 2
-        x: 200
-        y: 128
-        width: 50
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 190ac8f586edc3e428e6e1ee4e6d462a
-      internalID: -5536489038585376373
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Player Walk Cycle_10
+      name: Player Sword Active_8
       rect:
         serializedVersion: 2
         x: 0
         y: 64
-        width: 50
+        width: 64
         height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -406,19 +352,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c9acc6fec2c37f449a64fbec1108b01e
-      internalID: -3728015073341186800
+      spriteID: 0b0409be46ad50d4ea359d4a5563c4ef
+      internalID: 8749463001325563800
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player Walk Cycle_11
+      name: Player Sword Active_9
       rect:
         serializedVersion: 2
-        x: 50
+        x: 64
         y: 64
-        width: 50
+        width: 64
         height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -427,19 +373,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 12c48930fcf039e48aee6a43bc223a54
-      internalID: -7449570715751118034
+      spriteID: fa6fa59de324c6646a509101f57056bc
+      internalID: 5252220089488244638
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player Walk Cycle_12
+      name: Player Sword Active_10
       rect:
         serializedVersion: 2
-        x: 100
+        x: 128
         y: 64
-        width: 50
+        width: 64
         height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -448,19 +394,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dcc92a80a2d79874eaf0c166337fec2e
-      internalID: 606520577528818810
+      spriteID: 3ece2807227edf54c8f4a5d00b999972
+      internalID: 5341056777723085740
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player Walk Cycle_13
+      name: Player Sword Active_11
       rect:
         serializedVersion: 2
-        x: 150
+        x: 192
         y: 64
-        width: 50
+        width: 64
         height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -469,40 +415,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4c1b5e3603e7a8a4f88a63fa5dbfded7
-      internalID: 3847166006760351889
+      spriteID: ad322ba626db6ff40a7c62b3659349e6
+      internalID: -4580293513092475841
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player Walk Cycle_14
-      rect:
-        serializedVersion: 2
-        x: 200
-        y: 64
-        width: 50
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 959fcbbf707c39d4fbe5c14f341e1203
-      internalID: 7050670087833173182
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Player Walk Cycle_15
+      name: Player Sword Active_12
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 50
+        width: 64
         height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -511,19 +436,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f4b9682ea7c719242b62953703e01871
-      internalID: -2373195425280160802
+      spriteID: 3454bf9d20ef7724b9fafbbecdc70753
+      internalID: 3475109056403910198
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player Walk Cycle_16
+      name: Player Sword Active_13
       rect:
         serializedVersion: 2
-        x: 50
+        x: 64
         y: 0
-        width: 50
+        width: 64
         height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -532,19 +457,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 67842aff0d8b2b64aabb73e2f26d22bd
-      internalID: -6913740256809088915
+      spriteID: 83edc3861a6de304584173cfad8ae5b4
+      internalID: -1685275304693256095
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player Walk Cycle_17
+      name: Player Sword Active_14
       rect:
         serializedVersion: 2
-        x: 100
+        x: 128
         y: 0
-        width: 50
+        width: 64
         height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -553,19 +478,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6bb1a7cd2af728c49ba863bed75b8241
-      internalID: -6601906443187621577
+      spriteID: 4b6f3069f4edc2044ae7bdf13854cd14
+      internalID: 4597694632936276258
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player Walk Cycle_18
+      name: Player Sword Active_15
       rect:
         serializedVersion: 2
-        x: 150
+        x: 192
         y: 0
-        width: 50
+        width: 64
         height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -574,29 +499,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e8de493f482aba34780e3f144f586eed
-      internalID: -4824579207335627233
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Player Walk Cycle_19
-      rect:
-        serializedVersion: 2
-        x: 200
-        y: 0
-        width: 50
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c4fd1aeac9036fb4c8f1f0a754016865
-      internalID: -3630387403699272083
+      spriteID: eb37cc1591154be408fc7a71874c09d2
+      internalID: 1214672857760106770
       vertices: []
       indices: 
       edges: []
