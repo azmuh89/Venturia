@@ -468,7 +468,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 8003765075237056697}
   healthbar: {fileID: 1343613367}
-  speed: 7
+  speed: 5.5
   startingDistance: 8
   stoppingDistance: 3
   maxHealth: 60

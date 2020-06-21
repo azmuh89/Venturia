@@ -1,10 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class PlayerStats : MonoBehaviour
 {
+    public Text deadText;
     public int currentHealth { get; private set; }
     public int currentMana { get; private set; }
     public int currentEnergy { get; private set; }
@@ -115,6 +117,9 @@ public class PlayerStats : MonoBehaviour
         currentHealth = maxHealth;
         currentMana = maxMana;
         currentEnergy = maxEnergy;
+
+        InvokeRepeating("Running", 0, 1);
+        InvokeRepeating("NotRunning", 0, 60);
     }
     
     void Update()
@@ -129,12 +134,8 @@ public class PlayerStats : MonoBehaviour
 
         if (player.isRunning)
         {
-            //InvokeRepeating("Running", 0f, 1f);
-            Invoke("Running", 1f);
         }
-
-        //InvokeRepeating("NotRunning", 0f, 60f);
-
+        
         if (currentHealth <= 0)
         {
             Die();
@@ -193,7 +194,7 @@ public class PlayerStats : MonoBehaviour
 
     void Running()
     {
-        if (currentEnergy > 0)
+        if (currentEnergy > 0 && player.isRunning && player.movement.magnitude > 0)
         {
             currentEnergy--;
             healthbar.SetEnergy(currentEnergy);
@@ -211,6 +212,6 @@ public class PlayerStats : MonoBehaviour
 
     void Die()
     {
-        Debug.Log("You dead fam");
+        deadText.gameObject.SetActive(true);
     }
 }

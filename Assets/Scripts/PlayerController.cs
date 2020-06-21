@@ -15,12 +15,14 @@ public class PlayerController : MonoBehaviour
     public bool isRunning;
 
     private static PlayerController instance;
+    private PlayerStats stats;
     private Scene scene;
     private bool swordActive;
 
     void Awake()
     {
         scene = SceneManager.GetActiveScene();
+        stats = gameObject.GetComponent<PlayerStats>();
 
         if (scene.name == "MainMenu")
         {
@@ -52,19 +54,27 @@ public class PlayerController : MonoBehaviour
         animator.SetFloat("Horizontal", movement.x);
         animator.SetFloat("Vertical", movement.y);
         animator.SetFloat("Speed", movement.sqrMagnitude);
-        
-        if (Input.GetKeyDown(KeyCode.LeftShift))
+
+        if (stats.currentEnergy > 0)
         {
-            if (!isRunning)
+            if (Input.GetKeyDown(KeyCode.LeftShift))
             {
-                moveSpeed = 12f;
-                isRunning = true;
+                if (!isRunning)
+                {
+                    moveSpeed = 12f;
+                    isRunning = true;
+                }
+                else
+                {
+                    moveSpeed = 5f;
+                    isRunning = false;
+                }
             }
-            else
-            {
-                moveSpeed = 5f;
-                isRunning = false;
-            }
+        }
+        else
+        {
+            moveSpeed = 5f;
+            isRunning = false;
         }
 
         if (Input.GetKeyDown(KeyCode.R))
