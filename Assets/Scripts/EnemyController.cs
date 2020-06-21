@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
+    public Animator animator;
     public Healthbar healthbar;
     public float speed;
     public float startingDistance;
