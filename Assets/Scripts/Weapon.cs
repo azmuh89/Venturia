@@ -4,6 +4,6 @@ using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
-    public int damage, magicDamage, aim, evasion;
+    public int damage, magicDamage, aim;
     public int cost;
 }

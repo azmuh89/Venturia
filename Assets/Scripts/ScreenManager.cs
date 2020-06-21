@@ -92,6 +92,11 @@ public class ScreenManager : MonoBehaviour
             Screen.SetResolution(1024, 768, fullScreen.isOn);
         }
     }
+
+    public void DestroyDontDestroy()
+    {
+        Destroy(GameObject.Find("Player"));
+    }
     
     int boolToInt(bool val)
     {

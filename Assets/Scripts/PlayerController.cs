@@ -23,12 +23,7 @@ public class PlayerController : MonoBehaviour
     {
         scene = SceneManager.GetActiveScene();
         stats = gameObject.GetComponent<PlayerStats>();
-
-        if (scene.name == "MainMenu")
-        {
-            Destroy(gameObject);
-        }
-
+        
         if (this.gameObject.name == "Player")
         {
             DontDestroyOnLoad(this);

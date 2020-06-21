@@ -6,7 +6,6 @@ using UnityEngine.UI;
 
 public class PlayerStats : MonoBehaviour
 {
-    public Text deadText;
     public int currentHealth { get; private set; }
     public int currentMana { get; private set; }
     public int currentEnergy { get; private set; }
@@ -50,40 +49,20 @@ public class PlayerStats : MonoBehaviour
     private Accessories acc;
     private EnemyController enemy;
     private PlayerController player;
+    public Text deadText;
     private int baseMaxHealth, baseMaxMana, baseMaxEnergy;
     private int maxCopper, maxSilver, maxGold;
 
     void Awake()
     {
         healthbar = GameObject.Find("HUDCanvas").GetComponentInChildren<Healthbar>();
+        deadText = GameObject.Find("HUDCanvas").transform.Find("Text").GetComponent<Text>();
         player = gameObject.GetComponent<PlayerController>();
 
-        if (GameObject.FindGameObjectWithTag("Weapon") == null)
-        {
-            weapon = null;
-        }
-        else
-        {
-            weapon = GameObject.FindGameObjectWithTag("Weapon").GetComponent<Weapon>();
-        }
-
-        if (GameObject.FindGameObjectWithTag("Armor") == null)
-        {
-            armor = null;
-        }
-        else
-        {
-            armor = GameObject.FindGameObjectWithTag("Armor").GetComponent<Armor>();
-        }
-
-        if (GameObject.FindGameObjectWithTag("Accessory") == null)
-        {
-            acc = null;
-        }
-        else
-        {
-            acc = GameObject.FindGameObjectWithTag("Accessory").GetComponent<Accessories>();
-        }
+        //weapon = GetComponentInChildren<Weapon>();
+        weapon = transform.Find("Sword").GetComponent<Weapon>();
+        armor = GetComponentInChildren<Armor>();
+        acc = GetComponentInChildren<Accessories>();
     }
 
     void Start()
@@ -127,6 +106,7 @@ public class PlayerStats : MonoBehaviour
         if (healthbar == null)
         {
             healthbar = GameObject.Find("HUDCanvas").GetComponentInChildren<Healthbar>();
+            deadText = GameObject.Find("HUDCanvas").transform.Find("Text").GetComponent<Text>();
         }
 
         FindEnemy();
@@ -202,7 +182,6 @@ public class PlayerStats : MonoBehaviour
         if (currentEnergy > 0 && player.isRunning && player.movement.magnitude > 0)
         {
             currentEnergy--;
-            Debug.Log("Energy - 1");
             healthbar.SetEnergy(currentEnergy);
         }
     }
@@ -212,7 +191,6 @@ public class PlayerStats : MonoBehaviour
         if (currentEnergy < maxEnergy)
         {
             currentEnergy++;
-            Debug.Log("Energy + 1");
             healthbar.SetEnergy(currentEnergy);
         }
     }

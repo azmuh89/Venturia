@@ -693,6 +693,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 160768918}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &174184204 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2955503951477111252, guid: 917aef8eb3e70644a8ef0202a02ab52d,
+    type: 3}
+  m_PrefabInstance: {fileID: 215132066}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42659fefa1c6b78468f5c67ac6a8f264, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &175014570
 GameObject:
   m_ObjectHideFlags: 0
@@ -33619,16 +33631,36 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2802605459480555617, guid: eb96fb929fbc3304d982d58a39c923a8,
+    - target: {fileID: 2802605460258418013, guid: eb96fb929fbc3304d982d58a39c923a8,
         type: 3}
-      propertyPath: m_Camera
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 519420031}
+      objectReference: {fileID: 174184204}
+    - target: {fileID: 2802605460258418013, guid: eb96fb929fbc3304d982d58a39c923a8,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 174184204}
+    - target: {fileID: 2802605459836362335, guid: eb96fb929fbc3304d982d58a39c923a8,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 174184204}
+    - target: {fileID: 2882340473311612269, guid: eb96fb929fbc3304d982d58a39c923a8,
+        type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 174184204}
     - target: {fileID: 7304166072353633832, guid: eb96fb929fbc3304d982d58a39c923a8,
         type: 3}
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 789566468}
+    - target: {fileID: 2802605459480555617, guid: eb96fb929fbc3304d982d58a39c923a8,
+        type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 519420031}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eb96fb929fbc3304d982d58a39c923a8, type: 3}
 --- !u!1 &2802605459838364865 stripped
