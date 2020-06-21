@@ -466,6 +466,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2a0d3ec920975e4cb9acbcee44eceb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 8003765075237056697}
   healthbar: {fileID: 1343613367}
   speed: 7
   startingDistance: 8

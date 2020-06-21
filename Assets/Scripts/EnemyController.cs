@@ -12,10 +12,10 @@ public class EnemyController : MonoBehaviour
 
     public int maxHealth, maxMana;
     public int dropExperience;
-    public float damage;
-    public float defence;
-    public float magicDamage;
-    public float magicDefence;
+    public int damage;
+    public int defence;
+    public int magicDamage;
+    public int magicDefence;
     public float aim;
     public float evasion;
     
@@ -46,29 +46,27 @@ public class EnemyController : MonoBehaviour
         if (Vector2.Distance(transform.position, target.position) > stoppingDistance &&
             Vector2.Distance(transform.position, target.position) < startingDistance)
         {
-            transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
-            
-            startingDistance = setDistance * 2;
+            FollowPlayer();
+        }
+        else if (Vector2.Distance(transform.position, target.position) <= stoppingDistance &&
+            Vector2.Distance(transform.position, target.position) > 1)
+        {
+            Attack();
         }
         else if (Vector2.Distance(transform.position, target.position) > startingDistance)
         {
-            startingDistance = setDistance;
-            transform.position = Vector2.MoveTowards(transform.position, startPos, speed * Time.deltaTime);
+            StopFollowing();
         }
 
         direction = transform.position - target.position;
-
-        if (transform.position == transform.parent.position)
-        {
-        }
-
+        
         if (currentHealth <= 0)
         {
             Die();
         }
     }
 
-    void OnCollisionEnter2D(Collision2D collision)
+    void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Weapon")
         {
@@ -76,8 +74,28 @@ public class EnemyController : MonoBehaviour
         }
     }
 
+    void FollowPlayer()
+    {
+        transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
+        startingDistance = setDistance * 2;
+    }
+
+    void StopFollowing()
+    {
+        startingDistance = setDistance;
+        transform.position = Vector2.MoveTowards(transform.position, startPos, speed * Time.deltaTime);
+    }
+
+    void Attack()
+    {
+        animator.SetTrigger("Attack");
+        transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
+    }
+
     void TakeDamage()
     {
+        animator.SetTrigger("TakeDamage");
+
         if (playerStats.aim >= evasion && playerStats.aim <= (evasion * 2))
         {
             currentHealth -= (int)playerStats.damage;

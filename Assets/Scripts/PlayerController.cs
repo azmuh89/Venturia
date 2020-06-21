@@ -11,10 +11,11 @@ public class PlayerController : MonoBehaviour
 
     [HideInInspector]
     public Vector2 movement;
+    [HideInInspector]
+    public bool isRunning;
 
     private static PlayerController instance;
     private Scene scene;
-    private bool isRunning;
     private bool swordActive;
 
     void Awake()

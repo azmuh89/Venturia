@@ -46,12 +46,15 @@ public class PlayerStats : MonoBehaviour
     private Weapon weapon;
     private Armor armor;
     private Accessories acc;
+    private EnemyController enemy;
+    private PlayerController player;
     private int baseMaxHealth, baseMaxMana, baseMaxEnergy;
     private int maxCopper, maxSilver, maxGold;
 
     void Awake()
     {
         healthbar = GameObject.Find("HUDCanvas").GetComponentInChildren<Healthbar>();
+        player = gameObject.GetComponent<PlayerController>();
 
         if (GameObject.FindGameObjectWithTag("Weapon") == null)
         {
@@ -116,11 +119,34 @@ public class PlayerStats : MonoBehaviour
     
     void Update()
     {
+        FindEnemy();
         TotalStats();
 
         if (experience >= maxExp)
         {
             LevelUp();
+        }
+
+        if (player.isRunning)
+        {
+            //InvokeRepeating("Running", 0f, 1f);
+            Invoke("Running", 1f);
+        }
+
+        //InvokeRepeating("NotRunning", 0f, 60f);
+
+        if (currentHealth <= 0)
+        {
+            Die();
+        }
+    }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Enemy")
+        {
+            currentHealth -= enemy.damage;
+            healthbar.SetHealth(currentHealth);
         }
     }
 
@@ -151,5 +177,40 @@ public class PlayerStats : MonoBehaviour
         baseMDefence += level; // TODO
         baseAim += level * 0.33f;
         baseEvasion += level * 0.3f;
+    }
+
+    void FindEnemy()
+    {
+        if (GameObject.FindGameObjectWithTag("Enemy") != null)
+        {
+            enemy = GameObject.FindGameObjectWithTag("Enemy").GetComponent<EnemyController>();
+        }
+        else
+        {
+            enemy = null;
+        }
+    }
+
+    void Running()
+    {
+        if (currentEnergy > 0)
+        {
+            currentEnergy--;
+            healthbar.SetEnergy(currentEnergy);
+        }
+    }
+
+    void NotRunning()
+    {
+        if (currentEnergy < maxEnergy)
+        {
+            currentEnergy++;
+            healthbar.SetEnergy(currentEnergy);
+        }
+    }
+
+    void Die()
+    {
+        Debug.Log("You dead fam");
     }
 }
