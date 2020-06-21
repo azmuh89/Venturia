@@ -119,11 +119,16 @@ public class PlayerStats : MonoBehaviour
         currentEnergy = maxEnergy;
 
         InvokeRepeating("Running", 0, 1);
-        InvokeRepeating("NotRunning", 0, 60);
+        InvokeRepeating("NotRunning", 0, 30);
     }
     
     void Update()
     {
+        if (healthbar == null)
+        {
+            healthbar = GameObject.Find("HUDCanvas").GetComponentInChildren<Healthbar>();
+        }
+
         FindEnemy();
         TotalStats();
 
@@ -197,6 +202,7 @@ public class PlayerStats : MonoBehaviour
         if (currentEnergy > 0 && player.isRunning && player.movement.magnitude > 0)
         {
             currentEnergy--;
+            Debug.Log("Energy - 1");
             healthbar.SetEnergy(currentEnergy);
         }
     }
@@ -206,6 +212,7 @@ public class PlayerStats : MonoBehaviour
         if (currentEnergy < maxEnergy)
         {
             currentEnergy++;
+            Debug.Log("Energy + 1");
             healthbar.SetEnergy(currentEnergy);
         }
     }
