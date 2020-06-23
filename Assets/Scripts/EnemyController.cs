@@ -18,6 +18,9 @@ public class EnemyController : MonoBehaviour
     public int magicDefence;
     public float aim;
     public float evasion;
+
+    [HideInInspector]
+    public bool followingPlayer;
     
     private Transform target;
     private Rigidbody2D rb2d;
@@ -48,11 +51,6 @@ public class EnemyController : MonoBehaviour
         {
             FollowPlayer();
         }
-        else if (Vector2.Distance(transform.position, target.position) <= stoppingDistance &&
-            Vector2.Distance(transform.position, target.position) > 1)
-        {
-            Attack();
-        }
         else if (Vector2.Distance(transform.position, target.position) > startingDistance)
         {
             StopFollowing();
@@ -77,21 +75,14 @@ public class EnemyController : MonoBehaviour
     void FollowPlayer()
     {
         transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
-        startingDistance = setDistance * 2;
+        followingPlayer = true;
     }
 
     void StopFollowing()
     {
-        startingDistance = setDistance;
-        transform.position = Vector2.MoveTowards(transform.position, startPos, speed * Time.deltaTime);
+        followingPlayer = false;
     }
-
-    void Attack()
-    {
-        animator.SetTrigger("Attack");
-        transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
-    }
-
+    
     void TakeDamage()
     {
         animator.SetTrigger("TakeDamage");
