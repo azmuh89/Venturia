@@ -43,7 +43,7 @@ public class IdleMovement : MonoBehaviour
             StartCoroutine(MoveRight());
         }
     }
-
+    
     IEnumerator MoveUp()
     {
         targetPos = positionUp;

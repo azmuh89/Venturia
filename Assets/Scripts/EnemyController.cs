@@ -6,9 +6,6 @@ public class EnemyController : MonoBehaviour
 {
     public Animator animator;
     public Healthbar healthbar;
-    public float speed;
-    public float startingDistance;
-    public float stoppingDistance;
 
     public int maxHealth, maxMana;
     public int dropExperience;
@@ -18,46 +15,23 @@ public class EnemyController : MonoBehaviour
     public int magicDefence;
     public float aim;
     public float evasion;
-
-    [HideInInspector]
-    public bool followingPlayer;
     
-    private Transform target;
-    private Rigidbody2D rb2d;
-    private Vector2 direction;
-    private Vector3 startPos;
     private PlayerStats playerStats;
-    private int currentHealth;
-    private int currentMana;
-    private float setDistance;
+    private IdleMovement idleMovement;
+    private int currentHealth, currentMana;
 
     void Start()
     {
-        target = GameObject.FindGameObjectWithTag("Player").transform;
-        rb2d = GetComponent<Rigidbody2D>();
-        startPos = transform.position;
         playerStats = GameObject.Find("Player").GetComponent<PlayerStats>();
+        idleMovement = GetComponent<IdleMovement>();
 
         currentHealth = maxHealth;
         currentMana = maxMana;
         healthbar.SetMaxHealth(maxHealth);
-        setDistance = startingDistance;
     }
     
     void Update()
     {
-        if (Vector2.Distance(transform.position, target.position) > stoppingDistance &&
-            Vector2.Distance(transform.position, target.position) < startingDistance)
-        {
-            FollowPlayer();
-        }
-        else if (Vector2.Distance(transform.position, target.position) > startingDistance)
-        {
-            StopFollowing();
-        }
-
-        direction = transform.position - target.position;
-        
         if (currentHealth <= 0)
         {
             Die();
@@ -66,44 +40,9 @@ public class EnemyController : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Weapon")
+        if (collision.gameObject.tag == "Player")
         {
-            TakeDamage();
-        }
-    }
 
-    void FollowPlayer()
-    {
-        transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
-        followingPlayer = true;
-    }
-
-    void StopFollowing()
-    {
-        followingPlayer = false;
-    }
-    
-    void TakeDamage()
-    {
-        animator.SetTrigger("TakeDamage");
-
-        if (playerStats.aim >= evasion && playerStats.aim <= (evasion * 2))
-        {
-            currentHealth -= (int)playerStats.damage;
-            healthbar.SetHealth(currentHealth);
-            rb2d.AddForce(direction.normalized * 20, ForceMode2D.Impulse);
-        }
-        else if (playerStats.aim > (evasion * 2))
-        {
-            currentHealth -= (int)(playerStats.damage * 2);
-            healthbar.SetHealth(currentHealth);
-            rb2d.AddForce(direction.normalized * 20, ForceMode2D.Impulse);
-        }
-        else if (playerStats.aim < evasion)
-        {
-            currentHealth -= (int)(playerStats.damage / 2);
-            healthbar.SetHealth(currentHealth);
-            rb2d.AddForce(direction.normalized * 20, ForceMode2D.Impulse);
         }
     }
     
