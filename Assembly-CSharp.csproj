@@ -78,7 +78,6 @@
     <Compile Include="Assets\Scripts\SceneFade.cs" />
     <Compile Include="Assets\Scripts\ScreenManager.cs" />
     <Compile Include="Assets\Scripts\SortingOrder.cs" />
-    <Compile Include="Assets\Scripts\SwordController.cs" />
     <Compile Include="Assets\Scripts\Weapon.cs" />
     <None Include="Assets\Fonts\Pixel Font\_README.txt" />
     <Reference Include="Unity.Timeline.Editor">

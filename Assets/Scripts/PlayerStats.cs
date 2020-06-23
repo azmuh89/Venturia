@@ -47,7 +47,6 @@ public class PlayerStats : MonoBehaviour
     private Weapon weapon;
     private Armor armor;
     private Accessories acc;
-    private EnemyController enemy;
     private PlayerController player;
     public Text deadText;
     private int baseMaxHealth, baseMaxMana, baseMaxEnergy;
@@ -108,8 +107,7 @@ public class PlayerStats : MonoBehaviour
             healthbar = GameObject.Find("HUDCanvas").GetComponentInChildren<Healthbar>();
             deadText = GameObject.Find("HUDCanvas").transform.Find("Text").GetComponent<Text>();
         }
-
-        FindEnemy();
+        
         TotalStats();
 
         if (experience >= maxExp)
@@ -117,25 +115,24 @@ public class PlayerStats : MonoBehaviour
             LevelUp();
         }
 
-        if (player.isRunning)
+        if (Input.GetKeyDown(KeyCode.F))
         {
+            currentHealth--;
+            healthbar.SetHealth(currentHealth);
         }
-        
+
+        if (Input.GetKeyDown(KeyCode.G))
+        {
+            currentMana--;
+            healthbar.SetMana(currentMana);
+        }
+
         if (currentHealth <= 0)
         {
             Die();
         }
     }
-
-    void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag == "Enemy")
-        {
-            currentHealth -= enemy.damage;
-            healthbar.SetHealth(currentHealth);
-        }
-    }
-
+    
     void TotalStats()
     {
         maxHealth = baseMaxHealth;// + armor.health + acc.health;
@@ -164,19 +161,7 @@ public class PlayerStats : MonoBehaviour
         baseAim += level * 0.33f;
         baseEvasion += level * 0.3f;
     }
-
-    void FindEnemy()
-    {
-        if (GameObject.FindGameObjectWithTag("Enemy") != null)
-        {
-            enemy = GameObject.FindGameObjectWithTag("Enemy").GetComponent<EnemyController>();
-        }
-        else
-        {
-            enemy = null;
-        }
-    }
-
+    
     void Running()
     {
         if (currentEnergy > 0 && player.isRunning && player.movement.magnitude > 0)

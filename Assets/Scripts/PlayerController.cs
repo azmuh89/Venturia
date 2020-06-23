@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -10,32 +9,26 @@ public class PlayerController : MonoBehaviour
     public float moveSpeed = 5f;
 
     [HideInInspector]
-    public Vector2 movement;
-    [HideInInspector]
     public bool isRunning;
+    [HideInInspector]
+    public Vector2 movement;
 
     private static PlayerController instance;
     private PlayerStats stats;
-    private Scene scene;
-    private bool swordActive;
 
     void Awake()
     {
-        scene = SceneManager.GetActiveScene();
         stats = gameObject.GetComponent<PlayerStats>();
         
-        if (this.gameObject.name == "Player")
-        {
-            DontDestroyOnLoad(this);
+        DontDestroyOnLoad(this);
 
-            if (instance == null)
-            {
-                instance = this;
-            }
-            else
-            {
-                Destroy(gameObject);
-            }
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
         }
     }
 
@@ -70,20 +63,6 @@ public class PlayerController : MonoBehaviour
         {
             moveSpeed = 5f;
             isRunning = false;
-        }
-
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            if (!swordActive && animator.GetLayerWeight(1) == 1f)
-            {
-                swordActive = true;
-                animator.SetLayerWeight(2, 1f);
-            }
-            else
-            {
-                swordActive = false;
-                animator.SetLayerWeight(2, 0f);
-            }
         }
     }
     
