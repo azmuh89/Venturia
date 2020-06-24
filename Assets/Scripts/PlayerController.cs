@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -66,12 +67,20 @@ public class PlayerController : MonoBehaviour
         }
     }
     
-    public void FixedUpdate()
+    void FixedUpdate()
     {
         rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
     }
 
-    public void Direction()
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Enemy")
+        {
+            SceneManager.LoadScene("Combat");
+        }
+    }
+
+    void Direction()
     {
         if (movement.x != 0)
         {
