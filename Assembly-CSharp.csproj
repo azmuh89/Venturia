@@ -73,6 +73,7 @@
     <Compile Include="Assets\Scripts\Gate.cs" />
     <Compile Include="Assets\Scripts\Healthbar.cs" />
     <Compile Include="Assets\Scripts\IdleMovement.cs" />
+    <Compile Include="Assets\Scripts\MainMenu.cs" />
     <Compile Include="Assets\Scripts\MenuCanvas.cs" />
     <Compile Include="Assets\Scripts\MyInputModule.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
