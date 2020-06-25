@@ -22,7 +22,7 @@ public class EnemyController : MonoBehaviour
 
     void Start()
     {
-        playerStats = GameObject.Find("Player").GetComponent<PlayerStats>();
+        playerStats = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerStats>();
         idleMovement = GetComponent<IdleMovement>();
 
         currentHealth = maxHealth;

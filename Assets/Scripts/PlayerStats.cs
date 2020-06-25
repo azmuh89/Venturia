@@ -59,7 +59,7 @@ public class PlayerStats : MonoBehaviour
         player = gameObject.GetComponent<PlayerController>();
 
         //weapon = GetComponentInChildren<Weapon>();
-        weapon = transform.Find("Sword").GetComponent<Weapon>();
+        //weapon = transform.Find("Sword").GetComponent<Weapon>();
         armor = GetComponentInChildren<Armor>();
         acc = GetComponentInChildren<Accessories>();
     }
@@ -138,11 +138,11 @@ public class PlayerStats : MonoBehaviour
         maxHealth = baseMaxHealth;// + armor.health + acc.health;
         maxMana = baseMaxMana;// + armor.mana + acc.mana;
         maxEnergy = baseMaxEnergy;// + armor.energy + acc.energy;
-        damage = baseDamage + weapon.damage;
+        damage = baseDamage;// + weapon.damage;
         defence = baseDefence;// + armor.defence + acc.defence;
-        magicDamage = baseMDamage + weapon.magicDamage;
+        magicDamage = baseMDamage;// + weapon.magicDamage;
         magicDefence = baseMDefence;// + armor.magicDefence + acc.magicDefence;
-        aim = baseAim + weapon.aim;// + acc.aim;
+        aim = baseAim;// + weapon.aim + acc.aim;
         evasion = baseEvasion;// + armor.evasion + acc.evasion;
     }
 

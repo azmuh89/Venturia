@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class MenuCanvas : MonoBehaviour
 {
@@ -12,15 +13,23 @@ public class MenuCanvas : MonoBehaviour
         copperText, silverText, goldText, platinumText;
     
     private PlayerStats playerStats;
+    private Button firstSelectedButton;
 
     void Awake()
     {
         playerStats = GameObject.Find("Player").GetComponent<PlayerStats>();
+        firstSelectedButton = transform.Find("MainMenuButton").GetComponent<Button>();
     }
 
     void Update()
     {
         SetStatsText();
+    }
+
+    void OnEnable()
+    {
+        EventSystem.current.SetSelectedGameObject(firstSelectedButton.gameObject);
+        firstSelectedButton.OnSelect(new BaseEventData(EventSystem.current));
     }
     
     void SetStatsText()
