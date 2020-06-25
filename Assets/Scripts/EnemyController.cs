@@ -27,7 +27,6 @@ public class EnemyController : MonoBehaviour
 
         currentHealth = maxHealth;
         currentMana = maxMana;
-        healthbar.SetMaxHealth(maxHealth);
     }
     
     void Update()
