@@ -12,7 +12,7 @@ public class CombatManager : MonoBehaviour
     private Button attackButton, skillsButton,
         spellsButton, itemsButton, escapeButton;
 
-    void Start()
+    void Awake()
     {
         attackButton = GameObject.Find("Combat Canvas").transform.Find("Choices/AttackButton").GetComponent<Button>();
         skillsButton = GameObject.Find("Combat Canvas").transform.Find("Choices/SkillsButton").GetComponent<Button>();

@@ -8,8 +8,8 @@ using UnityEngine.EventSystems;
 public class ScreenManager : MonoBehaviour
 {
     public GameObject menuCanvas;
-    public GameObject optionsMenu, statsMenu, equipmentMenu;
-    public GameObject optionsButton, equipmentButton;
+    public GameObject statsMenu, skillsMenu, settingsMenu, mainMenuView, quitView, equipmentMenu;
+    public GameObject statsButton, skillsButton, settingsButton, mainMenuButton, quitButton, equipmentButton;
     public Toggle fullScreen;
     public Dropdown resolutionDropdown;
 
@@ -27,30 +27,78 @@ public class ScreenManager : MonoBehaviour
         }
         else if (Input.GetKeyDown(KeyCode.Escape) && menuCanvas.activeInHierarchy)
         {
-            if (optionsMenu.activeInHierarchy)
+            if (settingsMenu.activeInHierarchy)
             {
-                optionsMenu.SetActive(false);
-                EventSystem.current.SetSelectedGameObject(optionsButton);
+                if (EventSystem.current.currentSelectedGameObject != settingsButton)
+                {
+                    EventSystem.current.SetSelectedGameObject(settingsButton);
+                }
+                else
+                {
+                    menuCanvas.SetActive(false);
+                }
             }
             else if (equipmentMenu.activeInHierarchy)
             {
-                equipmentMenu.SetActive(false);
-                EventSystem.current.SetSelectedGameObject(equipmentButton);
+                if (EventSystem.current.currentSelectedGameObject != equipmentButton)
+                {
+                    EventSystem.current.SetSelectedGameObject(equipmentButton);
+                }
+                else
+                {
+                    menuCanvas.SetActive(false);
+                }
             }
-            else if (statsMenu.activeInHierarchy)
-            {
-                statsMenu.SetActive(false);
-                EventSystem.current.sendNavigationEvents = true;
-            }
-            // add else if for other menus
             else
             {
                 menuCanvas.SetActive(false);
                 Time.timeScale = 1;
             }
         }
+
+        menuNavigation();
     }
-    
+
+    void menuNavigation()
+    {
+        if (EventSystem.current.currentSelectedGameObject == statsButton)
+        {
+            SelectedButton(statsMenu);
+        }
+        else if (EventSystem.current.currentSelectedGameObject == skillsButton)
+        {
+            SelectedButton(skillsMenu);
+        }
+        else if (EventSystem.current.currentSelectedGameObject == settingsButton)
+        {
+            SelectedButton(settingsMenu);
+        }
+        else if (EventSystem.current.currentSelectedGameObject == mainMenuButton)
+        {
+            SelectedButton(mainMenuView);
+        }
+        else if (EventSystem.current.currentSelectedGameObject == quitButton)
+        {
+            SelectedButton(quitView);
+        }
+        else if (EventSystem.current.currentSelectedGameObject == equipmentButton)
+        {
+            SelectedButton(equipmentMenu);
+        }
+    }
+
+    void SelectedButton(GameObject activeObject)
+    {
+        statsMenu.SetActive(false);
+        skillsMenu.SetActive(false);
+        settingsMenu.SetActive(false);
+        mainMenuView.SetActive(false);
+        quitView.SetActive(false);
+        equipmentMenu.SetActive(false);
+
+        activeObject.gameObject.SetActive(true);
+    }
+
     public void LoadScene(string sceneID)
     {
         Time.timeScale = 1;

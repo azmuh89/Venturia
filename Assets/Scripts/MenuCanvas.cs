@@ -18,7 +18,7 @@ public class MenuCanvas : MonoBehaviour
     void Awake()
     {
         playerStats = GameObject.Find("Player").GetComponent<PlayerStats>();
-        firstSelectedButton = transform.Find("MainMenuButton").GetComponent<Button>();
+        firstSelectedButton = transform.Find("Choices/StatsButton").GetComponent<Button>();
     }
 
     void Update()
