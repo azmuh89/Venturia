@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class ScreenManager : MonoBehaviour
 {
     public GameObject menuCanvas;
     public GameObject optionsMenu, statsMenu, equipmentMenu;
+    public GameObject optionsButton, equipmentButton;
     public Toggle fullScreen;
     public Dropdown resolutionDropdown;
 
@@ -28,14 +30,17 @@ public class ScreenManager : MonoBehaviour
             if (optionsMenu.activeInHierarchy)
             {
                 optionsMenu.SetActive(false);
+                EventSystem.current.SetSelectedGameObject(optionsButton);
             }
             else if (equipmentMenu.activeInHierarchy)
             {
                 equipmentMenu.SetActive(false);
+                EventSystem.current.SetSelectedGameObject(equipmentButton);
             }
             else if (statsMenu.activeInHierarchy)
             {
                 statsMenu.SetActive(false);
+                EventSystem.current.sendNavigationEvents = true;
             }
             // add else if for other menus
             else
@@ -45,7 +50,7 @@ public class ScreenManager : MonoBehaviour
             }
         }
     }
-
+    
     public void LoadScene(string sceneID)
     {
         Time.timeScale = 1;
