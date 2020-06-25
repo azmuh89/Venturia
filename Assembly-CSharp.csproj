@@ -65,6 +65,7 @@
     <Compile Include="Assets\Scripts\Accessories.cs" />
     <Compile Include="Assets\Scripts\Armor.cs" />
     <Compile Include="Assets\Scripts\CameraFollow.cs" />
+    <Compile Include="Assets\Scripts\CombatManager.cs" />
     <Compile Include="Assets\Scripts\DialogueTrigger.cs" />
     <Compile Include="Assets\Scripts\EnemyController.cs" />
     <Compile Include="Assets\Scripts\EquipManager.cs" />
