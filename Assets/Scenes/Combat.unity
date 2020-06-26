@@ -1775,23 +1775,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1018953935}
   m_CullTransparentMesh: 0
---- !u!114 &1157506148
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5450470547181717776}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 713d4ce5eb4bc4b43a75bb95dcbf3611, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveVertically: 1
-  moveHorizontally: 0
-  waitTime: 5
-  distance: 5
-  speed: 5
 --- !u!1 &1199093364
 GameObject:
   m_ObjectHideFlags: 0
@@ -2699,8 +2682,9 @@ GameObject:
   - component: {fileID: 1833480702}
   - component: {fileID: 1833480704}
   - component: {fileID: 1833480703}
+  - component: {fileID: 1833480705}
   m_Layer: 0
-  m_Name: Player Combat
+  m_Name: CombatPlayer
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2840,6 +2824,27 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!50 &1833480705
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1833480699}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 0.0001
+  m_LinearDrag: 0
+  m_AngularDrag: 0
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 7
 --- !u!1 &1872950335
 GameObject:
   m_ObjectHideFlags: 0
@@ -2943,6 +2948,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a74fc09d49b9af54d95895e652174237, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canvas: {fileID: 1549003500}
   skillsSubButton: {fileID: 140233626}
   spellsSubButton: {fileID: 1276721364}
 --- !u!4 &1889301658
@@ -3501,7 +3507,6 @@ GameObject:
   - component: {fileID: 8003765075958406954}
   - component: {fileID: 816866546}
   - component: {fileID: 4199918445680756252}
-  - component: {fileID: 1157506148}
   m_Layer: 0
   m_Name: Slime
   m_TagString: Enemy
@@ -3517,7 +3522,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5450470547181717776}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 6dad372e6b2fce64c992f830964357db, type: 2}
   m_CullingMode: 0

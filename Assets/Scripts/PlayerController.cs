@@ -82,8 +82,13 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.tag == "Enemy")
         {
-            SceneManager.LoadScene("Combat");
+            Invoke("LoadCombat", 0.5f);
         }
+    }
+
+    void LoadCombat()
+    {
+        SceneManager.LoadScene("Combat");
     }
 
     void Direction()

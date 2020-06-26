@@ -18,4 +18,9 @@ public class SceneFade : MonoBehaviour
     {
         animator.Play("Fade_In");
     }
+
+    public void FadeOut()
+    {
+        animator.SetTrigger("FadeOut");
+    }
 }

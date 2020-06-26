@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyController : MonoBehaviour
 {
     public Animator animator;
-    //public Healthbar healthbar;
+    public Healthbar healthbar;
 
     public int maxHealth, maxMana;
     public int dropExperience;
@@ -22,7 +22,7 @@ public class EnemyController : MonoBehaviour
 
     void Start()
     {
-        playerStats = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerStats>();
+        playerStats = GameObject.FindObjectOfType<PlayerStats>();
         idleMovement = GetComponent<IdleMovement>();
 
         currentHealth = maxHealth;
@@ -37,11 +37,13 @@ public class EnemyController : MonoBehaviour
         }
     }
 
-    void OnTriggerEnter2D(Collider2D collision)
+    void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Player")
+        if (collision.gameObject.name == "CombatPlayer")
         {
-
+            currentHealth -= (int)playerStats.damage;
+            animator.SetTrigger("TakeDamage");
+            Debug.Log("Enemy Health: " + currentHealth);
         }
     }
     
