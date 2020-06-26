@@ -48,7 +48,7 @@ public class PlayerStats : MonoBehaviour
     private Armor armor;
     private Accessories acc;
     private PlayerController player;
-    public Text deadText;
+    private Text deadText;
     private int baseMaxHealth, baseMaxMana, baseMaxEnergy;
     private int maxCopper, maxSilver, maxGold;
 
@@ -96,8 +96,11 @@ public class PlayerStats : MonoBehaviour
         currentMana = maxMana;
         currentEnergy = maxEnergy;
 
-        InvokeRepeating("Running", 0, 1);
-        InvokeRepeating("NotRunning", 0, 30);
+        if (player != null)
+        {
+            InvokeRepeating("Running", 0, 1);
+            InvokeRepeating("NotRunning", 0, 30);
+        }
     }
     
     void Update()

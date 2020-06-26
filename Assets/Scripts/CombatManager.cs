@@ -6,22 +6,40 @@ using UnityEngine.EventSystems;
 
 public class CombatManager : MonoBehaviour
 {
-    public GameObject attackView, skillsView,
-        spellsView, itemsView, escapeView;
+    public Button skillsSubButton, spellsSubButton;
 
+    private GameObject player;
+    private GameObject[] enemy;
     private Button attackButton, skillsButton,
-        spellsButton, itemsButton, escapeButton;
+        defendButton, itemsButton, escapeButton;
+
+    private GameObject attackView, skillsView,
+        defendView, itemsView, escapeView;
 
     void Awake()
     {
-        attackButton = GameObject.Find("Combat Canvas").transform.Find("Choices/AttackButton").GetComponent<Button>();
-        skillsButton = GameObject.Find("Combat Canvas").transform.Find("Choices/SkillsButton").GetComponent<Button>();
-        spellsButton = GameObject.Find("Combat Canvas").transform.Find("Choices/SpellsButton").GetComponent<Button>();
-        itemsButton = GameObject.Find("Combat Canvas").transform.Find("Choices/ItemsButton").GetComponent<Button>();
-        escapeButton = GameObject.Find("Combat Canvas").transform.Find("Choices/EscapeButton").GetComponent<Button>();
+        player = GameObject.FindGameObjectWithTag("Player");
+        enemy = GameObject.FindGameObjectsWithTag("Enemy");
+
+        FindButtons();
+        FindMenus();
     }
     
     void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (EventSystem.current.currentSelectedGameObject == skillsSubButton.gameObject ||
+            EventSystem.current.currentSelectedGameObject == spellsSubButton.gameObject)
+            {
+                EventSystem.current.SetSelectedGameObject(skillsButton.gameObject);
+            }
+        }
+
+        NavigationView();
+    }
+
+    void NavigationView()
     {
         if (EventSystem.current.currentSelectedGameObject == attackButton.gameObject)
         {
@@ -31,9 +49,9 @@ public class CombatManager : MonoBehaviour
         {
             SelectedButton(skillsView);
         }
-        else if (EventSystem.current.currentSelectedGameObject == spellsButton.gameObject)
+        else if (EventSystem.current.currentSelectedGameObject == defendButton.gameObject)
         {
-            SelectedButton(spellsView);
+            SelectedButton(defendView);
         }
         else if (EventSystem.current.currentSelectedGameObject == itemsButton.gameObject)
         {
@@ -45,11 +63,29 @@ public class CombatManager : MonoBehaviour
         }
     }
 
+    void FindButtons()
+    {
+        attackButton = GameObject.Find("Combat Canvas").transform.Find("Choices/AttackButton").GetComponent<Button>();
+        skillsButton = GameObject.Find("Combat Canvas").transform.Find("Choices/SkillsButton").GetComponent<Button>();
+        defendButton = GameObject.Find("Combat Canvas").transform.Find("Choices/DefendButton").GetComponent<Button>();
+        itemsButton = GameObject.Find("Combat Canvas").transform.Find("Choices/ItemsButton").GetComponent<Button>();
+        escapeButton = GameObject.Find("Combat Canvas").transform.Find("Choices/EscapeButton").GetComponent<Button>();
+    }
+
+    void FindMenus()
+    {
+        attackView = GameObject.Find("Combat Canvas").transform.Find("AttackView").gameObject;
+        skillsView = GameObject.Find("Combat Canvas").transform.Find("SkillsView").gameObject;
+        defendView = GameObject.Find("Combat Canvas").transform.Find("DefendView").gameObject;
+        itemsView = GameObject.Find("Combat Canvas").transform.Find("ItemsView").gameObject;
+        escapeView = GameObject.Find("Combat Canvas").transform.Find("EscapeView").gameObject;
+    }
+
     void SelectedButton(GameObject activeObject)
     {
         attackView.SetActive(false);
         skillsView.SetActive(false);
-        spellsView.SetActive(false);
+        defendView.SetActive(false);
         itemsView.SetActive(false);
         escapeView.SetActive(false);
 
