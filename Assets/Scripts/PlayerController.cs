@@ -35,6 +35,12 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        if (SceneManager.GetActiveScene().name == "Combat" ||
+            SceneManager.GetActiveScene().name == "MainMenu")
+        {
+            Destroy(gameObject);
+        }
+
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
 
@@ -72,7 +78,7 @@ public class PlayerController : MonoBehaviour
         rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Enemy")
         {

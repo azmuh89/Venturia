@@ -10,13 +10,8 @@ public class ScreenManager : MonoBehaviour
     public GameObject menuCanvas;
     public GameObject statsMenu, skillsMenu, settingsMenu, mainMenuView, quitView, equipmentMenu;
     public GameObject statsButton, skillsButton, settingsButton, mainMenuButton, quitButton, equipmentButton;
-    public Toggle fullScreen;
-    public Dropdown resolutionDropdown;
 
-    void Awake()
-    {
-        fullScreen.isOn = intToBool(PlayerPrefs.GetInt("FullScreen"));
-    }
+    private bool isFullscreen = true;
     
     void Update()
     {
@@ -36,6 +31,7 @@ public class ScreenManager : MonoBehaviour
                 else
                 {
                     menuCanvas.SetActive(false);
+                    Time.timeScale = 1;
                 }
             }
             else if (equipmentMenu.activeInHierarchy)
@@ -47,6 +43,7 @@ public class ScreenManager : MonoBehaviour
                 else
                 {
                     menuCanvas.SetActive(false);
+                    Time.timeScale = 1;
                 }
             }
             else
@@ -56,10 +53,26 @@ public class ScreenManager : MonoBehaviour
             }
         }
 
-        menuNavigation();
+        MenuNavigation();
+
+        if (Input.GetKeyDown(KeyCode.F4))
+        {
+            if (isFullscreen)
+            {
+                Screen.SetResolution(1600, 900, false);
+                isFullscreen = false;
+                Debug.Log("Not Fullscreen");
+            }
+            else
+            {
+                Screen.SetResolution(1920, 1080, true);
+                isFullscreen = true;
+                Debug.Log("Fullscreen");
+            }
+        }
     }
 
-    void menuNavigation()
+    void MenuNavigation()
     {
         if (EventSystem.current.currentSelectedGameObject == statsButton)
         {
@@ -109,46 +122,6 @@ public class ScreenManager : MonoBehaviour
     public void QuitGame()
     {
         Application.Quit();
-    }
-
-    public void FullScreenToggle(bool isFullScreen)
-    {
-        Screen.fullScreen = isFullScreen;
-
-        PlayerPrefs.SetInt("FullScreen", boolToInt(isFullScreen));
-    }
-
-    public void ScreenResolution()
-    {
-        if (resolutionDropdown.value == 0)
-        {
-            Screen.SetResolution(1920, 1080, fullScreen.isOn);
-        }
-        else if (resolutionDropdown.value == 1)
-        {
-            Screen.SetResolution(1600, 900, fullScreen.isOn);
-        }
-        else if (resolutionDropdown.value == 2)
-        {
-            Screen.SetResolution(1440, 900, fullScreen.isOn);
-        }
-        else if (resolutionDropdown.value == 3)
-        {
-            Screen.SetResolution(1366, 768, fullScreen.isOn);
-        }
-        else if (resolutionDropdown.value == 4)
-        {
-            Screen.SetResolution(1280, 720, fullScreen.isOn);
-        }
-        else if (resolutionDropdown.value == 5)
-        {
-            Screen.SetResolution(1024, 768, fullScreen.isOn);
-        }
-    }
-
-    public void DestroyDontDestroy()
-    {
-        Destroy(GameObject.Find("Player"));
     }
     
     int boolToInt(bool val)
