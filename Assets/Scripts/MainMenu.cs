@@ -27,6 +27,7 @@ public class MainMenu : MonoBehaviour
                 settingsPanel.SetActive(false);
                 buttonsPanel.SetActive(true);
                 EventSystem.current.SetSelectedGameObject(settingsButton.gameObject);
+                settingsButton.OnSelect(new BaseEventData(EventSystem.current));
             }
         }
     }
