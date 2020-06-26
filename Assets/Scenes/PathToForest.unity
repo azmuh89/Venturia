@@ -276,12 +276,12 @@ PrefabInstance:
         type: 3}
       propertyPath: fullScreen
       value: 
-      objectReference: {fileID: 839442410}
+      objectReference: {fileID: 0}
     - target: {fileID: 2955503951477111252, guid: 917aef8eb3e70644a8ef0202a02ab52d,
         type: 3}
       propertyPath: resolutionDropdown
       value: 
-      objectReference: {fileID: 839442409}
+      objectReference: {fileID: 0}
     - target: {fileID: 2955503951477111252, guid: 917aef8eb3e70644a8ef0202a02ab52d,
         type: 3}
       propertyPath: statsMenu
@@ -2975,6 +2975,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: MenuCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 4291346313544681046, guid: e0ecdb3e2120faf45baa0fb3fd60eff3,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3848632709682543461, guid: e0ecdb3e2120faf45baa0fb3fd60eff3,
         type: 3}
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -2998,17 +3003,17 @@ PrefabInstance:
     - target: {fileID: 4291346313544681066, guid: e0ecdb3e2120faf45baa0fb3fd60eff3,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4291346313544681066, guid: e0ecdb3e2120faf45baa0fb3fd60eff3,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4291346313544681066, guid: e0ecdb3e2120faf45baa0fb3fd60eff3,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4291346313544681066, guid: e0ecdb3e2120faf45baa0fb3fd60eff3,
         type: 3}
@@ -3130,30 +3135,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 839442405}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &839442409 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7187357653589129166, guid: e0ecdb3e2120faf45baa0fb3fd60eff3,
-    type: 3}
-  m_PrefabInstance: {fileID: 839442405}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d0b652f32a2cc243917e4028fa0f046, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &839442410 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3848632709682543461, guid: e0ecdb3e2120faf45baa0fb3fd60eff3,
-    type: 3}
-  m_PrefabInstance: {fileID: 839442405}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9085046f02f69544eb97fd06b6048fe2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &839442411 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3325403782639004734, guid: e0ecdb3e2120faf45baa0fb3fd60eff3,
@@ -39566,17 +39547,17 @@ PrefabInstance:
     - target: {fileID: 5450470547903080067, guid: ed649feb4ff88674f90df880e5dee860,
         type: 3}
       propertyPath: m_Name
-      value: Slime (1)
+      value: Slime
       objectReference: {fileID: 0}
     - target: {fileID: 3849742554730034624, guid: ed649feb4ff88674f90df880e5dee860,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.5261698
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3849742554730034624, guid: ed649feb4ff88674f90df880e5dee860,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -8.846384
+      value: -7
       objectReference: {fileID: 0}
     - target: {fileID: 3849742554730034624, guid: ed649feb4ff88674f90df880e5dee860,
         type: 3}
@@ -39621,14 +39602,6 @@ PrefabInstance:
     - target: {fileID: 3849742554730034624, guid: ed649feb4ff88674f90df880e5dee860,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 958014161, guid: ed649feb4ff88674f90df880e5dee860, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 958014161, guid: ed649feb4ff88674f90df880e5dee860, type: 3}
-      propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyController : MonoBehaviour
 {
     public Animator animator;
-    public Healthbar healthbar;
+    //public Healthbar healthbar;
 
     public int maxHealth, maxMana;
     public int dropExperience;

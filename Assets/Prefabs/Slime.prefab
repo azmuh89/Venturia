@@ -98,7 +98,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: 6dad372e6b2fce64c992f830964357db, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
-  m_ApplyRootMotion: 0
+  m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
@@ -117,7 +117,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 8003765075237056697}
-  healthbar: {fileID: 0}
   maxHealth: 60
   maxMana: 0
   dropExperience: 5
