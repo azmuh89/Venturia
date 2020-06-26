@@ -2956,8 +2956,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a74fc09d49b9af54d95895e652174237, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skillsSubButton: {fileID: 140233627}
-  spellsSubButton: {fileID: 1276721366}
+  skillsSubButton: {fileID: 140233626}
+  spellsSubButton: {fileID: 1276721364}
 --- !u!4 &1889301658
 Transform:
   m_ObjectHideFlags: 0
