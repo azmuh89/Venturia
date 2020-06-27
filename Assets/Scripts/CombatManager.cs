@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 public class CombatManager : MonoBehaviour
 {
@@ -10,7 +11,7 @@ public class CombatManager : MonoBehaviour
     public GameObject skillsSubButton, spellsSubButton;
 
     private GameObject player;
-    private GameObject[] enemy;
+    private GameObject[] enemies;
     private GameObject attackButton, skillsButton,
         defendButton, itemsButton, escapeButton;
 
@@ -18,21 +19,41 @@ public class CombatManager : MonoBehaviour
         defendView, itemsView, escapeView;
 
     private bool attacking;
+    private bool playerTurn, enemyTurn;
+    private Vector3 playerPos;
+    private Vector3[] enemyPos;
 
     void Awake()
     {
-        player = GameObject.Find("CombatPlayer");
-        enemy = GameObject.FindGameObjectsWithTag("Enemy");
+        Time.timeScale = 1;
 
-        foreach (GameObject enemies in enemy)
+        player = GameObject.Find("CombatPlayer");
+        enemies = GameObject.FindGameObjectsWithTag("Enemy");
+
+        foreach (GameObject enemy in enemies)
         {
-            enemies.GetComponent<Animator>().SetBool("InCombat", true);
+            enemy.GetComponent<Animator>().SetBool("InCombat", true);
+        }
+
+        playerPos = player.transform.position;
+
+        enemyPos = new Vector3[enemies.Length];
+
+        for (int i = 0; i < enemies.Length; i++)
+        {
+            enemyPos[i] = enemies[i].transform.position;
         }
 
         FindButtons();
         FindMenus();
     }
-    
+
+    void Start()
+    {
+        playerTurn = true;
+        enemyTurn = false;
+    }
+
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -46,26 +67,84 @@ public class CombatManager : MonoBehaviour
 
         NavigationView();
 
-        if (player.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Player_Combat_Idle"))
+        if (attacking)
         {
-            canvas.SetActive(true);
+            if (player.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Player_Combat_Idle"))
+            {
+                StartCoroutine(SwitchTurns());
+            }
         }
         else
         {
-            canvas.SetActive(false);
-        }
-
-        foreach (GameObject enemies in enemy)
-        {
-            if (enemies.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Attack"))
-            {
-                canvas.SetActive(false);
-            }
-            else
+            if (player.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Player_Combat_Idle"))
             {
                 canvas.SetActive(true);
             }
         }
+    }
+
+    IEnumerator SwitchTurns()
+    {
+        yield return new WaitForSeconds(1f);
+
+        if (playerTurn)
+        {
+            attacking = false;
+            playerTurn = false;
+            StartCoroutine(EnemyAttack());
+        }
+        else
+        {
+            playerTurn = true;
+        }
+    }
+
+    IEnumerator EnemyAttack()
+    {
+        foreach (GameObject enemy in enemies)
+        {
+            enemy.GetComponent<Animator>().SetTrigger("Attack");
+            enemy.GetComponent<EnemyController>().attacking = true;
+            yield return new WaitForSeconds(1);
+        }
+
+        StartCoroutine(SwitchTurns());
+    }
+
+    public void Attack()
+    {
+        foreach (GameObject enemy in enemies)
+        {
+            enemy.GetComponent<EnemyController>().attacking = false;
+        }
+
+        player.GetComponent<Animator>().SetTrigger("Attack");
+        canvas.SetActive(false);
+        attacking = true;
+    }
+
+    public void Skills()
+    {
+        Debug.Log("Skills");
+        //Maker later
+    }
+
+    public void Defend()
+    {
+        Debug.Log("Defend");
+        //Multiply defence by 1.5
+    }
+
+    public void Items()
+    {
+        Debug.Log("Items");
+        //Make later
+    }
+
+    public void Escape()
+    {
+        Debug.Log("Escape");
+        //Costs half energy
     }
 
     void NavigationView()
@@ -92,6 +171,17 @@ public class CombatManager : MonoBehaviour
         }
     }
 
+    void SelectedButton(GameObject activeObject)
+    {
+        attackView.SetActive(false);
+        skillsView.SetActive(false);
+        defendView.SetActive(false);
+        itemsView.SetActive(false);
+        escapeView.SetActive(false);
+
+        activeObject.gameObject.SetActive(true);
+    }
+
     void FindButtons()
     {
         attackButton = canvas.transform.Find("Choices/AttackButton").gameObject;
@@ -108,41 +198,5 @@ public class CombatManager : MonoBehaviour
         defendView = canvas.transform.Find("DefendView").gameObject;
         itemsView = canvas.transform.Find("ItemsView").gameObject;
         escapeView = canvas.transform.Find("EscapeView").gameObject;
-    }
-
-    void SelectedButton(GameObject activeObject)
-    {
-        attackView.SetActive(false);
-        skillsView.SetActive(false);
-        defendView.SetActive(false);
-        itemsView.SetActive(false);
-        escapeView.SetActive(false);
-
-        activeObject.gameObject.SetActive(true);
-    }
-
-    public void Attack()
-    {
-        player.GetComponent<Animator>().SetTrigger("Attack");
-    }
-
-    public void Skills()
-    {
-        Debug.Log("Skills");
-    }
-
-    public void Spells()
-    {
-        Debug.Log("Spells");
-    }
-
-    public void Items()
-    {
-        Debug.Log("Items");
-    }
-
-    public void Escape()
-    {
-        Debug.Log("Escape");
     }
 }

@@ -15,7 +15,10 @@ public class EnemyController : MonoBehaviour
     public int magicDefence;
     public float aim;
     public float evasion;
-    
+
+    [HideInInspector]
+    public bool attacking;
+
     private PlayerStats playerStats;
     private IdleMovement idleMovement;
     private int currentHealth, currentMana;
@@ -41,9 +44,12 @@ public class EnemyController : MonoBehaviour
     {
         if (collision.gameObject.name == "CombatPlayer")
         {
-            currentHealth -= (int)playerStats.damage;
-            animator.SetTrigger("TakeDamage");
-            Debug.Log("Enemy Health: " + currentHealth);
+            if (!attacking)
+            {
+                currentHealth -= (int)playerStats.damage;
+                animator.SetTrigger("TakeDamage");
+                Debug.Log("Enemy Health: " + currentHealth);
+            }
         }
     }
     
