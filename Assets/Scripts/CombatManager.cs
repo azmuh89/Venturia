@@ -1,9 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.EventSystems;
-using UnityEngine.SceneManagement;
 
 public class CombatManager : MonoBehaviour
 {
@@ -21,6 +19,7 @@ public class CombatManager : MonoBehaviour
 
     private bool attacking;
     private bool playerTurn;
+    private string baseName;
     private Vector3 playerPos;
     private Vector3[] enemyPos;
 
@@ -29,10 +28,12 @@ public class CombatManager : MonoBehaviour
         Time.timeScale = 1;
         
         enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        baseName = enemies[enemies.Length - 1].name;
 
-        foreach (GameObject enemy in enemies)
+        for (int i = 0; i < enemies.Length; i++)
         {
-            enemy.GetComponent<Animator>().SetBool("InCombat", true);
+            enemies[i].GetComponent<Animator>().SetBool("InCombat", true);
+            enemies[i].name = baseName + " " + (i + 1);
         }
         
         FindButtons();
@@ -61,7 +62,6 @@ public class CombatManager : MonoBehaviour
         {
             if (player.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Player_Combat_Idle"))
             {
-                //player.transform.position = Vector2.MoveTowards(player.transform.position, playerPos, 3);
                 StartCoroutine(SwitchTurns());
             }
         }
