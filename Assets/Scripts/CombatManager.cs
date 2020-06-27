@@ -7,10 +7,11 @@ using UnityEngine.SceneManagement;
 
 public class CombatManager : MonoBehaviour
 {
+    public GameObject player;
     public GameObject canvas;
     public GameObject skillsSubButton, spellsSubButton;
+    public GameObject playerAttackPos, enemyAttackPos;
 
-    private GameObject player;
     private GameObject[] enemies;
     private GameObject attackButton, skillsButton,
         defendButton, itemsButton, escapeButton;
@@ -19,31 +20,21 @@ public class CombatManager : MonoBehaviour
         defendView, itemsView, escapeView;
 
     private bool attacking;
-    private bool playerTurn, enemyTurn;
+    private bool playerTurn;
     private Vector3 playerPos;
     private Vector3[] enemyPos;
 
     void Awake()
     {
         Time.timeScale = 1;
-
-        player = GameObject.Find("CombatPlayer");
+        
         enemies = GameObject.FindGameObjectsWithTag("Enemy");
 
         foreach (GameObject enemy in enemies)
         {
             enemy.GetComponent<Animator>().SetBool("InCombat", true);
         }
-
-        playerPos = player.transform.position;
-
-        enemyPos = new Vector3[enemies.Length];
-
-        for (int i = 0; i < enemies.Length; i++)
-        {
-            enemyPos[i] = enemies[i].transform.position;
-        }
-
+        
         FindButtons();
         FindMenus();
     }
@@ -51,7 +42,6 @@ public class CombatManager : MonoBehaviour
     void Start()
     {
         playerTurn = true;
-        enemyTurn = false;
     }
 
     void Update()
@@ -71,10 +61,11 @@ public class CombatManager : MonoBehaviour
         {
             if (player.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Player_Combat_Idle"))
             {
+                //player.transform.position = Vector2.MoveTowards(player.transform.position, playerPos, 3);
                 StartCoroutine(SwitchTurns());
             }
         }
-        else
+        else if (!attacking && playerTurn)
         {
             if (player.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Player_Combat_Idle"))
             {
@@ -117,7 +108,7 @@ public class CombatManager : MonoBehaviour
         {
             enemy.GetComponent<EnemyController>().attacking = false;
         }
-
+        
         player.GetComponent<Animator>().SetTrigger("Attack");
         canvas.SetActive(false);
         attacking = true;
