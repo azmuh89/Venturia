@@ -12,6 +12,10 @@ public class CombatManager : MonoBehaviour
     public GameObject[] enemySpawnPoint;
 
     private GameObject[] enemies;
+    private Button[] enemyName;
+    private Vector3 playerPos;
+    private Vector3[] enemyPos;
+
     private Button attackButton, skillsButton,
         defendButton, itemsButton, escapeButton;
 
@@ -22,26 +26,32 @@ public class CombatManager : MonoBehaviour
     private bool playerTurn;
     private bool canvasActive = true;
     private string baseName;
-    private Button[] enemyName;
 
     void Awake()
     {
         Time.timeScale = 1;
-        
+
+        playerPos = player.transform.position;
+
         enemies = GameObject.FindGameObjectsWithTag("Enemy");
         baseName = enemies[enemies.Length - 1].name;
 
         System.Array.Reverse(enemies);
 
         enemyName = new Button[enemies.Length];
+        enemyPos = new Vector3[enemies.Length];
 
         for (int i = 0; i < enemies.Length; i++)
         {
             enemyName[i] = enemySpawnPoint[i].transform.Find("Canvas/NameButton").GetComponent<Button>();
+
             enemies[i].GetComponent<Animator>().SetBool("InCombat", true);
             enemies[i].name = baseName + " " + (i + 1);
+
             enemyName[i].GetComponentInChildren<Text>().text = enemies[i].name;
             enemyName[i].gameObject.SetActive(false);
+
+            enemyPos[i] = enemies[i].transform.position;
         }
         
         FindButtons();
@@ -80,51 +90,43 @@ public class CombatManager : MonoBehaviour
 
         NavigationView();
 
-        if (attacking)
+        if (player.transform.position == playerPos)
         {
-            if (player.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Player_Combat_Idle"))
+            if (!canvasActive)
             {
-                StartCoroutine(SwitchTurns());
-            }
-        }
-        else if (!attacking && playerTurn)
-        {
-            if (player.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Player_Combat_Idle"))
-            {
-                if (!canvasActive)
-                {
-                    canvas.SetActive(true);
+                canvas.SetActive(true);
 
-                    EventSystem.current.SetSelectedGameObject(attackButton.gameObject);
-                    canvasActive = true;
-                }
+                EventSystem.current.SetSelectedGameObject(attackButton.gameObject);
+                canvasActive = true;
             }
         }
     }
 
     IEnumerator SwitchTurns()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.5f);
 
         if (playerTurn)
         {
-            attacking = false;
             playerTurn = false;
             StartCoroutine(EnemyAttack());
         }
         else
         {
             playerTurn = true;
+            player.transform.position = playerPos;
         }
     }
 
     IEnumerator EnemyAttack()
     {
-        foreach (GameObject enemy in enemies)
+        for (int i = 0; i < enemies.Length; i++)
         {
-            enemy.GetComponent<Animator>().SetTrigger("Attack");
-            enemy.GetComponent<EnemyController>().attacking = true;
-            yield return new WaitForSeconds(1);
+            enemies[i].transform.position = new Vector3(-3, 0);
+            enemies[i].GetComponent<EnemyController>().attacking = true;
+            yield return new WaitForSeconds(1f);
+            enemies[i].transform.position = enemyPos[i];
+            yield return new WaitForSeconds(0.2f);
         }
 
         StartCoroutine(SwitchTurns());
@@ -140,7 +142,7 @@ public class CombatManager : MonoBehaviour
         canvas.SetActive(false);
     }
 
-    public void ChooseEnemy()
+    public void AttackEnemy(int enemy)
     {
         for (int i = 0; i < enemies.Length; i++)
         {
@@ -148,9 +150,41 @@ public class CombatManager : MonoBehaviour
             enemyName[i].gameObject.SetActive(false);
         }
 
+        player.transform.position = new Vector3(3, 0);
+
+        if (enemy == 1)
+        {
+            enemies[0].transform.position = new Vector3(-3, 0);
+        }
+        else if (enemy == 2)
+        {
+            enemies[1].transform.position = new Vector3(-3, 0);
+        }
+        else if (enemy == 3)
+        {
+            enemies[2].transform.position = new Vector3(-3, 0);
+        }
+        else if (enemy == 4)
+        {
+            enemies[3].transform.position = new Vector3(-3, 0);
+        }
+        
         player.GetComponent<Animator>().SetTrigger("Attack");
-        attacking = true;
         canvasActive = false;
+
+        StartCoroutine(EndAttack());
+    }
+
+    IEnumerator EndAttack()
+    {
+        yield return new WaitForSeconds(2);
+
+        for (int i = 0; i < enemies.Length; i++)
+        {
+            enemies[i].transform.position = enemyPos[i];
+        }
+
+        StartCoroutine(SwitchTurns());
     }
     
     public void Skills()
