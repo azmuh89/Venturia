@@ -20,7 +20,7 @@ public class CombatManager : MonoBehaviour
 
     private bool attacking;
     private bool playerTurn;
-    private bool buttonHighlighted = true;
+    private bool canvasActive = true;
     private string baseName;
     private Button[] enemyName;
 
@@ -62,6 +62,20 @@ public class CombatManager : MonoBehaviour
             {
                 EventSystem.current.SetSelectedGameObject(skillsButton.gameObject);
             }
+
+            for (int i = 0; i < enemies.Length; i++)
+            {
+                if (EventSystem.current.currentSelectedGameObject == enemyName[i].gameObject)
+                {
+                    for (int j = 0; j < enemies.Length; j++)
+                    {
+                        enemyName[j].gameObject.SetActive(false);
+                    }
+
+                    canvas.SetActive(true);
+                    EventSystem.current.SetSelectedGameObject(attackButton.gameObject);
+                }
+            }
         }
 
         NavigationView();
@@ -77,13 +91,12 @@ public class CombatManager : MonoBehaviour
         {
             if (player.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Player_Combat_Idle"))
             {
-                if (!buttonHighlighted)
+                if (!canvasActive)
                 {
                     canvas.SetActive(true);
 
                     EventSystem.current.SetSelectedGameObject(attackButton.gameObject);
-                    attackButton.OnSelect(new BaseEventData(EventSystem.current));
-                    buttonHighlighted = true;
+                    canvasActive = true;
                 }
             }
         }
@@ -137,7 +150,7 @@ public class CombatManager : MonoBehaviour
 
         player.GetComponent<Animator>().SetTrigger("Attack");
         attacking = true;
-        buttonHighlighted = false;
+        canvasActive = false;
     }
     
     public void Skills()
