@@ -11,6 +11,9 @@ public class CombatManager : MonoBehaviour
     public GameObject skillsSubButton, spellsSubButton;
     public GameObject[] enemySpawnPoint;
 
+    public GameObject swordSlash;
+    private GameObject swordSlashClone;
+    
     private GameObject[] enemies;
     private Button[] enemyName;
     private Vector3 playerPos;
@@ -22,6 +25,7 @@ public class CombatManager : MonoBehaviour
     private GameObject attackView, skillsView,
         defendView, itemsView, escapeView;
 
+    private int enemyChoice;
     private bool attacking;
     private bool playerTurn;
     private bool canvasActive = true;
@@ -90,7 +94,7 @@ public class CombatManager : MonoBehaviour
 
         NavigationView();
 
-        if (player.transform.position == playerPos)
+        if (!attacking)
         {
             if (!canvasActive)
             {
@@ -100,11 +104,16 @@ public class CombatManager : MonoBehaviour
                 canvasActive = true;
             }
         }
+
+        if (swordSlashClone != null)
+        {
+            swordSlashClone.transform.position = Vector3.MoveTowards(swordSlashClone.transform.position, enemies[enemyChoice-1].transform.position, 50 * Time.deltaTime);
+        }
     }
 
     IEnumerator SwitchTurns()
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(1f);
 
         if (playerTurn)
         {
@@ -114,11 +123,7 @@ public class CombatManager : MonoBehaviour
         else
         {
             playerTurn = true;
-
-            player.GetComponent<Animator>().SetTrigger("FadeOut");
-            yield return new WaitForSeconds(0.33f);
-            player.transform.position = playerPos;
-            player.GetComponent<Animator>().SetTrigger("FadeIn");
+            attacking = false;
         }
     }
 
@@ -126,18 +131,12 @@ public class CombatManager : MonoBehaviour
     {
         for (int i = 0; i < enemies.Length; i++)
         {
-            enemies[i].GetComponent<Animator>().SetTrigger("FadeOut");
-            yield return new WaitForSeconds(0.33f);
-            enemies[i].transform.position = new Vector3(-3, 0);
-            enemies[i].GetComponent<Animator>().SetTrigger("FadeIn");
-            enemies[i].GetComponent<EnemyController>().attacking = true;
+            enemies[i].transform.position = playerPos + (Vector3.left * 2);
+            yield return new WaitForSeconds(0.3f);
             //Attack animation
             yield return new WaitForSeconds(1f);
-            enemies[i].GetComponent<Animator>().SetTrigger("FadeOut");
-            yield return new WaitForSeconds(0.33f);
             enemies[i].transform.position = enemyPos[i];
-            enemies[i].GetComponent<Animator>().SetTrigger("FadeIn");
-            yield return new WaitForSeconds(0.3f);
+            yield return new WaitForSeconds(0.2f);
         }
 
         StartCoroutine(SwitchTurns());
@@ -155,72 +154,17 @@ public class CombatManager : MonoBehaviour
 
     public void AttackEnemy(int enemy)
     {
-        StartCoroutine(StartAttack(enemy));
-    }
-
-    IEnumerator StartAttack(int enemy)
-    {
         for (int i = 0; i < enemies.Length; i++)
         {
-            enemies[i].GetComponent<EnemyController>().attacking = false;
             enemyName[i].gameObject.SetActive(false);
-        }
-        
-        if (enemy == 1)
-        {
-            player.GetComponent<Animator>().SetTrigger("FadeOut");
-            enemies[0].GetComponent<Animator>().SetTrigger("FadeOut");
-            yield return new WaitForSeconds(0.33f);
-            player.transform.position = new Vector3(3, 0);
-            player.GetComponent<Animator>().SetTrigger("FadeIn");
-            enemies[0].transform.position = new Vector3(-3, 0);
-            enemies[0].GetComponent<Animator>().SetTrigger("FadeIn");
-        }
-        else if (enemy == 2)
-        {
-            player.GetComponent<Animator>().SetTrigger("FadeOut");
-            enemies[1].GetComponent<Animator>().SetTrigger("FadeOut");
-            yield return new WaitForSeconds(0.33f);
-            player.transform.position = new Vector3(3, 0);
-            player.GetComponent<Animator>().SetTrigger("FadeIn");
-            enemies[1].transform.position = new Vector3(-3, 0);
-            enemies[1].GetComponent<Animator>().SetTrigger("FadeIn");
-        }
-        else if (enemy == 3)
-        {
-            player.GetComponent<Animator>().SetTrigger("FadeOut");
-            enemies[2].GetComponent<Animator>().SetTrigger("FadeOut");
-            yield return new WaitForSeconds(0.33f);
-            player.transform.position = new Vector3(3, 0);
-            player.GetComponent<Animator>().SetTrigger("FadeIn");
-            enemies[2].transform.position = new Vector3(-3, 0);
-            enemies[2].GetComponent<Animator>().SetTrigger("FadeIn");
-        }
-        else if (enemy == 4)
-        {
-            player.GetComponent<Animator>().SetTrigger("FadeOut");
-            enemies[3].GetComponent<Animator>().SetTrigger("FadeOut");
-            yield return new WaitForSeconds(0.33f);
-            player.transform.position = new Vector3(3, 0);
-            player.GetComponent<Animator>().SetTrigger("FadeIn");
-            enemies[3].transform.position = new Vector3(-3, 0);
-            enemies[3].GetComponent<Animator>().SetTrigger("FadeIn");
         }
 
         //player.GetComponent<Animator>().SetTrigger("Attack");
+
+        swordSlashClone = Instantiate(swordSlash, playerPos, Quaternion.identity);
+        enemyChoice = enemy;
+        attacking = true;
         canvasActive = false;
-
-        StartCoroutine(EndAttack(enemy));
-    }
-
-    IEnumerator EndAttack(int enemy)
-    {
-        yield return new WaitForSeconds(2);
-
-        enemies[enemy-1].GetComponent<Animator>().SetTrigger("FadeOut");
-        yield return new WaitForSeconds(0.33f);
-        enemies[enemy-1].transform.position = enemyPos[enemy-1];
-        enemies[enemy-1].GetComponent<Animator>().SetTrigger("FadeIn");
 
         StartCoroutine(SwitchTurns());
     }

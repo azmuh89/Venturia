@@ -8,6 +8,7 @@ TagManager:
   - Weapon
   - Armor
   - Accessory
+  - Attack
   layers:
   - Default
   - TransparentFX

@@ -42,14 +42,21 @@ public class EnemyController : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.name == "CombatPlayer")
+        //if (collision.gameObject.name == "CombatPlayer")
+        //{
+        //    if (!attacking)
+        //    {
+        //        currentHealth -= (int)playerStats.damage;
+        //        animator.SetTrigger("TakeDamage");
+        //        Debug.Log("Enemy Health: " + currentHealth);
+        //    }
+        //}
+
+        if (collision.gameObject.tag == "Attack")
         {
-            if (!attacking)
-            {
-                currentHealth -= (int)playerStats.damage;
-                animator.SetTrigger("TakeDamage");
-                Debug.Log("Enemy Health: " + currentHealth);
-            }
+            Destroy(collision.gameObject);
+            currentHealth -= (int)playerStats.damage;
+            Debug.Log("Enemy Health: " + currentHealth);
         }
     }
     
