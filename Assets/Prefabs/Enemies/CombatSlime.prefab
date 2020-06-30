@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 5281453280674009265}
   - component: {fileID: 4864538874017656863}
   - component: {fileID: 1384118409547519432}
-  - component: {fileID: 8945967118436101648}
   - component: {fileID: 5075396395136748798}
+  - component: {fileID: -2811004559314156837}
   m_Layer: 0
   m_Name: CombatSlime
   m_TagString: Enemy
@@ -94,7 +94,7 @@ Animator:
   m_GameObject: {fileID: 4000748600718771186}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 6dad372e6b2fce64c992f830964357db, type: 2}
+  m_Controller: {fileID: 9100000, guid: 5f35276d897eb13469ffade55dec8c69, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
@@ -103,31 +103,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &8945967118436101648
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4000748600718771186}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2a0d3ec920975e4cb9acbcee44eceb2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animator: {fileID: 1384118409547519432}
-  healthbar: {fileID: 0}
-  enemyType: {fileID: 0}
-  enemyCount: 0
-  maxHealth: 60
-  maxMana: 0
-  dropExperience: 5
-  damage: 1
-  defence: 0
-  magicDamage: 0
-  magicDefence: 0
-  aim: 0.5
-  evasion: 1
 --- !u!61 &5075396395136748798
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -154,3 +129,25 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.4, y: 1.1}
   m_EdgeRadius: 0
+--- !u!114 &-2811004559314156837
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4000748600718771186}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92c447072fd41df4d9d9683d4448754c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthbar: {fileID: 0}
+  maxHealth: 10
+  maxMana: 0
+  dropExperience: 0
+  damage: 0
+  defence: 0
+  magicDamage: 0
+  magicDefence: 0
+  aim: 0
+  evasion: 0

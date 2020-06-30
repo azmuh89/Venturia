@@ -117,15 +117,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 8003765075237056697}
-  maxHealth: 60
-  maxMana: 0
-  dropExperience: 5
-  damage: 1
-  defence: 0
-  magicDamage: 0
-  magicDefence: 0
-  aim: 0.5
-  evasion: 1
+  enemyType: {fileID: 0}
+  enemyCount: 1
+  enemyName: 
 --- !u!61 &4199918447106894223
 BoxCollider2D:
   m_ObjectHideFlags: 0

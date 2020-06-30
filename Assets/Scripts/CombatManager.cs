@@ -50,8 +50,7 @@ public class CombatManager : MonoBehaviour
             enemies[i] = Instantiate(enemy.enemyType, enemySpawnPoint[i].transform.position, Quaternion.identity);
 
             enemyName[i] = enemySpawnPoint[i].transform.Find("Canvas/NameButton").GetComponent<Button>();
-
-            enemies[i].GetComponent<Animator>().SetBool("InCombat", true);
+            
             enemies[i].name = enemy.enemyName + " " + (i + 1);
 
             enemyName[i].GetComponentInChildren<Text>().text = enemies[i].name;
