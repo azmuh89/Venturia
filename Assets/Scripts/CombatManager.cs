@@ -18,6 +18,7 @@ public class CombatManager : MonoBehaviour
     private Button[] enemyName;
     private Vector3 playerPos;
     private Vector3[] enemyPos;
+    private EnemyController enemy;
 
     private Button attackButton, skillsButton,
         defendButton, itemsButton, escapeButton;
@@ -29,31 +30,31 @@ public class CombatManager : MonoBehaviour
     private bool attacking;
     private bool playerTurn;
     private bool canvasActive = true;
-    private string baseName;
 
     void Awake()
     {
         Time.timeScale = 1;
 
+        enemy = EnemyController.instance;
+
         playerPos = player.transform.position;
 
-        enemies = GameObject.FindGameObjectsWithTag("Enemy");
-        baseName = enemies[enemies.Length - 1].name;
+        //System.Array.Reverse(enemies);
 
-        System.Array.Reverse(enemies);
+        enemies = new GameObject[enemy.enemyCount];
+        enemyName = new Button[enemy.enemyCount];
+        enemyPos = new Vector3[enemy.enemyCount];
 
-        enemyName = new Button[enemies.Length];
-        enemyPos = new Vector3[enemies.Length];
-
-        for (int i = 0; i < enemies.Length; i++)
+        for (int i = 0; i < enemy.enemyCount; i++)
         {
+            enemies[i] = Instantiate(enemy.enemyType, enemySpawnPoint[i].transform.position, Quaternion.identity);
+
             enemyName[i] = enemySpawnPoint[i].transform.Find("Canvas/NameButton").GetComponent<Button>();
 
             enemies[i].GetComponent<Animator>().SetBool("InCombat", true);
-            enemies[i].name = baseName + " " + (i + 1);
+            enemies[i].name = enemy.enemyName + " " + (i + 1);
 
             enemyName[i].GetComponentInChildren<Text>().text = enemies[i].name;
-            enemyName[i].gameObject.SetActive(false);
 
             enemyPos[i] = enemies[i].transform.position;
         }

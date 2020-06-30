@@ -16,12 +16,10 @@ public class PlayerController : MonoBehaviour
 
     private static PlayerController instance;
     private PlayerStats stats;
-    private Scene currentScene;
 
     void Awake()
     {
         stats = gameObject.GetComponent<PlayerStats>();
-        currentScene = SceneManager.GetActiveScene();
         
         DontDestroyOnLoad(this);
 
@@ -82,10 +80,6 @@ public class PlayerController : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Enemy")
-        {
-            SceneManager.LoadScene("Combat");
-        }
     }
     
     void Direction()
