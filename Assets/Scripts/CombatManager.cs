@@ -107,7 +107,7 @@ public class CombatManager : MonoBehaviour
 
         if (swordSlashClone != null)
         {
-            swordSlashClone.transform.position = Vector3.MoveTowards(swordSlashClone.transform.position, enemies[enemyChoice-1].transform.position, 50 * Time.deltaTime);
+            swordSlashClone.transform.position = Vector3.MoveTowards(swordSlashClone.transform.position, enemies[enemyChoice].transform.position, 50 * Time.deltaTime);
         }
     }
 
@@ -132,10 +132,12 @@ public class CombatManager : MonoBehaviour
         for (int i = 0; i < enemies.Length; i++)
         {
             enemies[i].transform.position = playerPos + (Vector3.left * 2);
+            enemies[i].GetComponent<BoxCollider2D>().enabled = true;
             yield return new WaitForSeconds(0.3f);
-            //Attack animation
+            enemies[i].GetComponent<Animator>().SetTrigger("Attack");
             yield return new WaitForSeconds(1f);
             enemies[i].transform.position = enemyPos[i];
+            enemies[i].GetComponent<BoxCollider2D>().enabled = false;
             yield return new WaitForSeconds(0.2f);
         }
 
@@ -159,7 +161,9 @@ public class CombatManager : MonoBehaviour
             enemyName[i].gameObject.SetActive(false);
         }
 
-        //player.GetComponent<Animator>().SetTrigger("Attack");
+        enemies[enemy].GetComponent<BoxCollider2D>().enabled = true;
+
+        player.GetComponent<Animator>().SetTrigger("Attack");
 
         swordSlashClone = Instantiate(swordSlash, playerPos, Quaternion.identity);
         enemyChoice = enemy;
