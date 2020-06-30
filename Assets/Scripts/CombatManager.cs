@@ -107,7 +107,7 @@ public class CombatManager : MonoBehaviour
 
         if (swordSlashClone != null)
         {
-            swordSlashClone.transform.position = Vector3.MoveTowards(swordSlashClone.transform.position, enemies[enemyChoice].transform.position, 50 * Time.deltaTime);
+            swordSlashClone.transform.position = Vector3.MoveTowards(swordSlashClone.transform.position, enemySpawnPoint[enemyChoice].transform.position, 50 * Time.deltaTime);
         }
     }
 

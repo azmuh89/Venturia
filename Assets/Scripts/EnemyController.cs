@@ -56,7 +56,7 @@ public class EnemyController : MonoBehaviour
         {
             Destroy(collision.gameObject);
             currentHealth -= (int)playerStats.damage;
-            Debug.Log("Enemy Health: " + currentHealth);
+            Debug.Log(name + " Health: " + currentHealth);
         }
     }
     
