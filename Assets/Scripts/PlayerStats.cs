@@ -8,7 +8,7 @@ public class PlayerStats : MonoBehaviour
 {
     public int currentHealth { get; private set; }
     public int currentMana { get; private set; }
-    public int currentEnergy { get; private set; }
+    public int currentEnergy;
     public int maxHealth { get; private set; }
     public int maxMana { get; private set; }
     public int maxEnergy { get; private set; }

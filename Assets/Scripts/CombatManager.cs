@@ -16,10 +16,15 @@ public class CombatManager : MonoBehaviour
     private GameObject swordSlashClone;
     
     private GameObject[] enemies;
+    private GameObject buttonChoices;
+    private GameObject endPanel;
     private Button[] enemyName;
     private Vector3 playerPos;
     private Vector3[] enemyPos;
+    private Text expText, itemsText;
     private EnemyController enemy;
+    private PlayerStats playerStats;
+    private CombatEnemy enemyStats;
 
     private Button attackButton, skillsButton,
         defendButton, itemsButton, escapeButton;
@@ -37,6 +42,7 @@ public class CombatManager : MonoBehaviour
         Time.timeScale = 1;
 
         enemy = EnemyController.instance;
+        playerStats = FindObjectOfType<PlayerStats>();
 
         playerPos = player.transform.position;
 
@@ -58,7 +64,9 @@ public class CombatManager : MonoBehaviour
 
             enemyPos[i] = enemies[i].transform.position;
         }
-        
+
+        enemyStats = FindObjectOfType<CombatEnemy>();
+
         FindButtons();
         FindMenus();
     }
@@ -110,6 +118,19 @@ public class CombatManager : MonoBehaviour
         {
             swordSlashClone.transform.position = Vector3.MoveTowards(swordSlashClone.transform.position, enemySpawnPoint[enemyChoice].transform.position, 50 * Time.deltaTime);
         }
+
+        if (enemy.enemyCount == 0)
+        {
+            EndCombat();
+        }
+
+        for (int i = 0; i < enemies.Length; i++)
+        {
+            if (enemies[i] == null)
+            {
+                enemyName[i].gameObject.SetActive(false);
+            }
+        }
     }
 
     IEnumerator SwitchTurns()
@@ -132,14 +153,17 @@ public class CombatManager : MonoBehaviour
     {
         for (int i = 0; i < enemies.Length; i++)
         {
-            enemies[i].transform.position = playerPos + (Vector3.left * 2);
-            enemies[i].GetComponent<BoxCollider2D>().enabled = true;
-            yield return new WaitForSeconds(0.3f);
-            enemies[i].GetComponent<Animator>().SetTrigger("Attack");
-            yield return new WaitForSeconds(1f);
-            enemies[i].transform.position = enemyPos[i];
-            enemies[i].GetComponent<BoxCollider2D>().enabled = false;
-            yield return new WaitForSeconds(0.2f);
+            if (enemies[i] != null)
+            {
+                enemies[i].transform.position = playerPos + (Vector3.left * 2);
+                enemies[i].GetComponent<BoxCollider2D>().enabled = true;
+                yield return new WaitForSeconds(0.3f);
+                enemies[i].GetComponent<Animator>().SetTrigger("Attack");
+                yield return new WaitForSeconds(1f);
+                enemies[i].transform.position = enemyPos[i];
+                enemies[i].GetComponent<BoxCollider2D>().enabled = false;
+                yield return new WaitForSeconds(0.2f);
+            }
         }
 
         StartCoroutine(SwitchTurns());
@@ -150,6 +174,23 @@ public class CombatManager : MonoBehaviour
         for (int i = 0; i < enemies.Length; i++)
         {
             enemyName[i].gameObject.SetActive(true);
+        }
+
+        if (enemies[0] != null)
+        {
+            EventSystem.current.SetSelectedGameObject(enemyName[0].gameObject);
+        }
+        else if (enemies[1] != null)
+        {
+            EventSystem.current.SetSelectedGameObject(enemyName[1].gameObject);
+        }
+        else if (enemies[2] != null)
+        {
+            EventSystem.current.SetSelectedGameObject(enemyName[2].gameObject);
+        }
+        else if (enemies[3] != null)
+        {
+            EventSystem.current.SetSelectedGameObject(enemyName[3].gameObject);
         }
 
         canvas.SetActive(false);
@@ -195,7 +236,25 @@ public class CombatManager : MonoBehaviour
     public void Escape()
     {
         SceneManager.LoadScene("PathToForest");
-        //Costs half energy
+        playerStats.currentEnergy /= 2;
+    }
+
+    void EndCombat()
+    {
+        StopAllCoroutines();
+
+        canvas.SetActive(true);
+        buttonChoices.SetActive(false);
+        attackView.SetActive(false);
+        endPanel.SetActive(true);
+
+        playerStats.experience += enemyStats.dropExperience;
+        expText.text = "Gained " + enemyStats.dropExperience + " Experience";
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            SceneManager.LoadScene("PathToForest");
+        }
     }
 
     void NavigationView()
@@ -235,11 +294,16 @@ public class CombatManager : MonoBehaviour
 
     void FindButtons()
     {
-        attackButton = canvas.transform.Find("Choices/AttackButton").GetComponent<Button>();
-        skillsButton = canvas.transform.Find("Choices/SkillsButton").GetComponent<Button>();
-        defendButton = canvas.transform.Find("Choices/DefendButton").GetComponent<Button>();
-        itemsButton = canvas.transform.Find("Choices/ItemsButton").GetComponent<Button>();
-        escapeButton = canvas.transform.Find("Choices/EscapeButton").GetComponent<Button>();
+        endPanel = canvas.transform.Find("EndScreen").gameObject;
+        expText = endPanel.transform.Find("ExpText").GetComponent<Text>();
+        itemsText = endPanel.transform.Find("ItemText").GetComponent<Text>();
+
+        buttonChoices = canvas.transform.Find("Choices").gameObject;
+        attackButton = buttonChoices.transform.Find("AttackButton").GetComponent<Button>();
+        skillsButton = buttonChoices.transform.Find("SkillsButton").GetComponent<Button>();
+        defendButton = buttonChoices.transform.Find("DefendButton").GetComponent<Button>();
+        itemsButton = buttonChoices.transform.Find("ItemsButton").GetComponent<Button>();
+        escapeButton = buttonChoices.transform.Find("EscapeButton").GetComponent<Button>();
     }
 
     void FindMenus()

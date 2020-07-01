@@ -10,7 +10,7 @@ public class EnemyController : MonoBehaviour
     public Animator animator;
     public GameObject enemyType;
     [Range(1, 4)]
-    public int enemyCount = 1;
+    public int enemyCount;
     [HideInInspector]
     public string enemyName;
     

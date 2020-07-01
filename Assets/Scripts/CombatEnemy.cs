@@ -16,11 +16,13 @@ public class CombatEnemy : MonoBehaviour
     public float evasion;
 
     private PlayerStats playerStats;
+    private EnemyController enemyController;
     private int currentHealth, currentMana;
 
     void Start()
     {
-        playerStats = GameObject.FindObjectOfType<PlayerStats>();
+        enemyController = EnemyController.instance;
+        playerStats = FindObjectOfType<PlayerStats>();
         currentHealth = maxHealth;
         currentMana = maxMana;
     }
@@ -46,6 +48,6 @@ public class CombatEnemy : MonoBehaviour
     void Die()
     {
         Destroy(gameObject);
-        playerStats.experience += dropExperience;
+        enemyController.enemyCount--;
     }
 }
