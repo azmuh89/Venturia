@@ -41,7 +41,6 @@ public class CombatEnemy : MonoBehaviour
         {
             Destroy(collision.gameObject);
             currentHealth -= (int)playerStats.damage;
-            Debug.Log(name + " Health: " + currentHealth);
         }
     }
 

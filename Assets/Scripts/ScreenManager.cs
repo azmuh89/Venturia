@@ -8,8 +8,10 @@ using UnityEngine.EventSystems;
 public class ScreenManager : MonoBehaviour
 {
     public GameObject menuCanvas;
-    public GameObject statsMenu, skillsMenu, settingsMenu, mainMenuView, quitView, equipmentMenu;
-    public GameObject statsButton, skillsButton, settingsButton, mainMenuButton, quitButton, equipmentButton;
+    public GameObject statsMenu, inventoryMenu, equipmentMenu, skillsMenu, saveLoadMenu, settingsMenu, exitMenu;
+    public GameObject statsButton, inventoryButton, equipmentButton, skillsButton, saveLoadButton, settingsButton, exitButton;
+    public GameObject invItemsButton, invWeaponsButton, invArmorsButton, invQuestItemsButton;
+    public GameObject invItemsMenu, invWeaponsMenu, invArmorsMenu, invQuestItemsMenu;
 
     private bool isFullscreen = true;
     
@@ -22,16 +24,68 @@ public class ScreenManager : MonoBehaviour
         }
         else if (Input.GetKeyDown(KeyCode.Escape) && menuCanvas.activeInHierarchy)
         {
-            if (settingsMenu.activeInHierarchy)
+            if (invItemsMenu.activeInHierarchy)
             {
-                if (EventSystem.current.currentSelectedGameObject != settingsButton)
-                {
-                    EventSystem.current.SetSelectedGameObject(settingsButton);
-                }
-                else
+                if (EventSystem.current.currentSelectedGameObject == inventoryButton)
                 {
                     menuCanvas.SetActive(false);
                     Time.timeScale = 1;
+                }
+                else if (EventSystem.current.currentSelectedGameObject != invItemsButton)
+                {
+                    EventSystem.current.SetSelectedGameObject(invItemsButton);
+                }
+                else
+                {
+                    EventSystem.current.SetSelectedGameObject(inventoryButton);
+                }
+            }
+            else if (invWeaponsMenu.activeInHierarchy)
+            {
+                if (EventSystem.current.currentSelectedGameObject == inventoryButton)
+                {
+                    menuCanvas.SetActive(false);
+                    Time.timeScale = 1;
+                }
+                else if (EventSystem.current.currentSelectedGameObject != invWeaponsButton)
+                {
+                    EventSystem.current.SetSelectedGameObject(invWeaponsButton);
+                }
+                else
+                {
+                    EventSystem.current.SetSelectedGameObject(inventoryButton);
+                }
+            }
+            else if (invArmorsMenu.activeInHierarchy)
+            {
+                if (EventSystem.current.currentSelectedGameObject == inventoryButton)
+                {
+                    menuCanvas.SetActive(false);
+                    Time.timeScale = 1;
+                }
+                else if (EventSystem.current.currentSelectedGameObject != invArmorsButton)
+                {
+                    EventSystem.current.SetSelectedGameObject(invArmorsButton);
+                }
+                else
+                {
+                    EventSystem.current.SetSelectedGameObject(inventoryButton);
+                }
+            }
+            else if (invQuestItemsMenu.activeInHierarchy)
+            {
+                if (EventSystem.current.currentSelectedGameObject == inventoryButton)
+                {
+                    menuCanvas.SetActive(false);
+                    Time.timeScale = 1;
+                }
+                else if (EventSystem.current.currentSelectedGameObject != invQuestItemsButton)
+                {
+                    EventSystem.current.SetSelectedGameObject(invQuestItemsButton);
+                }
+                else
+                {
+                    EventSystem.current.SetSelectedGameObject(inventoryButton);
                 }
             }
             else if (equipmentMenu.activeInHierarchy)
@@ -46,10 +100,29 @@ public class ScreenManager : MonoBehaviour
                     Time.timeScale = 1;
                 }
             }
-            else
+            else if (settingsMenu.activeInHierarchy)
             {
-                menuCanvas.SetActive(false);
-                Time.timeScale = 1;
+                if (EventSystem.current.currentSelectedGameObject != settingsButton)
+                {
+                    EventSystem.current.SetSelectedGameObject(settingsButton);
+                }
+                else
+                {
+                    menuCanvas.SetActive(false);
+                    Time.timeScale = 1;
+                }
+            }
+            else if (exitMenu.activeInHierarchy)
+            {
+                if (EventSystem.current.currentSelectedGameObject != exitButton)
+                {
+                    EventSystem.current.SetSelectedGameObject(exitButton);
+                }
+                else
+                {
+                    menuCanvas.SetActive(false);
+                    Time.timeScale = 1;
+                }
             }
         }
 
@@ -61,13 +134,11 @@ public class ScreenManager : MonoBehaviour
             {
                 Screen.SetResolution(1600, 900, false);
                 isFullscreen = false;
-                Debug.Log("Not Fullscreen");
             }
             else
             {
                 Screen.SetResolution(1920, 1080, true);
                 isFullscreen = true;
-                Debug.Log("Fullscreen");
             }
         }
     }
@@ -76,40 +147,71 @@ public class ScreenManager : MonoBehaviour
     {
         if (EventSystem.current.currentSelectedGameObject == statsButton)
         {
-            SelectedButton(statsMenu);
+            SelectMenu(statsMenu);
         }
-        else if (EventSystem.current.currentSelectedGameObject == skillsButton)
+        else if (EventSystem.current.currentSelectedGameObject == inventoryButton)
         {
-            SelectedButton(skillsMenu);
+            SelectMenu(inventoryMenu);
         }
-        else if (EventSystem.current.currentSelectedGameObject == settingsButton)
+        else if (EventSystem.current.currentSelectedGameObject == invItemsButton)
         {
-            SelectedButton(settingsMenu);
+            SelectInventory(invItemsMenu);
         }
-        else if (EventSystem.current.currentSelectedGameObject == mainMenuButton)
+        else if (EventSystem.current.currentSelectedGameObject == invWeaponsButton)
         {
-            SelectedButton(mainMenuView);
+            SelectInventory(invWeaponsMenu);
         }
-        else if (EventSystem.current.currentSelectedGameObject == quitButton)
+        else if (EventSystem.current.currentSelectedGameObject == invArmorsButton)
         {
-            SelectedButton(quitView);
+            SelectInventory(invArmorsMenu);
+        }
+        else if (EventSystem.current.currentSelectedGameObject == invQuestItemsButton)
+        {
+            SelectInventory(invQuestItemsMenu);
         }
         else if (EventSystem.current.currentSelectedGameObject == equipmentButton)
         {
-            SelectedButton(equipmentMenu);
+            SelectMenu(equipmentMenu);
+        }
+        else if (EventSystem.current.currentSelectedGameObject == skillsButton)
+        {
+            SelectMenu(skillsMenu);
+        }
+        else if (EventSystem.current.currentSelectedGameObject == saveLoadButton)
+        {
+            SelectMenu(saveLoadMenu);
+        }
+        else if (EventSystem.current.currentSelectedGameObject == settingsButton)
+        {
+            SelectMenu(settingsMenu);
+        }
+        else if (EventSystem.current.currentSelectedGameObject == exitButton)
+        {
+            SelectMenu(exitMenu);
         }
     }
 
-    void SelectedButton(GameObject activeObject)
+    void SelectMenu(GameObject activeMenu)
     {
         statsMenu.SetActive(false);
-        skillsMenu.SetActive(false);
-        settingsMenu.SetActive(false);
-        mainMenuView.SetActive(false);
-        quitView.SetActive(false);
+        inventoryMenu.SetActive(false);
         equipmentMenu.SetActive(false);
+        skillsMenu.SetActive(false);
+        saveLoadMenu.SetActive(false);
+        settingsMenu.SetActive(false);
+        exitMenu.SetActive(false);
 
-        activeObject.gameObject.SetActive(true);
+        activeMenu.SetActive(true);
+    }
+
+    void SelectInventory(GameObject invMenu)
+    {
+        invItemsMenu.SetActive(false);
+        invWeaponsMenu.SetActive(false);
+        invArmorsMenu.SetActive(false);
+        invQuestItemsMenu.SetActive(false);
+
+        invMenu.SetActive(true);
     }
 
     public void LoadScene(string sceneID)
