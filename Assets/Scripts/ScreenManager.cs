@@ -124,6 +124,11 @@ public class ScreenManager : MonoBehaviour
                     Time.timeScale = 1;
                 }
             }
+            else
+            {
+                menuCanvas.SetActive(false);
+                Time.timeScale = 1;
+            }
         }
 
         MenuNavigation();
