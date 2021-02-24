@@ -33,15 +33,16 @@ public class PlayerStats : MonoBehaviour
         magicDefence,
         aim,
         evasion;
-    
+
     private float
         baseDamage,
         baseDefence,
         baseMDamage,
         baseMDefence,
         baseAim,
-        baseEvasion,
-        baseLuck;
+        baseEvasion;
+
+    private int baseLuck;
 
     private Healthbar healthbar;
     private Weapon weapon;
@@ -77,7 +78,7 @@ public class PlayerStats : MonoBehaviour
         level = 1;
         karma = 0;
         experience = 0;
-        maxExp = 100;
+        maxExp = 35;
 
         baseDamage = 5;
         baseDefence = 3;
@@ -147,22 +148,23 @@ public class PlayerStats : MonoBehaviour
         magicDefence = baseMDefence;// + armor.magicDefence + acc.magicDefence;
         aim = baseAim;// + weapon.aim + acc.aim;
         evasion = baseEvasion;// + armor.evasion + acc.evasion;
+        luck = baseLuck;// + weapon.luck + armor.luck + acc.luck;
     }
 
     void LevelUp()
     {
         level++;
         experience = 0;
-        maxExp += level * 50;
-        baseMaxHealth += level * 3;
-        baseMaxMana += level * 2;
-        baseMaxEnergy += level;
-        baseDamage += level * 0.6f;
-        baseDefence += level * 0.375f;
-        baseMDamage += level; // TODO
-        baseMDefence += level; // TODO
-        baseAim += level * 0.33f;
-        baseEvasion += level * 0.3f;
+        maxExp *= (int)1.5;
+        baseMaxHealth *= (int)1.35;      // if class is Mage then both hp and mp mods get switched
+        baseMaxMana *= (int)1.25;
+        baseMaxEnergy *= (int)1.15;
+        baseDamage *= (int)1.2;
+        baseDefence *= (int)1.2;
+        baseMDamage *= 0; // TODO
+        baseMDefence *= 0; // TODO
+        baseAim *= (int)1.2;
+        baseEvasion *= (int)1.2;
     }
     
     void Running()

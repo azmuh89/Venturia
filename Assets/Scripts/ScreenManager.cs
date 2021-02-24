@@ -9,7 +9,8 @@ public class ScreenManager : MonoBehaviour
 {
     public GameObject menuCanvas;
     public GameObject statsMenu, inventoryMenu, equipmentMenu, skillsMenu, saveLoadMenu, settingsMenu, exitMenu;
-    public GameObject statsButton, inventoryButton, equipmentButton, skillsButton, saveLoadButton, settingsButton, exitButton;
+    public GameObject statsButton, questButton, inventoryButton, equipmentButton, skillsButton, saveLoadButton, settingsButton, exitButton;
+    public GameObject questMainButton, questSideButton;
     public GameObject invItemsButton, invWeaponsButton, invArmorsButton, invQuestItemsButton;
     public GameObject invItemsMenu, invWeaponsMenu, invArmorsMenu, invQuestItemsMenu;
 
