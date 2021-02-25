@@ -56,7 +56,7 @@ public class PlayerStats : MonoBehaviour
         get { return _currentExperience; }
         set
         {
-            _currentExperience += value;
+            _currentExperience = value;
 
             if (_currentExperience >= maxExp)
             {
@@ -81,12 +81,12 @@ public class PlayerStats : MonoBehaviour
         get { return _copper; }
         set
         {
-            _copper += value;
+            _copper = value;
 
             if (_copper >= 100)
             {
                 _copper -= 100;
-                _silver++;
+                Silver++;
             }
         }
     }
@@ -95,12 +95,12 @@ public class PlayerStats : MonoBehaviour
         get { return _silver; }
         set
         {
-            _silver += value;
+            _silver = value;
 
             if (_silver >= 100)
             {
                 _silver -= 100;
-                _gold++;
+                Gold++;
             }
         }
     }
@@ -109,19 +109,19 @@ public class PlayerStats : MonoBehaviour
         get { return _gold; }
         set
         {
-            _gold += value;
+            _gold = value;
 
             if (_gold >= 100)
             {
                 _gold -= 100;
-                _platinum++;
+                Platinum++;
             }
         }
     }
     public int Platinum
     {
         get { return _platinum; }
-        set { _platinum += value; }
+        set { _platinum = value; }
     }
 
     void Awake()
@@ -200,6 +200,11 @@ public class PlayerStats : MonoBehaviour
         {
             currentMana--;
             healthbar.SetMana(currentMana);
+        }
+
+        if (Input.GetKeyDown(KeyCode.M))
+        {
+            Copper += 5;
         }
 
         if (currentHealth <= 0)
