@@ -44,7 +44,7 @@ public class MenuCanvas : MonoBehaviour
         aimText.text = playerStats.aim.ToString("F2");
         evasionText.text = playerStats.evasion.ToString("F2");
         levelText.text = playerStats.level.ToString();
-        //experienceText.text = playerStats.experience + "/" + playerStats.maxExp;
+        experienceText.text = playerStats.CurrentExp + "/" + playerStats.maxExp;
         luckText.text = playerStats.luck.ToString();
         karmaText.text = playerStats.karma.ToString();
         professionText.text = playerStats.profession;

@@ -46,10 +46,10 @@ public class PlayerStats : MonoBehaviour
     private Accessories acc;
     private PlayerController player;
     private Text deadText;
-    private int baseMaxHealth, baseMaxMana, baseMaxEnergy;
+    private float baseMaxHealth, baseMaxMana, baseMaxEnergy;
     private int _copper, _silver, _gold, _platinum;
     private int _currentExperience;
-    private int maxExp = 35;
+    public float maxExp = 35;
 
     public int CurrentExp
     {
@@ -60,17 +60,17 @@ public class PlayerStats : MonoBehaviour
 
             if (_currentExperience >= maxExp)
             {
-                _currentExperience -= maxExp;
+                _currentExperience -= (int)maxExp;
                 level++;
-                maxExp *= (int)1.5;
-                baseMaxHealth *= (int)1.35;
-                baseMaxMana *= (int)1.25;
-                baseMaxEnergy *= (int)1.15;
-                baseDamage *= 1.2f;
+                maxExp *= 1.4f;
+                baseMaxHealth *= 1.3f;
+                baseMaxMana *= 1.2f;
+                baseMaxEnergy *= 1.1f;
+                baseDamage *= 1.175f;
                 baseDefence *= 1.2f;
                 baseMDamage *= 1.2f;
                 baseMDefence *= 1.2f;
-                baseAim *= 1.2f;
+                baseAim *= 1.175f;
                 baseEvasion *= 1.2f;
             }
         }
@@ -142,9 +142,9 @@ public class PlayerStats : MonoBehaviour
         baseMaxMana = 10;
         baseMaxEnergy = 10;
 
-        healthbar.SetMaxHealth(baseMaxHealth);
-        healthbar.SetMaxMana(baseMaxMana);
-        healthbar.SetMaxEnergy(baseMaxEnergy);
+        healthbar.SetMaxHealth(maxHealth);
+        healthbar.SetMaxMana(maxMana);
+        healthbar.SetMaxEnergy(maxEnergy);
         
         level = 1;
         karma = 0;
@@ -185,26 +185,26 @@ public class PlayerStats : MonoBehaviour
         
         TotalStats();
 
-        //if (experience >= maxExp)
-        //{
-        //    LevelUp();
-        //}
-
-        if (Input.GetKeyDown(KeyCode.F))
+        if (Input.GetKeyDown(KeyCode.F)) // for testing purposes
         {
             currentHealth--;
             healthbar.SetHealth(currentHealth);
         }
 
-        if (Input.GetKeyDown(KeyCode.G))
+        if (Input.GetKeyDown(KeyCode.G)) // for testing purposes
         {
             currentMana--;
             healthbar.SetMana(currentMana);
         }
-
-        if (Input.GetKeyDown(KeyCode.M))
+        
+        if (Input.GetKeyDown(KeyCode.M)) // for testing purposes
         {
             Copper += 5;
+        }
+
+        if (Input.GetKeyDown(KeyCode.L)) // for testing purposes
+        {
+            CurrentExp += 1000;
         }
 
         if (currentHealth <= 0)
@@ -215,9 +215,10 @@ public class PlayerStats : MonoBehaviour
     
     void TotalStats()
     {
-        maxHealth = baseMaxHealth;// + armor.health + acc.health;
-        maxMana = baseMaxMana;// + armor.mana + acc.mana;
-        maxEnergy = baseMaxEnergy;// + armor.energy + acc.energy;
+        maxExp = (int)maxExp;
+        maxHealth = (int)baseMaxHealth;// + armor.health + acc.health;
+        maxMana = (int)baseMaxMana;// + armor.mana + acc.mana;
+        maxEnergy = (int)baseMaxEnergy;// + armor.energy + acc.energy;
         damage = baseDamage;// + weapon.damage;
         defence = baseDefence;// + armor.defence + acc.defence;
         magicDamage = baseMDamage;// + weapon.magicDamage;
@@ -227,22 +228,6 @@ public class PlayerStats : MonoBehaviour
         luck = baseLuck;// + weapon.luck + armor.luck + acc.luck;
     }
 
-    //void LevelUp()
-    //{
-    //    level++;
-    //    experience = 0;
-    //    maxExp *= (int)1.5;
-    //    baseMaxHealth *= (int)1.35;      // if class is Mage then both hp and mp mods get switched
-    //    baseMaxMana *= (int)1.25;
-    //    baseMaxEnergy *= (int)1.15;
-    //    baseDamage *= (int)1.2;
-    //    baseDefence *= (int)1.2;
-    //    baseMDamage *= 0; // TODO
-    //    baseMDefence *= 0; // TODO
-    //    baseAim *= (int)1.2;
-    //    baseEvasion *= (int)1.2;
-    //}
-    
     void Running()
     {
         if (currentEnergy > 0 && player.isRunning && player.movement.magnitude > 0)
