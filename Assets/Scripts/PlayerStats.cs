@@ -6,19 +6,26 @@ using UnityEngine.UI;
 
 public class PlayerStats : MonoBehaviour
 {
-    public int currentHealth;
-    public int currentMana;
-    public int currentEnergy;
-    public int maxHealth;
-    public int maxMana;
-    public int maxEnergy;
-    //public int maxExp { get; private set; }
-    public int level;
-    public string profession;
-    public string adventurerRank;
-
     [HideInInspector]
-    public int karma;
+    public int currentHealth;
+    [HideInInspector]
+    public int currentMana;
+    [HideInInspector]
+    public int currentEnergy;
+    [HideInInspector]
+    public int maxHealth;
+    [HideInInspector]
+    public int maxMana;
+    [HideInInspector]
+    public int maxEnergy;
+    [HideInInspector]
+    public int level = 1;
+    [HideInInspector]
+    public string profession;
+    [HideInInspector]
+    public string adventurerRank;
+    [HideInInspector]
+    public int karma = 0;
     [HideInInspector]
     public int luck;
     [HideInInspector]
@@ -46,7 +53,7 @@ public class PlayerStats : MonoBehaviour
     private Accessories acc;
     private PlayerController player;
     private Text deadText;
-    private float baseMaxHealth, baseMaxMana, baseMaxEnergy;
+    private float baseMaxHealth = 15, baseMaxMana = 10, baseMaxEnergy = 10;
     private int _copper, _silver, _gold, _platinum;
     private int _currentExperience;
     public float maxExp = 35;
@@ -138,27 +145,10 @@ public class PlayerStats : MonoBehaviour
 
     void Start()
     {
-        baseMaxHealth = 15;
-        baseMaxMana = 10;
-        baseMaxEnergy = 10;
-
         healthbar.SetMaxHealth(maxHealth);
         healthbar.SetMaxMana(maxMana);
         healthbar.SetMaxEnergy(maxEnergy);
         
-        level = 1;
-        karma = 0;
-        //_currentExperience = 0;
-        //maxExp = 35;
-
-        //baseDamage = 5;
-        //baseDefence = 3;
-        //baseMDamage = 0;
-        //baseMDefence = 0;
-        //baseAim = 2;
-        //baseEvasion = 1;
-        //baseLuck = 1;
-
         profession = "N/A";
         adventurerRank = "N/A";
 
@@ -168,7 +158,7 @@ public class PlayerStats : MonoBehaviour
         currentMana = maxMana;
         currentEnergy = maxEnergy;
 
-        if (player != null)
+        if (player != null) // need to change
         {
             InvokeRepeating("Running", 0, 1);
             InvokeRepeating("NotRunning", 0, 30);

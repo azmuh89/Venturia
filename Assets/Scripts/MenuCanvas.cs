@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 public class MenuCanvas : MonoBehaviour
 {
@@ -14,6 +15,7 @@ public class MenuCanvas : MonoBehaviour
 
     private PlayerStats playerStats;
     private Button firstSelectedButton;
+    private bool isFullscreen = true;
 
     void Awake()
     {
@@ -23,7 +25,30 @@ public class MenuCanvas : MonoBehaviour
 
     void Update()
     {
-        SetStatsText();
+        SetStatsText(); // maybe change later
+
+        if (Input.GetKeyDown(KeyCode.Escape) && gameObject.activeInHierarchy)
+        {
+            if (EventSystem.current.currentSelectedGameObject == GameObject.Find("QuestsButton"))
+            {
+                gameObject.SetActive(false);
+                Time.timeScale = 1;
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.F4))
+        {
+            if (isFullscreen)
+            {
+                Screen.SetResolution(1600, 900, false);
+                isFullscreen = false;
+            }
+            else
+            {
+                Screen.SetResolution(1920, 1080, true);
+                isFullscreen = true;
+            }
+        }
     }
 
     void OnEnable()
@@ -53,5 +78,34 @@ public class MenuCanvas : MonoBehaviour
         silverText.text = playerStats.Silver.ToString();
         goldText.text = playerStats.Gold.ToString();
         platinumText.text = playerStats.Platinum.ToString();
+    }
+
+
+    public void LoadScene(string sceneID)
+    {
+        Time.timeScale = 1;
+        SceneManager.LoadScene(sceneID);
+        SceneFade.instance.Fade();
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
+
+    int boolToInt(bool val)
+    {
+        if (val)
+            return 1;
+        else
+            return 0;
+    }
+
+    bool intToBool(int val)
+    {
+        if (val != 0)
+            return true;
+        else
+            return false;
     }
 }
