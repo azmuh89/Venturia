@@ -6,19 +6,17 @@ using UnityEngine.UI;
 
 public class PlayerStats : MonoBehaviour
 {
-    public int currentHealth { get; private set; }
-    public int currentMana { get; private set; }
+    public int currentHealth;
+    public int currentMana;
     public int currentEnergy;
-    public int maxHealth { get; private set; }
-    public int maxMana { get; private set; }
-    public int maxEnergy { get; private set; }
-    public int maxExp { get; private set; }
-    public int level { get; private set; }
-    public string profession { get; private set; }
-    public string adventurerRank { get; private set; }
+    public int maxHealth;
+    public int maxMana;
+    public int maxEnergy;
+    //public int maxExp { get; private set; }
+    public int level;
+    public string profession;
+    public string adventurerRank;
 
-    [HideInInspector]
-    public int experience;
     [HideInInspector]
     public int karma;
     [HideInInspector]
@@ -33,14 +31,14 @@ public class PlayerStats : MonoBehaviour
         evasion;
 
     private float
-        baseDamage,
-        baseDefence,
-        baseMDamage,
-        baseMDefence,
-        baseAim,
-        baseEvasion;
+        baseDamage = 5f,
+        baseDefence = 3f,
+        baseMDamage = 1f,
+        baseMDefence = 2f,
+        baseAim = 2f,
+        baseEvasion = 1f;
 
-    private int baseLuck;
+    private int baseLuck = 1;
 
     private Healthbar healthbar;
     private Weapon weapon;
@@ -50,6 +48,33 @@ public class PlayerStats : MonoBehaviour
     private Text deadText;
     private int baseMaxHealth, baseMaxMana, baseMaxEnergy;
     private int _copper, _silver, _gold, _platinum;
+    private int _currentExperience;
+    private int maxExp = 35;
+
+    public int CurrentExp
+    {
+        get { return _currentExperience; }
+        set
+        {
+            _currentExperience += value;
+
+            if (_currentExperience >= maxExp)
+            {
+                _currentExperience -= maxExp;
+                level++;
+                maxExp *= (int)1.5;
+                baseMaxHealth *= (int)1.35;
+                baseMaxMana *= (int)1.25;
+                baseMaxEnergy *= (int)1.15;
+                baseDamage *= 1.2f;
+                baseDefence *= 1.2f;
+                baseMDamage *= 1.2f;
+                baseMDefence *= 1.2f;
+                baseAim *= 1.2f;
+                baseEvasion *= 1.2f;
+            }
+        }
+    }
 
     public int Copper
     {
@@ -123,16 +148,16 @@ public class PlayerStats : MonoBehaviour
         
         level = 1;
         karma = 0;
-        experience = 0;
-        maxExp = 35;
+        //_currentExperience = 0;
+        //maxExp = 35;
 
-        baseDamage = 5;
-        baseDefence = 3;
-        baseMDamage = 0;
-        baseMDefence = 0;
-        baseAim = 2;
-        baseEvasion = 1;
-        baseLuck = 1;
+        //baseDamage = 5;
+        //baseDefence = 3;
+        //baseMDamage = 0;
+        //baseMDefence = 0;
+        //baseAim = 2;
+        //baseEvasion = 1;
+        //baseLuck = 1;
 
         profession = "N/A";
         adventurerRank = "N/A";
@@ -160,10 +185,10 @@ public class PlayerStats : MonoBehaviour
         
         TotalStats();
 
-        if (experience >= maxExp)
-        {
-            LevelUp();
-        }
+        //if (experience >= maxExp)
+        //{
+        //    LevelUp();
+        //}
 
         if (Input.GetKeyDown(KeyCode.F))
         {
@@ -197,21 +222,21 @@ public class PlayerStats : MonoBehaviour
         luck = baseLuck;// + weapon.luck + armor.luck + acc.luck;
     }
 
-    void LevelUp()
-    {
-        level++;
-        experience = 0;
-        maxExp *= (int)1.5;
-        baseMaxHealth *= (int)1.35;      // if class is Mage then both hp and mp mods get switched
-        baseMaxMana *= (int)1.25;
-        baseMaxEnergy *= (int)1.15;
-        baseDamage *= (int)1.2;
-        baseDefence *= (int)1.2;
-        baseMDamage *= 0; // TODO
-        baseMDefence *= 0; // TODO
-        baseAim *= (int)1.2;
-        baseEvasion *= (int)1.2;
-    }
+    //void LevelUp()
+    //{
+    //    level++;
+    //    experience = 0;
+    //    maxExp *= (int)1.5;
+    //    baseMaxHealth *= (int)1.35;      // if class is Mage then both hp and mp mods get switched
+    //    baseMaxMana *= (int)1.25;
+    //    baseMaxEnergy *= (int)1.15;
+    //    baseDamage *= (int)1.2;
+    //    baseDefence *= (int)1.2;
+    //    baseMDamage *= 0; // TODO
+    //    baseMDefence *= 0; // TODO
+    //    baseAim *= (int)1.2;
+    //    baseEvasion *= (int)1.2;
+    //}
     
     void Running()
     {

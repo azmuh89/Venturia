@@ -248,7 +248,7 @@ public class CombatManager : MonoBehaviour
         attackView.SetActive(false);
         endPanel.SetActive(true);
 
-        playerStats.experience += enemyStats.dropExperience;
+        //playerStats.experience += enemyStats.dropExperience;
         expText.text = "Gained " + enemyStats.dropExperience + " Experience";
 
         if (Input.GetKeyDown(KeyCode.Space))
