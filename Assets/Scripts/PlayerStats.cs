@@ -18,8 +18,6 @@ public class PlayerStats : MonoBehaviour
     public string adventurerRank { get; private set; }
 
     [HideInInspector]
-    public int copper, silver, gold, platinum;
-    [HideInInspector]
     public int experience;
     [HideInInspector]
     public int karma;
@@ -51,7 +49,55 @@ public class PlayerStats : MonoBehaviour
     private PlayerController player;
     private Text deadText;
     private int baseMaxHealth, baseMaxMana, baseMaxEnergy;
-    private int maxCopper, maxSilver, maxGold;
+    private int _copper, _silver, _gold, _platinum;
+
+    public int Copper
+    {
+        get { return _copper; }
+        set
+        {
+            _copper += value;
+
+            if (_copper >= 100)
+            {
+                _copper -= 100;
+                _silver++;
+            }
+        }
+    }
+    public int Silver
+    {
+        get { return _silver; }
+        set
+        {
+            _silver += value;
+
+            if (_silver >= 100)
+            {
+                _silver -= 100;
+                _gold++;
+            }
+        }
+    }
+    public int Gold
+    {
+        get { return _gold; }
+        set
+        {
+            _gold += value;
+
+            if (_gold >= 100)
+            {
+                _gold -= 100;
+                _platinum++;
+            }
+        }
+    }
+    public int Platinum
+    {
+        get { return _platinum; }
+        set { _platinum += value; }
+    }
 
     void Awake()
     {
