@@ -33696,15 +33696,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1152843052094392587, guid: e0ecdb3e2120faf45baa0fb3fd60eff3,
-        type: 3}
-      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_BoolArgument
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3181254264899259070, guid: e0ecdb3e2120faf45baa0fb3fd60eff3,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -50
+      value: -50.000122
       objectReference: {fileID: 0}
     - target: {fileID: 4291346313544681046, guid: e0ecdb3e2120faf45baa0fb3fd60eff3,
         type: 3}
@@ -33824,22 +33819,22 @@ PrefabInstance:
     - target: {fileID: 7520445978899142815, guid: e0ecdb3e2120faf45baa0fb3fd60eff3,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -50
+      value: -50.000122
       objectReference: {fileID: 0}
-    - target: {fileID: 8313146273453714980, guid: e0ecdb3e2120faf45baa0fb3fd60eff3,
+    - target: {fileID: 7887684665641058272, guid: e0ecdb3e2120faf45baa0fb3fd60eff3,
         type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -470.00024
+      propertyPath: m_AnchoredPosition.y
+      value: -50.000122
       objectReference: {fileID: 0}
     - target: {fileID: 8313146273453714980, guid: e0ecdb3e2120faf45baa0fb3fd60eff3,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -50
+      value: -50.000122
       objectReference: {fileID: 0}
     - target: {fileID: 9105779207474284896, guid: e0ecdb3e2120faf45baa0fb3fd60eff3,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -50
+      value: -50.000122
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e0ecdb3e2120faf45baa0fb3fd60eff3, type: 3}
@@ -33897,18 +33892,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 4291346313323715272}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &4880009216399858408 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8661735152142172192, guid: e0ecdb3e2120faf45baa0fb3fd60eff3,
-    type: 3}
-  m_PrefabInstance: {fileID: 4291346313323715272}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9085046f02f69544eb97fd06b6048fe2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &6073356445791646143
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -34074,7 +34057,7 @@ PrefabInstance:
         type: 3}
       propertyPath: swordToggle
       value: 
-      objectReference: {fileID: 4880009216399858408}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d10859ed6946a0b46a1040627bbf5abd, type: 3}
 --- !u!4 &7564197885548337018
