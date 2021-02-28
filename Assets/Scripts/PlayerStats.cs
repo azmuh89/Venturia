@@ -133,7 +133,7 @@ public class PlayerStats : MonoBehaviour
 
     void Awake()
     {
-        healthbar = GameObject.Find("HUDCanvas").GetComponentInChildren<Healthbar>();
+        // healthbar
         deadText = GameObject.Find("HUDCanvas").transform.Find("Text").GetComponent<Text>();
         player = gameObject.GetComponent<PlayerController>();
 

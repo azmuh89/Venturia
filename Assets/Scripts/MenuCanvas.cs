@@ -20,21 +20,12 @@ public class MenuCanvas : MonoBehaviour
     void Awake()
     {
         playerStats = GameObject.Find("Player").GetComponent<PlayerStats>();
-        firstSelectedButton = transform.Find("Choices/StatsButton").GetComponent<Button>();
+        firstSelectedButton = transform.Find("MenuButton").GetComponent<Button>();
     }
 
     void Update()
     {
         SetStatsText(); // maybe change later
-
-        if (Input.GetKeyDown(KeyCode.Escape) && gameObject.activeInHierarchy)
-        {
-            if (EventSystem.current.currentSelectedGameObject == GameObject.Find("QuestsButton"))
-            {
-                gameObject.SetActive(false);
-                Time.timeScale = 1;
-            }
-        }
 
         if (Input.GetKeyDown(KeyCode.F4))
         {
@@ -80,7 +71,6 @@ public class MenuCanvas : MonoBehaviour
         platinumText.text = playerStats.Platinum.ToString();
     }
 
-
     public void LoadScene(string sceneID)
     {
         Time.timeScale = 1;
@@ -91,6 +81,16 @@ public class MenuCanvas : MonoBehaviour
     public void QuitGame()
     {
         Application.Quit();
+    }
+
+    public void StopTime()
+    {
+        Time.timeScale = 0;
+    }
+
+    public void ResumeTime()
+    {
+        Time.timeScale = 1;
     }
 
     int boolToInt(bool val)

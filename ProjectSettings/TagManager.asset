@@ -9,6 +9,7 @@ TagManager:
   - Armor
   - Accessory
   - Attack
+  - MainButton
   layers:
   - Default
   - TransparentFX

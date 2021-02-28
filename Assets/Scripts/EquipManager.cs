@@ -10,19 +10,19 @@ public class EquipManager : MonoBehaviour
 
     void Awake()
     {
-        sword = GameObject.Find("Player").transform.Find("Sword").gameObject;
-        swordToggle.isOn = false;
+        //sword = GameObject.Find("Player").transform.Find("Sword").gameObject;
+        //swordToggle.isOn = false;
     }
 
     public void EquipSword(bool isEquipped)
     {
-        if (isEquipped)
-        {
-            sword.SetActive(true);
-        }
-        else
-        {
-            sword.SetActive(false);
-        }
+        //if (isEquipped)
+        //{
+        //    sword.SetActive(true);
+        //}
+        //else
+        //{
+        //    sword.SetActive(false);
+        //}
     }
 }
