@@ -19,13 +19,13 @@ public class PlayerStats : MonoBehaviour
     [HideInInspector]
     public int maxEnergy;
     [HideInInspector]
-    public int level = 1;
+    public int level;
     [HideInInspector]
     public string profession;
     [HideInInspector]
     public string adventurerRank;
     [HideInInspector]
-    public int karma = 0;
+    public int karma;
     [HideInInspector]
     public int luck;
     [HideInInspector]
@@ -47,16 +47,14 @@ public class PlayerStats : MonoBehaviour
 
     private int baseLuck = 1;
 
-    private Healthbar healthbar;
     private Weapon weapon;
     private Armor armor;
     private Accessories acc;
     private PlayerController player;
-    private Text deadText;
     private float baseMaxHealth = 15, baseMaxMana = 10, baseMaxEnergy = 10;
     private int _copper, _silver, _gold, _platinum;
     private int _currentExperience;
-    public float maxExp = 35;
+    public float maxExp = 100;
 
     public int CurrentExp
     {
@@ -69,16 +67,16 @@ public class PlayerStats : MonoBehaviour
             {
                 _currentExperience -= (int)maxExp;
                 level++;
-                maxExp *= 1.4f;
-                baseMaxHealth *= 1.3f;
-                baseMaxMana *= 1.2f;
-                baseMaxEnergy *= 1.1f;
-                baseDamage *= 1.175f;
-                baseDefence *= 1.2f;
-                baseMDamage *= 1.2f;
-                baseMDefence *= 1.2f;
-                baseAim *= 1.175f;
-                baseEvasion *= 1.2f;
+                maxExp += level * 50;
+                baseMaxHealth += level * 5.5f;
+                baseMaxMana += level * 2f;
+                baseMaxEnergy += level;
+                baseDamage += level * 0.5f;
+                baseDefence += level * 0.4f;
+                baseMDamage += 1;
+                baseMDefence += level * 0.3f;
+                baseAim += level * 0.07f;
+                baseEvasion += level * 0.06f;
             }
         }
     }
@@ -133,8 +131,6 @@ public class PlayerStats : MonoBehaviour
 
     void Awake()
     {
-        // healthbar
-        deadText = GameObject.Find("HUDCanvas").transform.Find("Text").GetComponent<Text>();
         player = gameObject.GetComponent<PlayerController>();
 
         //weapon = GetComponentInChildren<Weapon>();
@@ -145,10 +141,8 @@ public class PlayerStats : MonoBehaviour
 
     void Start()
     {
-        healthbar.SetMaxHealth(maxHealth);
-        healthbar.SetMaxMana(maxMana);
-        healthbar.SetMaxEnergy(maxEnergy);
-        
+        level = 1;
+        karma = 0;
         profession = "N/A";
         adventurerRank = "N/A";
 
@@ -167,24 +161,16 @@ public class PlayerStats : MonoBehaviour
     
     void Update()
     {
-        if (healthbar == null)
-        {
-            healthbar = GameObject.Find("HUDCanvas").GetComponentInChildren<Healthbar>();
-            deadText = GameObject.Find("HUDCanvas").transform.Find("Text").GetComponent<Text>();
-        }
-        
         TotalStats();
 
-        if (Input.GetKeyDown(KeyCode.F)) // for testing purposes
+        if (Input.GetKeyDown(KeyCode.F) && currentHealth > 0) // for testing purposes
         {
             currentHealth--;
-            healthbar.SetHealth(currentHealth);
         }
 
-        if (Input.GetKeyDown(KeyCode.G)) // for testing purposes
+        if (Input.GetKeyDown(KeyCode.G) && currentMana > 0) // for testing purposes
         {
             currentMana--;
-            healthbar.SetMana(currentMana);
         }
         
         if (Input.GetKeyDown(KeyCode.M)) // for testing purposes
@@ -194,7 +180,7 @@ public class PlayerStats : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.L)) // for testing purposes
         {
-            CurrentExp += 1000;
+            CurrentExp = (int)maxExp;
         }
 
         if (currentHealth <= 0)
@@ -209,10 +195,10 @@ public class PlayerStats : MonoBehaviour
         maxHealth = (int)baseMaxHealth;// + armor.health + acc.health;
         maxMana = (int)baseMaxMana;// + armor.mana + acc.mana;
         maxEnergy = (int)baseMaxEnergy;// + armor.energy + acc.energy;
-        damage = baseDamage;// + weapon.damage;
-        defence = baseDefence;// + armor.defence + acc.defence;
-        magicDamage = baseMDamage;// + weapon.magicDamage;
-        magicDefence = baseMDefence;// + armor.magicDefence + acc.magicDefence;
+        damage = (int)baseDamage;// + weapon.damage;
+        defence = (int)baseDefence;// + armor.defence + acc.defence;
+        magicDamage = (int)baseMDamage;// + weapon.magicDamage;
+        magicDefence = (int)baseMDefence;// + armor.magicDefence + acc.magicDefence;
         aim = baseAim;// + weapon.aim + acc.aim;
         evasion = baseEvasion;// + armor.evasion + acc.evasion;
         luck = baseLuck;// + weapon.luck + armor.luck + acc.luck;
@@ -223,7 +209,6 @@ public class PlayerStats : MonoBehaviour
         if (currentEnergy > 0 && player.isRunning && player.movement.magnitude > 0)
         {
             currentEnergy--;
-            healthbar.SetEnergy(currentEnergy);
         }
     }
 
@@ -232,12 +217,11 @@ public class PlayerStats : MonoBehaviour
         if (currentEnergy < maxEnergy)
         {
             currentEnergy++;
-            healthbar.SetEnergy(currentEnergy);
         }
     }
 
     void Die()
     {
-        deadText.gameObject.SetActive(true);
+        Debug.Log("Died");
     }
 }

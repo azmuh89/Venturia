@@ -53,10 +53,10 @@ public class MenuCanvas : MonoBehaviour
         healthText.text = playerStats.currentHealth + "/" + playerStats.maxHealth;
         manaText.text = playerStats.currentMana + "/" + playerStats.maxMana;
         energyText.text = playerStats.currentEnergy + "/" + playerStats.maxEnergy;
-        damageText.text = playerStats.damage.ToString("F1");
-        defenceText.text = playerStats.defence.ToString("F1");
-        mDamageText.text = playerStats.magicDamage.ToString("F1");
-        mDefenceText.text = playerStats.magicDefence.ToString("F1");
+        damageText.text = playerStats.damage.ToString();
+        defenceText.text = playerStats.defence.ToString();
+        mDamageText.text = playerStats.magicDamage.ToString();
+        mDefenceText.text = playerStats.magicDefence.ToString();
         aimText.text = playerStats.aim.ToString("F2");
         evasionText.text = playerStats.evasion.ToString("F2");
         levelText.text = playerStats.level.ToString();
