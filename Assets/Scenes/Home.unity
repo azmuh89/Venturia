@@ -33630,26 +33630,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 8361613266462962704, guid: ea0405269fd308144a3cf3c7044d1393,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8361613266462962704, guid: ea0405269fd308144a3cf3c7044d1393,
-        type: 3}
-      propertyPath: orthographic
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8361613266462962704, guid: ea0405269fd308144a3cf3c7044d1393,
-        type: 3}
-      propertyPath: field of view
-      value: 99
-      objectReference: {fileID: 0}
-    - target: {fileID: 8361613266462962705, guid: ea0405269fd308144a3cf3c7044d1393,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8361613266462962707, guid: ea0405269fd308144a3cf3c7044d1393,
         type: 3}
       propertyPath: m_Name

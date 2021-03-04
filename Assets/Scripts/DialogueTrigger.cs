@@ -12,13 +12,13 @@ public class DialogueTrigger : MonoBehaviour
     public Text dialogueText;
     public GameObject dialogueBox;
 
-    private Transform player;
+    private GameObject player;
     private int currentSentence = 0;
     private bool inTalkRange = false;
 
     void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player").transform;
+        player = GameObject.Find("Player");
     }
 
     void Update()
@@ -44,7 +44,8 @@ public class DialogueTrigger : MonoBehaviour
     void StartDialogue()
     {
         dialogueBox.SetActive(true);
-        Time.timeScale = 0;
+        player.GetComponent<Animator>().SetFloat("Speed", 0);
+        player.GetComponent<PlayerController>().enabled = false;
         nameText.text = npcName;
 
         StartCoroutine("TypeSentence");
@@ -69,7 +70,7 @@ public class DialogueTrigger : MonoBehaviour
         if (currentSentence >  sentences.Length)
         {
             dialogueBox.SetActive(false);
-            Time.timeScale = 1;
+            player.GetComponent<PlayerController>().enabled = true;
             currentSentence = 0;
         }
     }
