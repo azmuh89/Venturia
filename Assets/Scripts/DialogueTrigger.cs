@@ -15,6 +15,8 @@ public class DialogueTrigger : MonoBehaviour
     private GameObject player;
     private int currentSentence = 0;
     private bool inTalkRange = false;
+    private bool dialogueStarted = false;
+    private bool sentenceFinished = false;
 
     void Start()
     {
@@ -23,11 +25,15 @@ public class DialogueTrigger : MonoBehaviour
 
     void Update()
     {
-        if (inTalkRange && Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && inTalkRange && !dialogueStarted)
         {
             StartDialogue();
-            currentSentence++;
-            EndDialogue();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Space) && sentenceFinished)
+        {
+            sentenceFinished = false;
+            StartCoroutine("TypeSentence");
         }
     }
 
@@ -43,6 +49,7 @@ public class DialogueTrigger : MonoBehaviour
 
     void StartDialogue()
     {
+        dialogueStarted = true;
         dialogueBox.SetActive(true);
         player.GetComponent<Animator>().SetFloat("Speed", 0);
         player.GetComponent<PlayerController>().enabled = false;
@@ -59,19 +66,40 @@ public class DialogueTrigger : MonoBehaviour
         {
             foreach (char letter in sentences[currentSentence].ToCharArray())
             {
-                dialogueText.text += letter;
-                yield return null;
+                if (Input.GetKey(KeyCode.LeftShift))
+                {
+                    dialogueText.text += letter;
+                    yield return new WaitForEndOfFrame();
+                }
+                else
+                {
+                    dialogueText.text += letter;
+                    yield return new WaitForSeconds(0.005f);
+                }
             }
+
+            currentSentence++;
+
+            if (Input.GetKey(KeyCode.LeftShift))
+            {
+                StartCoroutine("TypeSentence");
+            }
+            else
+            {
+                sentenceFinished = true;
+            }
+        }
+        else
+        {
+            EndDialogue();
         }
     }
 
     void EndDialogue()
     {
-        if (currentSentence >  sentences.Length)
-        {
-            dialogueBox.SetActive(false);
-            player.GetComponent<PlayerController>().enabled = true;
-            currentSentence = 0;
-        }
+        dialogueStarted = false;
+        dialogueBox.SetActive(false);
+        player.GetComponent<PlayerController>().enabled = true;
+        currentSentence = 0;
     }
 }

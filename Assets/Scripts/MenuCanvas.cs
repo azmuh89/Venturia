@@ -40,6 +40,12 @@ public class MenuCanvas : MonoBehaviour
                 isFullscreen = true;
             }
         }
+
+        if (Input.GetKeyDown(KeyCode.R)) //temporary for testing
+        {
+            LoadScene("Home");
+            GameObject.Find("Player").GetComponent<PlayerController>().enabled = true;
+        }
     }
 
     void OnEnable()
