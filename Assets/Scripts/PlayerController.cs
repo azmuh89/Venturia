@@ -10,17 +10,13 @@ public class PlayerController : MonoBehaviour
     public float moveSpeed = 5f;
 
     [HideInInspector]
-    public bool isRunning;
-    [HideInInspector]
     public Vector2 movement;
 
     private static PlayerController instance;
-    private PlayerStats stats;
+    private bool isRunning;
 
     void Awake()
     {
-        stats = gameObject.GetComponent<PlayerStats>();
-        
         DontDestroyOnLoad(this);
 
         if (instance == null)
@@ -50,23 +46,12 @@ public class PlayerController : MonoBehaviour
         animator.SetFloat("Vertical", movement.y);
         animator.SetFloat("Speed", movement.sqrMagnitude);
 
-        if (stats.currentEnergy > 0)
+        if (Input.GetKeyDown(KeyCode.LeftShift) && !isRunning)
         {
-            if (Input.GetKeyDown(KeyCode.LeftShift))
-            {
-                if (!isRunning)
-                {
-                    moveSpeed = 12f;
-                    isRunning = true;
-                }
-                else
-                {
-                    moveSpeed = 5f;
-                    isRunning = false;
-                }
-            }
+            moveSpeed = 12f;
+            isRunning = true;
         }
-        else
+        else if (Input.GetKeyDown(KeyCode.LeftShift) && isRunning)
         {
             moveSpeed = 5f;
             isRunning = false;

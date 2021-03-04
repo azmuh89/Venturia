@@ -50,7 +50,6 @@ public class PlayerStats : MonoBehaviour
     private Weapon weapon;
     private Armor armor;
     private Accessories acc;
-    private PlayerController player;
     private float baseMaxHealth = 15, baseMaxMana = 10, baseMaxEnergy = 10;
     private int _copper, _silver, _gold, _platinum;
     private int _currentExperience;
@@ -131,8 +130,6 @@ public class PlayerStats : MonoBehaviour
 
     void Awake()
     {
-        player = gameObject.GetComponent<PlayerController>();
-
         //weapon = GetComponentInChildren<Weapon>();
         //weapon = transform.Find("Sword").GetComponent<Weapon>();
         armor = GetComponentInChildren<Armor>();
@@ -151,12 +148,6 @@ public class PlayerStats : MonoBehaviour
         currentHealth = maxHealth;
         currentMana = maxMana;
         currentEnergy = maxEnergy;
-
-        if (player != null) // need to change
-        {
-            InvokeRepeating("Running", 0, 1);
-            InvokeRepeating("NotRunning", 0, 30);
-        }
     }
     
     void Update()
@@ -202,22 +193,6 @@ public class PlayerStats : MonoBehaviour
         aim = baseAim;// + weapon.aim + acc.aim;
         evasion = baseEvasion;// + armor.evasion + acc.evasion;
         luck = baseLuck;// + weapon.luck + armor.luck + acc.luck;
-    }
-
-    void Running()
-    {
-        if (currentEnergy > 0 && player.isRunning && player.movement.magnitude > 0)
-        {
-            currentEnergy--;
-        }
-    }
-
-    void NotRunning()
-    {
-        if (currentEnergy < maxEnergy)
-        {
-            currentEnergy++;
-        }
     }
 
     void Die()
